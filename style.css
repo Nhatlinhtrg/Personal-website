@@ -1,0 +1,187 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Top navbar */
+.top-navbar {
+    background-color: #2C3E50;
+    color: white;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+}
+
+.nav-menu li a:hover {
+    background-color: #1ABC9C;
+    border-radius: 4px;
+}
+
+/* Responsive nav */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        background-color: transparent;
+        color: white;
+        font-size: 28px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background-color: #2C3E50;
+        margin-top: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+}
+
+/* Hero banner background (nếu cần) */
+.background-container {
+    background-image: url("images/background.jpg"); /* Thay bằng ảnh thật */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-text {
+    font-size: 3em;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Content Sections */
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Contact Form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input[type="email"], textarea, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+input:focus, textarea:focus {
+    border-color: #1ABC9C;
+    outline: none;
+}
+
+button {
+    background-color: #1ABC9C;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+button:hover {
+    background-color: #16A085;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .social-links a:hover {
+    color: #1ABC9C;
+}
+
+/* Hiệu ứng fade-in */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Nút scroll to top */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 4px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #4CAF50;
+}

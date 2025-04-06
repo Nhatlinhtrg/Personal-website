@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DUNG'S MEMOIR - Home</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Nút scroll lên đầu trang -->
+  <button id="scrollToTopBtn" title="Go to top">Top</button>
+
+  <!-- Header với menu ngang -->
+  <header class="top-navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <h1>DUNG'S MEMOIR</h1>
+      </div>
+
+      <button id="menuToggle" class="menu-toggle">☰</button>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="memoir.html">Memoir</a></li>
+          <li><a href="travel.html">Travel</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="awakening.html">Awakening</a></li>
+          <li><a href="management.html">Management</a></li>
+          <li><a href="notes.html">Notes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner hero -->
+  <section class="hero fade-in">
+    <div class="hero-content">
+      <h2>Welcome to Dung's World of Knowledge</h2>
+      <p>Explore courses, memoirs, books, and deep insights to inspire your journey.</p>
+      <a href="memoir.html" class="btn">Start Exploring</a>
+    </div>
+  </section>
+
+  <!-- Nội dung nổi bật -->
+  <section class="features fade-in">
+    <div class="container">
+      <div class="feature">
+        <img src="images/education.jpg" alt="Education">
+        <h3>Educational Resources</h3>
+        <p>Dive into courses on finance, business, coaching, and more.</p>
+      </div>
+      <div class="feature">
+        <img src="images/books.jpg" alt="Books">
+        <h3>Book Collections</h3>
+        <p>Curated book lists, reviews, and personal reading journeys.</p>
+      </div>
+      <div class="feature">
+        <img src="images/travel.jpg" alt="Travel">
+        <h3>Travel & Memoir</h3>
+        <p>Discover stories and milestones across different countries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form liên hệ -->
+  <section id="contact" class="fade-in">
+    <form id="contactForm" action="#" method="POST">
+      <label for="name">Tên:</label>
+      <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn">
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Nhập email của bạn">
+      
+      <label for="message">Tin nhắn:</label>
+      <textarea id="message" name="message" required placeholder="Nhập tin nhắn của bạn"></textarea>
+
+      <button type="submit">Gửi</button>
+      <p id="error-message" style="color: red; display: none;"></p>
+    </form>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Dung's Memoir. All rights reserved. | <a href="contact.html">Contact Us</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

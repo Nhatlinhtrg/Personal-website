@@ -104,8 +104,9 @@ body {
 /* Hero Banner Section with background image and text */
 .hero {
     background-image: url('C:\Users\win\OneDrive\Máy tính\docs\images\back-ground.jpg"'); /* Đặt ảnh làm background */
-    background-size: cover; /* Ảnh sẽ phủ toàn bộ màn hình */
+    background-size: containntain; /* Ảnh sẽ phủ toàn bộ màn hình */
     background-position: center; /* Căn giữa ảnh */
+    background-repeat: no-repeat
     height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
     display: flex;
     align-items: center;

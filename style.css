@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif; /* Thay phông chữ Arial bằng Roboto */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: transparent; /* Loại bỏ màu nền trắng */
     color: #333;
 }
 
@@ -104,8 +104,8 @@ body {
 /* Hero Banner Section with background image and text */
 .hero {
     background-image: url('images/IMG_20250408_171912_685.jpg'); /* Đặt ảnh làm background */
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Ảnh sẽ phủ toàn bộ màn hình */
+    background-position: center; /* Căn giữa ảnh */
     height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
     display: flex;
     align-items: center;
@@ -221,7 +221,6 @@ footer .social-links a:hover {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 /* Nút scroll to top */
 #scrollToTopBtn {
     display: none;

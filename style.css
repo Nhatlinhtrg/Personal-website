@@ -103,7 +103,7 @@ body {
 
 /* Hero Banner Section with background image and text */
 .hero {
-    background-image: url('images/IMG_20250408_171912_685.jpg'); /* Thêm ảnh làm background */
+    background-image: url('images/IMG_20250408_171912_685.jpg'); /* Đặt ảnh làm background */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */

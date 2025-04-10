@@ -127,11 +127,18 @@ body {
 
 /* HERO SECTION (KHÔNG CÓ BACKGROUND ẢNH) */
 .hero {
-    background-color: #111;
-    padding: 80px 20px;
+    background-image: url('images/hero-bg.jpg'); /* thay đường dẫn nếu tên khác */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
 }
+
 
 .hero h2 {
     font-size: 3rem;

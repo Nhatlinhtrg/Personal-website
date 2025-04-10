@@ -14,7 +14,7 @@ body {
 
 /* NAVIGATION BAR */
 .top-navbar {
-    background-color: #000; /* màu đen */
+    background-color: #000;
     color: white;
     position: sticky;
     top: 0;
@@ -23,12 +23,13 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* NAVBAR LAYOUT */
 .navbar-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 40px;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 .logo h1 {
@@ -37,11 +38,23 @@ body {
     font-weight: bold;
 }
 
-/* NAV MENU */
+/* NAVIGATION MENU */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
 .nav-menu {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 25px;
+    flex: 1;
+    margin: 0 auto;
 }
 
 .nav-menu li a {
@@ -56,9 +69,19 @@ body {
     color: #1ABC9C;
 }
 
-/* KÍNH LÚP ICON */
-.nav-menu li a i {
+/* SEARCH ICON */
+.search-icon {
+    position: absolute;
+    right: 40px;
+}
+
+.search-icon a {
+    color: white;
     font-size: 1.2rem;
+}
+
+.search-icon a:hover {
+    color: #1ABC9C;
 }
 
 /* MOBILE MENU */
@@ -94,9 +117,15 @@ body {
         width: 100%;
         padding: 15px 0;
     }
+
+    .search-icon {
+        position: static;
+        margin-top: 10px;
+        text-align: center;
+    }
 }
 
-/* HERO SECTION (không có background ảnh) */
+/* HERO SECTION (KHÔNG CÓ BACKGROUND ẢNH) */
 .hero {
     background-color: #111;
     padding: 80px 20px;

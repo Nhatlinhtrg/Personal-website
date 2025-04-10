@@ -21,16 +21,18 @@
             </div>
             <!-- Menu điều hướng -->
             <button id="menuToggle" class="menu-toggle">☰</button>
-            <nav>
+            <nav class="nav-bar">
                 <ul class="nav-menu">
                     <li><a href="index.html"><strong>Home</strong></a></li>
                     <li><a href="memoir.html"><strong>Memoir</strong></a></li>
                     <li><a href="travel.html"><strong>Travel</strong></a></li>
-                    <li><a href="open_courseware.html"><strong>Open Courseware</strong></a></li>
+                    <li><a href="education.html"><strong>Open Courseware</strong></a></li>
                     <li><a href="notes.html"><strong>Notes</strong></a></li>
                     <li><a href="archived.html"><strong>Archived</strong></a></li>
-                    <li><a href="#"><strong><i class="fas fa-search"></i></strong></a></li>
                 </ul>
+                <div class="search-icon">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
             </nav>
         </div>
     </header>
@@ -62,23 +64,6 @@
                 <p>Discover stories and milestones across different countries.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section id="contact" class="fade-in">
-        <form id="contactForm" action="#" method="POST">
-            <label for="name">Tên:</label>
-            <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="Nhập email của bạn">
-
-            <label for="message">Tin nhắn:</label>
-            <textarea id="message" name="message" required placeholder="Nhập tin nhắn của bạn"></textarea>
-
-            <button type="submit">Gửi</button>
-            <p id="error-message" style="color: red; display: none;"></p>
-        </form>
     </section>
 
     <!-- Footer -->

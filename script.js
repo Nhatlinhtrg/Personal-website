@@ -1,61 +1,31 @@
-// Smooth Scroll for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Scroll to Top Button
-let mybutton = document.getElementById("scrollToTopBtn");
-window.onscroll = function () {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-};
-mybutton.onclick = function () {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-};
-
-// Toggle Mobile Navigation Menu
+// Toggle menu khi ở chế độ mobile
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
-menuToggle.addEventListener('click', function () {
-    navMenu.classList.toggle("active");
-});
 
-// Form Validation for Contact Form
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let message = document.getElementById('message').value;
-    let errorMessage = document.getElementById('error-message');
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function () {
+        navMenu.classList.toggle("active");
+    });
+}
 
-    if (name === "" || message === "") {
-        errorMessage.textContent = "Vui lòng điền đầy đủ các trường.";
-        errorMessage.style.display = "block";
-        return;
-    }
+// Scroll to Top Button (nếu có nút)
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!email.match(emailPattern)) {
-        errorMessage.textContent = "Email không hợp lệ.";
-        errorMessage.style.display = "block";
-        return;
-    }
+if (scrollToTopBtn) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    });
 
-    errorMessage.style.display = "none";
-    alert("Gửi thành công!");
-    document.getElementById('contactForm').reset();
-});
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
 
-// Intersection Observer (fade-in)
+// Hiệu ứng fade-in khi cuộn
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -65,6 +35,4 @@ const observer = new IntersectionObserver((entries, observer) => {
     });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('.fade-in').forEach(element => {
-    observer.observe(element);
-});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));

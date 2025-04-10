@@ -27,20 +27,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* Logo */
-.lhd-logo {
-    width: 50px; /* Kích thước logo */
-    height: auto;
-    margin-right: 10px;
-}
-
-/* Logo + Tên */
-.logo h1 {
-    display: inline-block;
-    font-size: 2em;
-    margin: 0;
-}
-
 /* Menu điều hướng */
 .nav-menu {
     display: flex;

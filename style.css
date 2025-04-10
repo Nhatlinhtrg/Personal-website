@@ -180,6 +180,25 @@ body {
 }
 
 .feature {
+    width: calc(25% - 30px); /* Đảm bảo 4 ảnh trong 1 hàng */
+    text-align: center;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.feature {
     width: 300px;
 }
 

@@ -180,12 +180,14 @@ body {
 }
 
 .feature {
-    width: calc(25% - 30px); /* Đảm bảo 4 ảnh trong 1 hàng */
+    width: auto; /* Không ép buộc chiều rộng ảnh */
     text-align: center;
+    max-width: 300px; /* Giới hạn kích thước tối đa nếu muốn */
+    flex-grow: 1; /* Cho phép ảnh giãn nở tự do */
 }
 
 .feature img {
-    width: 100%;
+    width: 100%; /* Ảnh vẫn chiếm hết không gian của div */
     height: auto;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -196,6 +198,7 @@ body {
     transform: scale(1.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 
 .feature {

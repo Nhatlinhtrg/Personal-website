@@ -32,6 +32,18 @@ body {
     position: relative;
 }
 
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lhd-logo {
+    width: 45px;
+    height: auto;
+}
+
 .logo h1 {
     font-size: 1.8rem;
     color: white;
@@ -123,11 +135,15 @@ body {
         margin-top: 10px;
         text-align: center;
     }
+
+    .logo {
+        justify-content: center;
+    }
 }
 
-/* HERO SECTION (KHÔNG CÓ BACKGROUND ẢNH) */
+/* HERO SECTION */
 .hero {
-    background-image: url('images/hero-bg.jpg'); /* thay đường dẫn nếu tên khác */
+    background-image: url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -138,7 +154,6 @@ body {
     text-align: center;
     color: white;
 }
-
 
 .hero h2 {
     font-size: 3rem;

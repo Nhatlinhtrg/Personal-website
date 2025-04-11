@@ -5,10 +5,11 @@
     box-sizing: border-box;
 }
 
+/* Thay đổi nền toàn trang */
 body {
+    background: linear-gradient(to bottom, #000000, #1a2b3b); /* Đen pha xanh đậm pastel */
+    color: white; /* Màu chữ trắng cho dễ đọc */
     font-family: 'Roboto', sans-serif;
-    color: #333;
-    background-color: #fff;
     line-height: 1.6;
 }
 

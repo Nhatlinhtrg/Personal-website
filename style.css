@@ -152,9 +152,8 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    border-radius: 20px; /* Bo góc cho background */
+    border-radius: 20px; /* Bo góc cho background ảnh */
 }
-
 
 /* Nền cho phần chứa ảnh */
 .features {

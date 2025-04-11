@@ -157,7 +157,7 @@ body {
 
 /* Nền cho phần chứa ảnh */
 .features {
-    background: linear-gradient(to bottom, #000000, #003366);  /* Đen pha xanh đậm */
+    background: linear-gradient( #000000);  /* Đen pha xanh đậm */
     padding: 60px 0;
     text-align: center;
 }

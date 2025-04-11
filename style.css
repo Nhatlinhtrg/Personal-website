@@ -153,16 +153,7 @@ body {
     text-align: center;
     color: white;
     border-radius: 20px; /* Bo góc cho background */
-}
-
-.hero h2 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.5rem;
+    background: linear-gradient(to bottom, #000000, #003366); /* Thêm nền gradient nếu cần */
 }
 
 

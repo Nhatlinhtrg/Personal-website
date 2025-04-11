@@ -35,19 +35,26 @@ body {
 /* LOGO */
 .logo {
     display: flex;
-    align-items: center;
+    align-items: center;  /* Căn giữa theo chiều ngang */
     gap: 12px;
 }
 
 .lhd-logo {
-    width: 150px;
+    width: 120px;  /* Điều chỉnh kích thước logo */
     height: auto;
 }
 
-.logo h1 {
-    font-size: 1.8rem;
-    color: white;
+.logo-text {
+    display: flex;
+    flex-direction: column;  /* Sắp xếp chữ theo chiều dọc */
+    justify-content: center;  /* Căn giữa các chữ */
+    text-align: center;  /* Căn giữa chữ */
+}
+
+.logo-text div {
+    font-size: 1.5rem;  /* Điều chỉnh kích thước chữ */
     font-weight: bold;
+    color: white;
 }
 
 /* NAVIGATION MENU */

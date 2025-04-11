@@ -58,23 +58,18 @@ body {
     color: white;
     margin: 0px 0;  /* Khoảng cách giữa các chữ giảm xuống */
 }
-/* NAVIGATION MENU */
+/* Menu điều hướng */
 .nav-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: flex-start;  /* Giữ các mục menu căn trái */
     width: 100%;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 25px;
-    flex: 1;
-    margin: 0 auto;
 }
 
 .nav-menu li a {
@@ -82,26 +77,18 @@ body {
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
 }
 
-.nav-menu li a:hover {
-    color: #1ABC9C;
-}
 
-/* SEARCH ICON */
+/* Kính lúp */
 .search-icon {
-    position: absolute;
-    right: 40px;
+    display: inline-block;
+    margin-left: 20px;  /* Khoảng cách giữa nút "Start Now" và kính lúp */
 }
 
 .search-icon a {
     color: white;
     font-size: 1.2rem;
-}
-
-.search-icon a:hover {
-    color: #1ABC9C;
 }
 
 /* MOBILE MENU */
@@ -267,22 +254,22 @@ footer a:hover {
     100% { opacity: 1; }
 }
 
-/* Start Now Button */
+/* Nút "Start Now" */
 .start-now-button {
-    background-color: black; /* Màu nền đen */
-    color: white; /* Màu chữ trắng */
+    background-color: black;
+    color: white;
     padding: 10px 20px;
-    border: 2px solid blue; /* Khung viền xanh */
-    border-radius: 5px; /* Góc bo tròn */
-    text-decoration: none; /* Loại bỏ gạch chân */
+    border: 2px solid blue;
+    border-radius: 5px;
+    text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
     transition: background-color 0.3s, border-color 0.3s;
     display: inline-block;
-    margin-left: 20px; /* Khoảng cách với các mục menu khác */
+    margin-left: 20px;  /* Khoảng cách từ các mục menu */
 }
 
 .start-now-button:hover {
-    background-color: blue; /* Màu nền xanh khi hover */
-    border-color: white; /* Đổi màu viền thành trắng khi hover */
+    background-color: blue;
+    border-color: white;
 }

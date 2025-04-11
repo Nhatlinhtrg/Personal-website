@@ -7,7 +7,7 @@
 
 /* Thay đổi nền toàn trang */
 body {
-    background: linear-gradient(to bottom, #000000, #1a2b3b); /* Đen pha xanh đậm pastel */
+    background: linear-gradient(to bottom, #1a2b3b); /* Đen pha xanh đậm pastel */
     color: white; /* Màu chữ trắng cho dễ đọc */
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;

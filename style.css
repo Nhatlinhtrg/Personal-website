@@ -152,7 +152,6 @@ body {
     text-align: center;
     color: white;
     border-radius: 20px; /* Bo góc cho background */
-    background: linear-gradient(to bottom, #000, #1a2b3b); /* Pha màu đen và xanh nước biển đậm */
 }
 
 .hero h2 {

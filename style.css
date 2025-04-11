@@ -33,7 +33,6 @@ body {
 }
 
 /* LOGO */
-/* LOGO */
 .logo {
     display: flex;
     align-items: center;  /* Căn giữa logo và chữ theo chiều ngang */
@@ -57,9 +56,8 @@ body {
     font-size: 1.5rem;  /* Điều chỉnh kích thước chữ */
     font-weight: bold;
     color: white;
-    margin: 5px 0;  /* Khoảng cách giữa các chữ */
+    margin: 2px 0;  /* Khoảng cách giữa các chữ giảm xuống */
 }
-
 /* NAVIGATION MENU */
 .nav-bar {
     display: flex;

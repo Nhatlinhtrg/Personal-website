@@ -33,9 +33,10 @@ body {
 }
 
 /* LOGO */
+/* LOGO */
 .logo {
     display: flex;
-    align-items: center;  /* Căn giữa theo chiều ngang */
+    align-items: center;  /* Căn giữa logo và chữ theo chiều ngang */
     gap: 12px;
 }
 
@@ -46,15 +47,17 @@ body {
 
 .logo-text {
     display: flex;
-    flex-direction: column;  /* Sắp xếp chữ theo chiều dọc */
-    justify-content: center;  /* Căn giữa các chữ */
-    text-align: center;  /* Căn giữa chữ */
+    flex-direction: column;  /* Xếp chữ theo chiều dọc */
+    align-items: flex-start;  /* Căn chữ sang trái */
+    justify-content: flex-start;  /* Căn chữ theo chiều dọc */
+    text-align: left;  /* Căn chữ bên trái */
 }
 
 .logo-text div {
     font-size: 1.5rem;  /* Điều chỉnh kích thước chữ */
     font-weight: bold;
     color: white;
+    margin: 5px 0;  /* Khoảng cách giữa các chữ */
 }
 
 /* NAVIGATION MENU */

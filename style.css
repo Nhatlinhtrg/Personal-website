@@ -58,18 +58,21 @@ body {
     color: white;
     margin: 0px 0;  /* Khoảng cách giữa các chữ giảm xuống */
 }
-/* Menu điều hướng */
+/* MENU */
 .nav-bar {
     display: flex;
+    justify-content: space-between; /* Các mục căn đều ra hai bên */
     align-items: center;
-    justify-content: flex-start;  /* Giữ các mục menu căn trái */
     width: 100%;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 25px;
+    flex: 1;
 }
 
 .nav-menu li a {
@@ -83,11 +86,11 @@ body {
 /* Kính lúp */
 .search-icon {
     display: inline-block;
-    margin-left: 20px;  /* Khoảng cách giữa nút "Start Now" và kính lúp */
+    margin-left: 20px;
 }
 
 .search-icon a {
-    color: white;
+    color: blue; /* Tô màu xanh giống viền của Start Now */
     font-size: 1.2rem;
 }
 
@@ -148,6 +151,8 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
+    border-radius: 20px; /* Bo góc cho background */
+    background: linear-gradient(to bottom, #000, #1a2b3b); /* Pha màu đen và xanh nước biển đậm */
 }
 
 .hero h2 {
@@ -159,6 +164,7 @@ body {
 .hero p {
     font-size: 1.5rem;
 }
+
 
 /* FEATURES */
 .features {
@@ -259,17 +265,17 @@ footer a:hover {
     background-color: black;
     color: white;
     padding: 10px 20px;
-    border: 2px solid blue;
-    border-radius: 5px;
+    border: 2px solid blue; /* Viền xanh */
+    border-radius: 50px; /* Bo tròn góc */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
     transition: background-color 0.3s, border-color 0.3s;
     display: inline-block;
-    margin-left: 20px;  /* Khoảng cách từ các mục menu */
 }
 
 .start-now-button:hover {
     background-color: blue;
     border-color: white;
 }
+

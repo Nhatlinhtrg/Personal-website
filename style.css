@@ -156,10 +156,10 @@ body {
 }
 
 
-/* FEATURES */
+/* Nền cho phần chứa ảnh */
 .features {
+    background: linear-gradient(to bottom, #000000, #003366);  /* Đen pha xanh đậm */
     padding: 60px 0;
-    background-color: #f4f4f4;
     text-align: center;
 }
 

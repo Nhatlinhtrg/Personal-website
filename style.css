@@ -43,14 +43,8 @@ body {
 .lhd-logo {
     width: 120px;  /* Điều chỉnh kích thước logo */
     height: auto;
-    border-radius: 50%;  /* Bo tròn logo thành hình tròn */
-    display: flex;
-    align-items: center;  /* Căn giữa chữ theo chiều dọc */
-    justify-content: center;  /* Căn giữa chữ theo chiều ngang */
-    font-size: 2rem;  /* Kích thước chữ trong logo */
-    font-weight: bold;
-    color: white;  /* Màu chữ trắng */
-    background-color: #000000;  /* Nền đen cho logo */
+    border-radius: 150%;  /* Bo tròn logo để trông hiện đại */
+    object-fit: cover;  /* Giúp ảnh không bị méo khi thay đổi kích thước */
 }
 
 .logo-text {
@@ -64,7 +58,7 @@ body {
 .logo-text div {
     font-size: 1.5rem;  /* Điều chỉnh kích thước chữ */
     font-weight: bold;
-    color: blue;
+    color: white;
     margin: 0px 0;  /* Khoảng cách giữa các chữ giảm xuống */
 }
 /* MENU */

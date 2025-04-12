@@ -43,7 +43,7 @@ body {
 .lhd-logo {
     width: 120px;  /* Điều chỉnh kích thước logo */
     height: auto;
-    border-radius: 70%;  /* Bo tròn logo để trông hiện đại */
+    border-radius: 30%;  /* Bo tròn logo để trông hiện đại */
 }
 
 .logo-text {

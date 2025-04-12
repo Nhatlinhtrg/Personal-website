@@ -40,10 +40,10 @@ body {
     gap: 12px;
 }
 
-lhd-logo {
-    width: 150px;  /* Tăng kích thước logo */
-    height: 150px;  /* Đảm bảo chiều cao bằng chiều rộng để logo là hình tròn */
-    border-radius: 50%;  /* Bo tròn hoàn toàn logo */
+.lhd-logo {
+    width: 120px;  /* Điều chỉnh kích thước logo */
+    height: auto;
+    border-radius: 150%;  /* Bo tròn logo để trông hiện đại */
 }
 
 .logo-text {

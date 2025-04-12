@@ -64,7 +64,7 @@ body {
 .logo-text div {
     font-size: 1.5rem;  /* Điều chỉnh kích thước chữ */
     font-weight: bold;
-    color: white;
+    color: blue;
     margin: 0px 0;  /* Khoảng cách giữa các chữ giảm xuống */
 }
 /* MENU */

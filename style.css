@@ -53,7 +53,6 @@ body {
     align-items: flex-start;  /* Căn chữ sang trái */
     justify-content: flex-start;  /* Căn chữ theo chiều dọc */
     text-align: left;  /* Căn chữ bên trái */
-    border: 5px solid  blue;  /* Viền khung màu xanh */
 }
 
 .logo-text div {

@@ -71,7 +71,7 @@ body {
     padding: 0;  /* Không có padding */
     line-height: 1;  /* Loại bỏ khoảng cách dòng */
     text-align: left;
-    letter-spacing: 2px;  /* Khoảng cách giữa các chữ */
+    
 }
 
 /* Đảm bảo logo và chữ nằm ngang hàng với nhau */

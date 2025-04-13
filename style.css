@@ -337,7 +337,7 @@ side-panel-content h2 {
 }
 
 .search-box {
-    width: 90%;  /* Kích thước của ô tìm kiếm */
+    width: 100%;  /* Kích thước của ô tìm kiếm */
     padding: 12px;
     font-size: 1rem;
     border: 2px solid #ccc;

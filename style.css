@@ -348,6 +348,7 @@ side-panel-content h2 {
     outline: none;
     color: #333;
     background-color: #fff;
+    margin-bottom: 30px;
 }
 
 .search-box::placeholder {
@@ -390,6 +391,8 @@ side-panel-content h2 {
 
 .side-panel-content ul li a:hover {
     color: #2231d8;  
+    text-decoration: underline;
+    text-decoration: #000;
 }
 
 /* Căn phải các mục con */

@@ -86,12 +86,7 @@ body {
     justify-content: center;
     height: 120px;  /* Chiều cao logo và chữ đều nhau */
 }
-/* Giãn chữ HUNG và DUNG */
-.logo-text div:nth-child(2), 
-.logo-text div:nth-child(3) {
-    letter-spacing: 5px;  /* Tăng khoảng cách giữa các chữ "HUNG" và "DUNG" */
-    text-align: right;  /* Căn phải */
-}
+
 /* MENU */
 .nav-bar {
     display: flex;

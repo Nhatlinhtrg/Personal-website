@@ -36,3 +36,8 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// JavaScript để kích hoạt trang kéo khi nhấn vào kính lúp
+document.getElementById('search-icon').addEventListener('click', function() {
+    document.getElementById('side-panel').classList.toggle('open');
+});

@@ -258,7 +258,7 @@ footer {
 }
 
 footer a {
-    color: #1ABC9C;
+    color: #1a4bbc;
     text-decoration: none;
 }
 
@@ -308,8 +308,52 @@ footer a:hover {
 }
 
 .subscribe-button:hover {
-    background-color: #0056b3;  /* Đổi nền sang màu xanh đậm khi hover */
+    background-color: #0600b352;  /* Đổi nền sang màu xanh đậm khi hover */
     border-color: white;  /* Đổi viền thành trắng khi hover */
+}
+/* Trang kéo */
+.side-panel {
+    position: fixed;
+    top: 0;
+    left: -25%;  /* Ban đầu để ẩn đi */
+    width: 25%;
+    height: 100%;
+    background-color: #003366; /* Màu xanh navi */
+    color: white;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000; /* Đảm bảo nó nằm trên các phần tử khác */
+}
+
+/* Nội dung trong side-panel */
+.side-panel-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.side-panel-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-panel-content ul li {
+    margin: 10px 0;
+}
+
+.side-panel-content ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.side-panel-content ul li a:hover {
+    color: #414eff;  /
+}
+
+/* Hiệu ứng khi hiển thị trang kéo */
+.side-panel.open {
+    left: 0;  /* Khi mở, di chuyển sang trái */
 }
 
 

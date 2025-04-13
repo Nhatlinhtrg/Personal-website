@@ -29,19 +29,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Giảm padding để thanh menu ốm lại */
+    padding: 8px 15px; /* Giảm padding để thanh menu ốm lại */
 }
 
 /* LOGO */
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px; /* Giảm khoảng cách giữa logo và tên */
+    gap: 6px; /* Giảm khoảng cách giữa logo và tên */
 }
 
 /* LOGO */
 .lhd-logo {
-    width: 100px;  /* Điều chỉnh kích thước logo */
+    width: 50px;  /* Điều chỉnh kích thước logo */
     height: auto;
     border-radius: 50%;  /* Bo tròn logo */
     display: flex;
@@ -56,7 +56,7 @@ body {
 /* LOGO TEXT */
 .logo-text div {
     font-family: 'Poppins', sans-serif;  /* Kiểu chữ hiện đại */
-    font-size: 1.8rem;  /* Kích thước chữ lớn hơn */
+    font-size: 1.5rem;  /* Kích thước chữ lớn hơn */
     font-weight: 700;  /* Chữ in đậm để nổi bật */
     color: transparent;  /* Để chữ có màu nền gradient */
     background: white;
@@ -76,7 +76,7 @@ body {
     flex-direction: column;  /* Đặt các chữ theo chiều dọc */
     align-items: flex-start;
     justify-content: center;
-    height: 120px;  /* Chiều cao logo và chữ đều nhau */
+    height: 100px;  /* Chiều cao logo và chữ đều nhau */
 }
 
 /* MENU */
@@ -92,7 +92,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     flex: 1;
 }
 
@@ -100,7 +100,7 @@ body {
     text-decoration: none;
     color: white;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 

@@ -374,27 +374,31 @@ side-panel-content h2 {
 }
 
 /* Thư mục con */
+/* Các mục trong side-panel */
 .side-panel-content ul li ul {
     list-style-type: none;
     padding-left: 20px;  /* Đưa các thư mục con vào trong */
     display: none; /* Mặc định ẩn các thư mục con */
-}
-/* Căn phải các mục con */
-.side-panel-content ul li {
-    display: flex;
-    justify-content: space-between;  /* Căn các mục con về hai bên */
-    align-items: center;
+    margin-left: 0; /* Căn trái các thư mục con */
 }
 
+/* Căn trái cho thư mục con */
+.side-panel-content ul li ul li {
+    padding-left: 10px; /* Khoảng cách giữa các thư mục con */
+    text-align: left;  /* Căn các mục con sang trái */
+}
+
+/* Các mục trong side-panel */
 .side-panel-content ul li a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
+/* Màu sắc khi hover vào các mục */
 .side-panel-content ul li a:hover {
-    color: #2231d8;  /* Màu hồng khi hover */
+    color: #5ba9c7;  /* Màu hồng khi hover */
 }
 
 .toggle-btn {

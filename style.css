@@ -397,10 +397,9 @@ side-panel-content h2 {
     display: flex;
     justify-content: space-between;  /* Căn các mục con về hai bên */
     align-items: center;
-    list-style-type: none;
-    padding: 15px 0;  /* Thêm khoảng cách phía trên và dưới của mỗi mục */
+    padding: 15px 0;
     width: 100%;
-    margin-bottom: 20px;  /* Thêm khoảng cách dưới mỗi mục */
+    margin-bottom: 30px;
 }
 
 .toggle-btn {

@@ -30,7 +30,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px; /* Giảm padding để thanh menu ốm lại */
-    width: 90%; 
 }
 
 /* LOGO */
@@ -108,7 +107,7 @@ body {
 /* Kính lúp */
 .search-icon {
     display: inline-block;
-    margin-left: auto;  /* Tạo khoảng cách giữa kính lúp và Start Now */
+    margin-left: 15px;  /* Tạo khoảng cách giữa kính lúp và Start Now */
 }
 
 .search-icon a {
@@ -282,7 +281,7 @@ footer a:hover {
     font-weight: bold;
     transition: background-color 0.3s, border-color 0.3s;
     display: inline-block;
-    margin-left: auto;  /* Khoảng cách từ các mục menu */
+    margin-left: 20px;  /* Khoảng cách từ các mục menu */
 }
 
 /* Nút Subscribe */
@@ -297,7 +296,7 @@ footer a:hover {
     font-weight: bold;
     transition: background-color 0.3s, border-color 0.3s;
     display: inline-block;
-    margin-left: auto;  /* Khoảng cách từ kính lúp */
+    margin-left: 15px;  /* Khoảng cách từ kính lúp */
 }
 
 .subscribe-button:hover {

@@ -433,20 +433,43 @@ footer a:hover {
     color: white;
 }
 
+/* Dots for pagination */
+.pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot:hover {
+    background-color: #1ABC9C; /* Add hover effect for active dots */
+}
+
+/* Make sure the slider (courses-container) works well with flexbox */
 .courses-container {
     display: flex;
+    overflow-x: auto;
     gap: 20px;
     padding-bottom: 20px;
-    overflow-x: auto;
     scroll-snap-type: x mandatory;
 }
 
 .course-item {
-    flex: 0 0 250px; 
+    flex: 0 0 250px; /* Ensure the item size remains the same */
     background-color: #333;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
     text-align: center;
     padding: 10px;
     scroll-snap-align: start;
@@ -474,32 +497,7 @@ footer a:hover {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-/* Styling for the pagination dots under the images */
-.pagination-dots-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.pagination-dots {
-    display: flex;
-    gap: 10px;
-}
-
-.dot {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-
-.dot:hover {
-    background-color: #1ABC9C;
-}
-
-/* Responsiveness */
+/* Responsive design */
 @media (max-width: 768px) {
     .courses-container {
         gap: 10px;
@@ -519,7 +517,6 @@ footer a:hover {
         flex: 0 0 150px;
     }
 }
-
 
 /* Section cho slider */
 .events-slider {

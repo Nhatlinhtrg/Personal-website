@@ -273,9 +273,9 @@ footer a:hover {
 .start-now-button {
     background-color: black;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border: 2px solid blue; /* Viền xanh */
-    border-radius: 50px; /* Bo tròn góc */
+    border-radius: 30px; /* Bo tròn góc */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
@@ -288,9 +288,9 @@ footer a:hover {
 .subscribe-button {
     background-color: blue;  /* Màu nền xanh giống màu viền */
     color: black;  /* Chữ màu đen */
-    padding: 10px 20px;
+    padding: 8px 15px;
     border: 2px solid blue; /* Viền xanh */
-    border-radius: 50px;  /* Bo tròn góc */
+    border-radius: 30px;  /* Bo tròn góc */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;

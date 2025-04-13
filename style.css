@@ -282,7 +282,7 @@ footer a:hover {
     font-weight: bold;
     transition: background-color 0.3s, border-color 0.3s;
     display: inline-block;
-    margin-left: 20px;  /* Khoảng cách từ các mục menu */
+    margin-left: auto;  /* Khoảng cách từ các mục menu */
 }
 
 /* Nút Subscribe */
@@ -297,7 +297,7 @@ footer a:hover {
     font-weight: bold;
     transition: background-color 0.3s, border-color 0.3s;
     display: inline-block;
-    margin-left: 15px;  /* Khoảng cách từ kính lúp */
+    margin-left: auto;  /* Khoảng cách từ kính lúp */
 }
 
 .subscribe-button:hover {

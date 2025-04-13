@@ -326,9 +326,7 @@ footer a:hover {
 .side-panel-content h2 {
     font-size: 1.4rem;
     padding: 10px 20px;  /* Thêm khoảng cách bên trong khung */
-    background-color: #808080;  /* Màu nền xám cho tiêu đề */
     color: white;  /* Màu chữ trắng */
-    border-radius: 15px; /* Bo góc cho khung tiêu đề */
     text-align: center;  /* Căn giữa chữ */
     width: 100%;  /* Chiếm toàn bộ chiều rộng của side-panel */
     box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến tổng chiều rộng */

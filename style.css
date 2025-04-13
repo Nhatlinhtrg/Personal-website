@@ -307,7 +307,7 @@ footer a:hover {
 .side-panel {
     position: fixed;
     top: 0;
-    left: -25%;  /* Ban đầu để ẩn đi */
+    left: -35%;  /* Ban đầu để ẩn đi */
     width: 35%;
     height: 100%;
     background-color: black; 

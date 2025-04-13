@@ -374,6 +374,12 @@ side-panel-content h2 {
 }
 
 /* Thư mục con */
+/* Căn phải các mục con */
+.side-panel-content ul li {
+    display: flex;
+    justify-content: space-between;  /* Căn các mục con về hai bên */
+    align-items: center;
+}
 .side-panel-content ul li ul {
     list-style-type: none;
     padding-left: 20px;  /* Đưa các thư mục con vào trong */

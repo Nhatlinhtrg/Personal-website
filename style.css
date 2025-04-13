@@ -348,7 +348,6 @@ side-panel-content h2 {
     outline: none;
     color: #333;
     background-color: #fff;
-    margin-bottom: 30px ;
 }
 
 .search-box::placeholder {
@@ -393,12 +392,7 @@ side-panel-content h2 {
     color: #2231d8;  
 }
 
-/* Căn phải các mục con */
-.side-panel-content ul li {
-    display: flex;
-    justify-content: space-between;  /* Căn các mục con về hai bên */
-    align-items: center;
-}
+
 
 .toggle-btn {
     background: transparent;

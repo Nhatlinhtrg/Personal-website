@@ -41,7 +41,7 @@ body {
 }
 
 .lhd-logo {
-    width: 120px;  /* Điều chỉnh kích thước logo */
+    width: 70px;  /* Điều chỉnh kích thước logo */
     height: auto;
     border-radius: 150%;  /* Bo tròn logo để trông hiện đại */
     object-fit: cover;  /* Giúp ảnh không bị méo khi thay đổi kích thước */

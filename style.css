@@ -310,7 +310,7 @@ footer a:hover {
     left: -35%;  /* Ban đầu để ẩn đi */
     width: 35%;
     height: 100%;
-    background-color: black; 
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 20px;
     transition: left 0.3s ease;

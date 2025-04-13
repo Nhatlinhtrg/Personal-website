@@ -378,6 +378,7 @@ side-panel-content h2 {
     list-style-type: none;
     padding-left: 20px;  /* Đưa các thư mục con vào trong */
     display: none; /* Mặc định ẩn các thư mục con */
+    gap:20px; 
 }
 
 .side-panel-content ul li a {

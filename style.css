@@ -41,6 +41,13 @@ body {
 }
 
 /* LOGO */
+.logo {
+    display: flex;
+    align-items: center;  /* Căn giữa logo và chữ */
+    gap: 10px;  /* Khoảng cách giữa logo và chữ */
+}
+
+/* LOGO */
 .lhd-logo {
     width: 120px;  /* Điều chỉnh kích thước logo */
     height: 120px;
@@ -60,6 +67,8 @@ body {
     font-weight: normal;  /* Không in đậm chữ */
     color: white;  /* Màu chữ trắng */
     margin: 0;  /* Không có khoảng cách giữa các chữ */
+    padding: 0;  /* Không có padding */
+    line-height: 1;  /* Loại bỏ khoảng cách dòng */
     text-align: left;
 }
 
@@ -71,6 +80,7 @@ body {
     justify-content: center;
     height: 120px;  /* Chiều cao logo và chữ đều nhau */
 }
+
 
 /* MENU */
 .nav-bar {

@@ -108,7 +108,7 @@ body {
 /* Kính lúp */
 .search-icon {
     display: inline-block;
-    margin-left: 15px;  /* Tạo khoảng cách giữa kính lúp và Start Now */
+    margin-left: auto;  /* Tạo khoảng cách giữa kính lúp và Start Now */
 }
 
 .search-icon a {

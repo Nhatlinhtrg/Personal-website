@@ -72,7 +72,7 @@ body {
     background-clip: text;  /* Đảm bảo gradient chỉ áp dụng cho chữ */
     margin: 0;
     padding: 0;
-    line-height: 0;
+    line-height: 1;
     text-align: left;
     letter-spacing: 0;  /* Khoảng cách giữa các chữ */
     text-transform: uppercase;  /* Viết hoa chữ */

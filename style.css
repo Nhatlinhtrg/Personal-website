@@ -374,17 +374,10 @@ side-panel-content h2 {
 }
 
 /* Thư mục con */
-/* Căn phải các mục con */
-.side-panel-content ul li {
-    display: flex;
-    justify-content: space-between;  /* Căn các mục con về hai bên */
-    align-items: center;
-}
 .side-panel-content ul li ul {
     list-style-type: none;
     padding-left: 20px;  /* Đưa các thư mục con vào trong */
     display: none; /* Mặc định ẩn các thư mục con */
-    gap:20px;
 }
 
 .side-panel-content ul li a {
@@ -395,16 +388,14 @@ side-panel-content h2 {
 }
 
 .side-panel-content ul li a:hover {
-    color: #2231d8;  
+    color: #2231d8;  /* Màu hồng khi hover */
 }
-
-
 
 .toggle-btn {
     background: transparent;
     border: none;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     margin-left: 10px;
 }

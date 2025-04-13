@@ -423,9 +423,26 @@ footer a:hover {
     transform: rotate(180deg); /* Xoay mũi tên khi thư mục con được mở */
 }
 
-/* Hiệu ứng khi hiển thị trang kéo */
-.side-panel.open {
+/* Trang kéo */
+.side-panel {
+    position: fixed;
+    top: 0;
     left: 0;
+    width: 25%;  /* Kích thước của trang kéo, có thể điều chỉnh */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);  /* Màu đen với độ trong suốt 60% */
+    z-index: 1000;  /* Đảm bảo trang kéo nằm trên các phần tử khác */
+    transition: transform 0.3s ease;  /* Hiệu ứng khi trang kéo mở ra */
+}
+
+/* Khi trang kéo được mở */
+.side-panel.open {
+    transform: translateX(0);  /* Mở trang kéo */
+}
+
+/* Khi trang kéo đóng */
+.side-panel.close {
+    transform: translateX(-100%);  /* Đóng trang kéo */
 }
 
 

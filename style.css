@@ -378,7 +378,7 @@ side-panel-content h2 {
     list-style-type: none;
     padding-left: 20px;  /* Đưa các thư mục con vào trong */
     display: none; /* Mặc định ẩn các thư mục con */
-    gap:20px; 
+    gap:50px; 
 }
 
 .side-panel-content ul li a {
@@ -390,6 +390,13 @@ side-panel-content h2 {
 
 .side-panel-content ul li a:hover {
     color: #2231d8;  
+}
+
+/* Căn phải các mục con */
+.side-panel-content ul li {
+    display: flex;
+    justify-content: space-between;  /* Căn các mục con về hai bên */
+    align-items: center;
 }
 
 .toggle-btn {

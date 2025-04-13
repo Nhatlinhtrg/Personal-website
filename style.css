@@ -36,33 +36,42 @@ body {
 /* LOGO */
 .logo {
     display: flex;
-    align-items: center;  /* Căn giữa logo và chữ theo chiều ngang */
-    gap: 12px;
+    align-items: center;  /* Căn giữa logo và chữ */
+    gap: 10px;  /* Khoảng cách giữa logo và chữ */
 }
 
+/* LOGO */
 .lhd-logo {
-    width: 70px;  /* Điều chỉnh kích thước logo */
-    height: auto;
-    border-radius: 150%;  /* Bo tròn logo để trông hiện đại */
-    object-fit: cover;  /* Giúp ảnh không bị méo khi thay đổi kích thước */
-}
-
-.logo-text {
+    width: 120px;  /* Điều chỉnh kích thước logo */
+    height: 120px;
+    border-radius: 50%;  /* Bo tròn logo */
     display: flex;
-    flex-direction: column;  /* Xếp chữ theo chiều dọc */
-    align-items: flex-start;  /* Căn chữ sang trái */
-    justify-content: flex-start;  /* Căn chữ theo chiều dọc */
-    text-align: left;  /* Căn chữ bên trái */
-
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;  /* Kích thước chữ trong logo */
+    font-weight: normal;  /* Chữ không in đậm */
+    color: white;
+    background-color: #000000;  /* Nền đen cho logo */
 }
 
+/* LOGO TEXT */
 .logo-text div {
-    font-size: 1.2rem;  /* Điều chỉnh kích thước chữ */
-    font-weight: bold;
-    color: white;
-    margin:0px 0;  /* Khoảng cách giữa các chữ giảm xuống */
+    font-size: 2rem;  /* Giảm kích thước chữ */
+    font-weight: normal;  /* Không in đậm chữ */
+    color: white;  /* Màu chữ trắng */
+    margin: 0;  /* Không có khoảng cách giữa các chữ */
     text-align: left;
 }
+
+/* Đảm bảo logo và chữ nằm ngang hàng với nhau */
+.logo-text {
+    display: flex;
+    flex-direction: column;  /* Đặt các chữ theo chiều dọc */
+    align-items: flex-start;
+    justify-content: center;
+    height: 120px;  /* Chiều cao logo và chữ đều nhau */
+}
+
 /* MENU */
 .nav-bar {
     display: flex;

@@ -341,13 +341,15 @@ side-panel-content h2 {
 
 .search-box {
     width: 100%;  /* Kích thước của ô tìm kiếm */
-    padding: 12px;
+    padding: 10px 15px;
     font-size: 1rem;
     border: 2px solid #ccc;
     border-radius: 0px;
     outline: none;
     color: #333;
     background-color: #fff;
+    margin-bottom: 30px;
+
 }
 
 .search-box::placeholder {
@@ -397,11 +399,6 @@ side-panel-content h2 {
     display: flex;
     justify-content: space-between;  /* Căn các mục con về hai bên */
     align-items: center;
-}
-/* Tăng khoảng cách giữa các mục con */
-.side-panel-content ul {
-    margin: 0;
-    padding: 0;
 }
 
 .toggle-btn {

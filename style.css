@@ -316,9 +316,9 @@ footer a:hover {
     position: fixed;
     top: 0;
     left: -25%;  /* Ban đầu để ẩn đi */
-    width: 25%;
+    width: 50%;
     height: 100%;
-    background-color: #003366; /* Màu xanh navi */
+    background-color: black; 
     color: white;
     padding: 20px;
     transition: left 0.3s ease;

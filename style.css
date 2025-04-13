@@ -349,6 +349,7 @@ side-panel-content h2 {
 
 .search-box::placeholder {
     color: #999;
+    font-size: 0.9rem;
 }
 
 .search-btn {

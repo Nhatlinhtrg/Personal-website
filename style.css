@@ -60,7 +60,7 @@ body {
     font-size: 1.2rem;  /* Điều chỉnh kích thước chữ */
     font-weight: bold;
     color: white;
-    margin: 2px 0;  /* Khoảng cách giữa các chữ giảm xuống */
+    margin:0;  /* Khoảng cách giữa các chữ giảm xuống */
 }
 /* MENU */
 .nav-bar {

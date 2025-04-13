@@ -337,11 +337,11 @@ side-panel-content h2 {
 }
 
 .search-box {
-    width: 70%;  /* Kích thước của ô tìm kiếm */
-    padding: 10px;
+    width: 90%;  /* Kích thước của ô tìm kiếm */
+    padding: 12px;
     font-size: 1rem;
     border: 2px solid #ccc;
-    border-radius: 25px;
+    border-radius: 0px;
     outline: none;
     color: #333;
     background-color: #fff;

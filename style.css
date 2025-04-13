@@ -425,34 +425,54 @@ footer a:hover {
     left: 0;
 }
 
-/* Explore Courses Section */
+/* Styling for the slider and pagination dots */
 .explore-courses {
-    background-color: #111;
     padding: 50px 20px;
+    background-color: #111;
     text-align: center;
-}
-
-.explore-courses h2 {
     color: white;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
 }
 
+/* Dots for pagination */
+.pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot:hover {
+    background-color: #1ABC9C; /* Add hover effect for active dots */
+}
+
+/* Make sure the slider (courses-container) works well with flexbox */
 .courses-container {
     display: flex;
     overflow-x: auto;
     gap: 20px;
     padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
 }
 
 .course-item {
+    flex: 0 0 250px; /* Ensure the item size remains the same */
     background-color: #333;
     border-radius: 8px;
-    width: 250px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
     text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-in-out;
+    padding: 10px;
+    scroll-snap-align: start;
 }
 
 .course-item img {
@@ -465,21 +485,37 @@ footer a:hover {
 .course-item h3 {
     font-size: 1.2rem;
     color: white;
-    margin: 15px 0;
+    margin-bottom: 10px;
 }
 
 .course-item p {
     color: #ccc;
 }
 
-/* Hover Effect for Course Items */
 .course-item:hover {
     transform: scale(1.05);
-    background-color: #1ABC9C;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-.course-item:hover h3, .course-item:hover p {
-    color: white;
+/* Responsive design */
+@media (max-width: 768px) {
+    .courses-container {
+        gap: 10px;
+    }
+
+    .course-item {
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-container {
+        gap: 5px;
+    }
+
+    .course-item {
+        flex: 0 0 150px;
+    }
 }
 
 /* Section cho slider */

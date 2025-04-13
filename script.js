@@ -57,4 +57,24 @@ toggleBtns.forEach(button => {
         this.classList.toggle('active');
     });
 });
+// Định nghĩa nút điều hướng
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+const container = document.querySelector('.events-container');
+
+// Sự kiện khi nhấn nút "next"
+nextButton.addEventListener('click', () => {
+    container.scrollBy({
+        left: 300,  // Kéo 300px sang bên phải
+        behavior: 'smooth'
+    });
+});
+
+// Sự kiện khi nhấn nút "prev"
+prevButton.addEventListener('click', () => {
+    container.scrollBy({
+        left: -300,  // Kéo 300px sang bên trái
+        behavior: 'smooth'
+    });
+});
 

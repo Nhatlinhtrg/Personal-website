@@ -327,6 +327,47 @@ side-panel-content h2 {
     border-radius: 10px; /* Bo góc cho khung tiêu đề */
     text-align: center; /* Căn giữa tiêu đề */
 }
+/* Thêm search box vào trong trang kéo */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;  /* Khoảng cách từ tiêu đề */
+    width: 100%;
+}
+
+.search-box {
+    width: 70%;  /* Kích thước của ô tìm kiếm */
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    color: #333;
+    background-color: #fff;
+}
+
+.search-box::placeholder {
+    color: #999;
+}
+
+.search-btn {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-btn i {
+    font-size: 1.2rem;
+    color: blue;
+}
+
+/* Hiệu ứng khi hover vào nút tìm kiếm */
+.search-btn:hover i {
+    color: #1ABC9C;  /* Màu khi hover */
+}
 
 .side-panel-content ul {
     list-style-type: none;

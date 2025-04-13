@@ -29,7 +29,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 15px; /* Giảm padding để thanh menu ốm lại */
+    padding: 5px 20px; /* Giảm padding để thanh menu ốm lại */
+    width: 90%; 
+    margin: 0 auto; 
 }
 
 /* LOGO */

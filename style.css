@@ -92,7 +92,7 @@ body {
     display: flex;
     justify-content: space-between; /* Các mục căn đều ra hai bên */
     align-items: center;
-    width: 100%;
+    width: 80%;
 }
 
 .nav-menu {

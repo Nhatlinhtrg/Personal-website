@@ -63,17 +63,20 @@ body {
 
 /* LOGO TEXT */
 .logo-text div {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: blue;  /* Màu chữ xanh biển */
+    font-family: 'Poppins', sans-serif;  /* Kiểu chữ hiện đại */
+    font-size: 2.5rem;  /* Kích thước chữ lớn hơn */
+    font-weight: 700;  /* Chữ in đậm để nổi bật */
+    color: transparent;  /* Để chữ có màu nền gradient */
+    background: linear-gradient(to right, #ff416c, #ff4b2b); /* Gradient từ đỏ hồng sang cam */
+    -webkit-background-clip: text;  /* Đảm bảo gradient chỉ áp dụng cho chữ */
+    background-clip: text;  /* Đảm bảo gradient chỉ áp dụng cho chữ */
     margin: 0;
     padding: 0;
-    line-height: 1.2;
+    line-height: 1;
     text-align: left;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);  /* Bóng chữ nhẹ */
+    letter-spacing: 0;  /* Khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Viết hoa chữ */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);  /* Thêm bóng đổ cho chữ */
 }
 
 /* Đảm bảo logo và chữ nằm ngang hàng với nhau */

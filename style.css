@@ -351,6 +351,8 @@ footer a:hover {
     color: #333;
     background-color: #fff;
     margin-bottom: 40px;  /* Khoảng cách giữa các mục */
+    margin-top: 30px;  /* Đẩy search box xuống với khoảng cách 30px */
+    padding: 10px 15px;  /* Điều chỉnh khoảng cách bên trong search box */
 }
 
 .search-box::placeholder {

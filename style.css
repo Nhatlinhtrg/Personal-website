@@ -76,7 +76,6 @@ body {
     text-align: left;
     letter-spacing: 0;  /* Khoảng cách giữa các chữ */
     text-transform: uppercase;  /* Viết hoa chữ */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);  /* Thêm bóng đổ cho chữ */
 }
 
 /* Đảm bảo logo và chữ nằm ngang hàng với nhau */

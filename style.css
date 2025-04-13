@@ -327,9 +327,16 @@ footer a:hover {
     text-align: center; /* Căn giữa tiêu đề */
 }
 
+/* Các mục trong side-panel */
 .side-panel-content ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-direction: column; /* Các mục sẽ sắp xếp theo chiều dọc */
+    gap: 20px;  /* Khoảng cách giữa các mục */
+    justify-content: space-between;  /* Căn đều các mục từ trái sang phải */
+    align-items: center; /* Căn đều các mục theo chiều ngang */
+    width: 100%;  /* Chiếm 100% chiều rộng */
 }
 
 .side-panel-content ul li {

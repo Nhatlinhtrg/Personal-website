@@ -423,7 +423,7 @@ footer a:hover {
     transform: rotate(180deg); /* Xoay mũi tên khi thư mục con được mở */
 }
 
-/* Trang kéo */
+/* Hiệu ứng khi hiển thị trang kéo */
 .side-panel {
     position: fixed;
     top: 0;
@@ -434,15 +434,8 @@ footer a:hover {
     z-index: 1000;  /* Đảm bảo trang kéo nằm trên các phần tử khác */
     transition: transform 0.3s ease;  /* Hiệu ứng khi trang kéo mở ra */
 }
-
-/* Khi trang kéo được mở */
 .side-panel.open {
-    transform: translateX(0);  /* Mở trang kéo */
-}
-
-/* Khi trang kéo đóng */
-.side-panel.close {
-    transform: translateX(0%);  /* Đóng trang kéo */
+    left: 0;
 }
 
 

@@ -398,12 +398,7 @@ footer a:hover {
     font-size: 1rem;
     transition: color 0.3s ease;
 }
-/* Loại bỏ dấu chấm trước các mục trong side-panel */
-.side-panel-content ul {
-    list-style-type: none;  /* Loại bỏ dấu chấm */
-    padding-left: 0;  /* Đảm bảo không có khoảng cách thừa bên trái */
-    margin-left: 0;
-}
+
 
 /* Màu sắc khi hover vào các mục */
 .side-panel-content ul li a:hover {
@@ -424,16 +419,6 @@ footer a:hover {
 }
 
 /* Hiệu ứng khi hiển thị trang kéo */
-.side-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 25%;  /* Kích thước của trang kéo, có thể điều chỉnh */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);  /* Màu đen với độ trong suốt 60% */
-    z-index: 1000;  /* Đảm bảo trang kéo nằm trên các phần tử khác */
-    transition: transform 0.3s ease;  /* Hiệu ứng khi trang kéo mở ra */
-}
 .side-panel.open {
     left: 0;
 }

@@ -267,4 +267,25 @@ footer a:hover {
     margin-left: 20px;  /* Khoảng cách từ các mục menu */
 }
 
+/* Nút Subscribe */
+.subscribe-button {
+    background-color: blue;  /* Màu nền xanh giống màu viền */
+    color: black;  /* Chữ màu đen */
+    padding: 10px 20px;
+    border: 2px solid blue; /* Viền xanh */
+    border-radius: 50px;  /* Bo tròn góc */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: inline-block;
+    margin-left: 15px;  /* Khoảng cách từ kính lúp */
+}
+
+.subscribe-button:hover {
+    background-color: #0056b3;  /* Đổi nền sang màu xanh đậm khi hover */
+    border-color: white;  /* Đổi viền thành trắng khi hover */
+}
+
+
 

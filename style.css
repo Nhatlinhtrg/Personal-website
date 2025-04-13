@@ -63,13 +63,15 @@ body {
 
 /* LOGO TEXT */
 .logo-text div {
-    font-size: 2rem;  /* Giảm kích thước chữ */
-    font-weight: normal;  /* Không in đậm chữ */
+    font-family: 'Helvetica', sans-serif;  /* Đổi kiểu chữ sang Helvetica hoặc kiểu chữ tương tự */
+    font-size: 2rem;  /* Kích thước chữ */
+    font-weight: normal;  /* Chữ không in đậm */
     color: white;  /* Màu chữ trắng */
     margin: 0;  /* Không có khoảng cách giữa các chữ */
     padding: 0;  /* Không có padding */
     line-height: 1;  /* Loại bỏ khoảng cách dòng */
     text-align: left;
+    letter-spacing: 2px;  /* Khoảng cách giữa các chữ */
 }
 
 /* Đảm bảo logo và chữ nằm ngang hàng với nhau */

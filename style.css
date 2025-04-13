@@ -64,7 +64,7 @@ body {
 /* LOGO TEXT */
 .logo-text div {
     font-family: 'Poppins', sans-serif;  /* Kiểu chữ hiện đại */
-    font-size: 2.5rem;  /* Kích thước chữ lớn hơn */
+    font-size: 1.8rem;  /* Kích thước chữ lớn hơn */
     font-weight: 700;  /* Chữ in đậm để nổi bật */
     color: transparent;  /* Để chữ có màu nền gradient */
     background: white;

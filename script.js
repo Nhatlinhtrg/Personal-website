@@ -41,3 +41,20 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 document.getElementById('search-icon').addEventListener('click', function() {
     document.getElementById('side-panel').classList.toggle('open');
 });
+// Lấy tất cả các nút mũi tên
+const toggleBtns = document.querySelectorAll('.toggle-btn');
+
+// Lặp qua các nút mũi tên và thêm sự kiện click
+toggleBtns.forEach(button => {
+    button.addEventListener('click', function() {
+        // Lấy thư mục con tương ứng với nút mũi tên
+        const subfolders = this.nextElementSibling; // Thư mục con nằm ngay sau nút mũi tên
+
+        // Toggle hiển thị thư mục con
+        subfolders.style.display = (subfolders.style.display === 'block') ? 'none' : 'block';
+
+        // Thêm/loại bỏ lớp active trên nút mũi tên
+        this.classList.toggle('active');
+    });
+});
+

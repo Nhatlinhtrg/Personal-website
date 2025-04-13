@@ -350,7 +350,7 @@ footer a:hover {
     outline: none;
     color: #333;
     background-color: #fff;
-    margin-bottom: 20px;  /* Khoảng cách giữa các mục */
+    margin-bottom: 40px;  /* Khoảng cách giữa các mục */
 }
 
 .search-box::placeholder {

@@ -341,15 +341,13 @@ side-panel-content h2 {
 
 .search-box {
     width: 100%;  /* Kích thước của ô tìm kiếm */
-    padding: 10px 15px;
+    padding: 12px;
     font-size: 1rem;
     border: 2px solid #ccc;
     border-radius: 0px;
     outline: none;
     color: #333;
     background-color: #fff;
-    margin-bottom: 30px;
-
 }
 
 .search-box::placeholder {
@@ -380,7 +378,7 @@ side-panel-content h2 {
     list-style-type: none;
     padding-left: 20px;  /* Đưa các thư mục con vào trong */
     display: none; /* Mặc định ẩn các thư mục con */
-    gap:50px; 
+    gap:20px;
 }
 
 .side-panel-content ul li a {
@@ -392,13 +390,6 @@ side-panel-content h2 {
 
 .side-panel-content ul li a:hover {
     color: #2231d8;  
-}
-
-/* Căn phải các mục con */
-.side-panel-content ul li {
-    display: flex;
-    justify-content: space-between;  /* Căn các mục con về hai bên */
-    align-items: center;
 }
 
 .toggle-btn {

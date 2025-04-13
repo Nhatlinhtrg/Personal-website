@@ -308,7 +308,7 @@ footer a:hover {
     position: fixed;
     top: 0;
     left: -25%;  /* Ban đầu để ẩn đi */
-    width: 25%;
+    width: 35%;
     height: 100%;
     background-color: black; 
     color: white;

@@ -397,9 +397,11 @@ side-panel-content h2 {
     display: flex;
     justify-content: space-between;  /* Căn các mục con về hai bên */
     align-items: center;
-    padding: 15px 0;
-    width: 100%;
-    margin-bottom: 30px;
+}
+/* Tăng khoảng cách giữa các mục con */
+.side-panel-content ul {
+    margin: 0;
+    padding: 0;
 }
 
 .toggle-btn {

@@ -391,13 +391,21 @@ side-panel-content h2 {
     color: #2231d8;  
 }
 
+/* Nút mũi tên */
 .toggle-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
+    background: transparent;  /* Nền trong suốt */
+    border: 2px solid white;  /* Viền trắng */
+    color: white;  /* Màu chữ là trắng */
+    font-size: 1rem;  /* Giảm kích thước mũi tên */
     cursor: pointer;
     margin-left: 10px;
+    padding: 5px;  /* Điều chỉnh kích thước nút */
+    width: 30px;  /* Chiều rộng của nút */
+    height: 30px;  /* Chiều cao của nút */
+    text-align: center;
+    display: flex;
+    justify-content: center;  /* Căn giữa nội dung bên trong */
+    align-items: center;  /* Căn giữa nội dung bên trong */
 }
 
 .toggle-btn.active {

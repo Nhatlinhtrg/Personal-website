@@ -398,6 +398,12 @@ footer a:hover {
     font-size: 1rem;
     transition: color 0.3s ease;
 }
+/* Loại bỏ dấu chấm trước các mục trong side-panel */
+.side-panel-content ul {
+    list-style-type: none;  /* Loại bỏ dấu chấm */
+    padding-left: 0;  /* Đảm bảo không có khoảng cách thừa bên trái */
+    margin-left: 0;
+}
 
 /* Màu sắc khi hover vào các mục */
 .side-panel-content ul li a:hover {

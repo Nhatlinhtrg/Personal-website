@@ -383,17 +383,15 @@ side-panel-content h2 {
 }
 
 .side-panel-content ul li a {
-    color: white;  /* Màu chữ là trắng */
-    text-decoration: none;  /* Mặc định không có gạch chân */
+    color: white;
+    text-decoration: none;
     font-size: 1rem;
-    transition: color 0.3s ease, text-decoration 0.3s ease;  /* Thêm hiệu ứng chuyển màu và gạch chân */
+    transition: color 0.3s;
 }
 
-/* Hiệu ứng khi hover vào các mục trong trang kéo */
 .side-panel-content ul li a:hover {
-    color: blue ;  /* Màu khi hover */
-    text-decoration: underline;  /* Thêm gạch chân */
-    text-decoration-color: black ;  
+    color: #2231d8;  
+    text-decoration: underline;
 }
 
 /* Căn phải các mục con */

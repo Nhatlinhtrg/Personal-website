@@ -521,91 +521,74 @@ footer a:hover {
     width: 100%;
 }
 
-/* Explore Courses Section (Cập nhật cho slider) */
+/* Explore Courses Section */
 .explore-courses {
+    background-color: black; /* You can adjust the background color */
     padding: 60px 20px;
-    color: white;
-    background-color: #333; /* màu nền */
     text-align: center;
+    color: white;
 }
 
 .explore-courses h2 {
     font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-.explore-courses .courses-container {
+.courses-container {
     display: flex;
-    gap: 10px; /* Khoảng cách giữa các ô */
-    overflow: hidden; /* Ẩn bớt những mục thừa khi chưa trượt */
-}
-
-.explore-courses .course-item {
-    background-color: #444; 
-    width: 23%; /* Đảm bảo mỗi mục có kích thước phù hợp */
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.explore-courses .course-item img {
+.course-item {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    width: 23%; /* You can adjust the width as needed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-item img {
     width: 100%;
     height: auto;
     border-radius: 5px;
 }
 
-.explore-courses .course-item h3 {
+.course-item h3 {
     font-size: 1.5rem;
     margin-top: 10px;
-    font-weight: bold;
 }
 
-.explore-courses .course-item p {
+.course-item p {
     font-size: 1rem;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
-.explore-courses .course-item:hover {
+/* Hover Effect */
+.course-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Controls for the slider */
-.explore-courses .slider-controls {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.explore-courses .prev,
-.explore-courses .next {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 10px;
-    margin: 0 10px;
-}
-
-.explore-courses .prev:hover,
-.explore-courses .next:hover {
-    color: #1ABC9C; /* Màu khi hover */
-}
-
-/* Responsive layout */
+/* Responsive design */
 @media (max-width: 768px) {
-    .explore-courses .course-item {
-        width: 48%;
+    .courses-container {
+        gap: 10px;
+    }
+
+    .course-item {
+        flex: 0 0 180px;
     }
 }
 
 @media (max-width: 480px) {
-    .explore-courses .course-item {
-        width: 100%; /* Mỗi mục chiếm full chiều rộng trên mobile */
+    .courses-container {
+        gap: 5px;
+    }
+
+    .course-item {
+        flex: 0 0 150px;
     }
 }

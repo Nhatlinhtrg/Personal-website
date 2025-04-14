@@ -37,9 +37,13 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// JavaScript để kích hoạt trang kéo khi nhấn vào kính lúp
-document.getElementById('search-icon').addEventListener('click', function() {
-    document.getElementById('side-panel').classList.toggle('open');
+// Lấy phần tử của hamburger menu và trang kéo
+const hamburgerMenu = document.getElementById('hamburger-icon');
+const sidePanel = document.getElementById('sidePanel');
+
+// Khi nhấn vào hamburger menu, mở trang kéo
+hamburgerMenu.addEventListener('click', function() {
+    sidePanel.classList.toggle('open');  // Mở/đóng trang kéo khi nhấn vào nút
 });
 // Lấy tất cả các nút mũi tên
 const toggleBtns = document.querySelectorAll('.toggle-btn');

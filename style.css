@@ -521,19 +521,6 @@ footer a:hover {
     width: 100%;
 }
 
-.dot {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-
-.dot:hover {
-    background-color: #1ABC9C; /* Add hover effect for active dots */
-}
-
 /* Make sure the slider (courses-container) works well with flexbox */
 .courses-container {
     display: flex;

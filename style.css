@@ -163,14 +163,15 @@ body {
     background-image: url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 200px; /* Bo tròn góc của ảnh nền */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     color: white;
+    text-align: left; /* Căn trái */
+    padding: 0 20px;
 }
 
 /* Nội dung bên trong */
@@ -191,15 +192,31 @@ body {
     margin-bottom: 20px;
 }
 
-.included ul {
-    list-style-type: none;
-    padding: 0;
-    font-size: 1.1rem;
+.included {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 
-.included li {
+/* Các mục bên trái */
+.left-side, .right-side {
+    width: 48%; /* Mỗi bên chiếm 48% chiều rộng */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+li {
     margin-bottom: 10px;
+}
+
+/* Kiểu dáng cho các dấu tick */
+.fas.fa-check {
+    color: #1E90FF; /* Màu xanh cho dấu tick */
+    margin-right: 10px;
 }
 
 /* Nút "Let's join in" */
@@ -208,7 +225,7 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background-color: #3217e1; /* Màu xanh dương */
+    background-color: #1E90FF;
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -217,7 +234,7 @@ body {
 
 /* Hiệu ứng hover cho nút */
 .join-btn:hover {
-    background-color: #6f93b1; /* Xanh đậm khi hover */
+    background-color: #4682B4;
 }
 
 /* Tạo hiệu ứng mờ dần ở các cạnh */
@@ -228,10 +245,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Màu đen mờ */
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
-
 
 /* Nền cho phần chứa ảnh */
 .features {

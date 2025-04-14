@@ -108,7 +108,7 @@ body {
 /* Thay đổi nút kính lúp thành nút ba gạch ngang */
 .hamburger-menu {
     font-size: 1.5rem;
-    color: white;
+    color: white !important;  /* Đảm bảo màu trắng và ghi đè màu khác */
     margin-left: 20px;
     cursor: pointer;
 }

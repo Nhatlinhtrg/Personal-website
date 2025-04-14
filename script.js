@@ -38,7 +38,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // JavaScript để kích hoạt trang kéo khi nhấn vào kính lúp
-document.getElementById('search-icon').addEventListener('click', function() {
+document.getElementById('hamburger-icon').addEventListener('click', function() {
     document.getElementById('side-panel').classList.toggle('open');
 });
 // Lấy tất cả các nút mũi tên

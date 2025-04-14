@@ -215,7 +215,7 @@ li {
 
 /* Kiểu dáng cho các dấu tick */
 .fas.fa-check {
-    color: #0d14d6; /* Màu xanh cho dấu tick */
+    color: #3a3fd7; /* Màu xanh cho dấu tick */
     margin-right: 10px;
 }
 
@@ -225,7 +225,7 @@ li {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background-color: #1E90FF;
+    background-color: #1724db;
     border: none;
     border-radius: 25px;
     cursor: pointer;

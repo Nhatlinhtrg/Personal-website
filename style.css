@@ -160,17 +160,17 @@ body {
 
 /* Phần nền */
 .hero-banner {
-    background-image: url('images/hero-bg.jpg'); /* Thay đường dẫn ảnh */
+    background-image: url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Màu nền đen mờ */
+    background-repeat: no-repeat;
     height: 100vh;
+    border-radius: 200px; /* Bo tròn góc của ảnh nền */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
-    position: relative;
+    color: white;
 }
 
 /* Nội dung bên trong */

@@ -105,15 +105,12 @@ body {
 }
 
 
-/* Kính lúp */
-.search-icon {
-    display: inline-block;
-    margin-left: 15px;  /* Tạo khoảng cách giữa kính lúp và Start Now */
-}
-
-.search-icon a {
-    color: blue; /* Tô màu xanh giống viền của Start Now */
-    font-size: 1.2rem;
+/* Thay đổi nút kính lúp thành nút ba gạch ngang */
+.hamburger-menu {
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 /* MOBILE MENU */

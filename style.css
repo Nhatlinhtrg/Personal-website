@@ -317,6 +317,10 @@ footer a:hover {
     justify-content: flex-start;
     align-items: center;
 }
+/* Khi trang kéo mở ra */
+.side-panel.open {
+    left: 0; /* Đưa trang kéo vào màn hình */
+}
 
 /* Nội dung trong side-panel */
 /* Tiêu đề trong trang kéo */

@@ -158,20 +158,80 @@ body {
     }
 }
 
-/* HERO SECTION */
-.hero {
-    background-image: url('images/hero-bg.jpg');
+/* Phần nền */
+.hero-banner {
+    background-image: url('images/hero-bg.jpg'); /* Thay đường dẫn ảnh */
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.6); /* Màu nền đen mờ */
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     color: white;
-    border-radius: 200px; /* Bo góc cho background ảnh */
+    text-align: center;
+    position: relative;
 }
+
+/* Nội dung bên trong */
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.included ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.included li {
+    margin-bottom: 10px;
+}
+
+/* Nút "Let's join in" */
+.join-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #3217e1; /* Màu xanh dương */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút */
+.join-btn:hover {
+    background-color: #6f93b1; /* Xanh đậm khi hover */
+}
+
+/* Tạo hiệu ứng mờ dần ở các cạnh */
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Màu đen mờ */
+    z-index: 1;
+}
+
 
 /* Nền cho phần chứa ảnh */
 .features {

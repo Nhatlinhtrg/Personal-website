@@ -57,33 +57,5 @@ toggleBtns.forEach(button => {
         this.classList.toggle('active');
     });
 });
-// Định nghĩa nút điều hướng
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-const container = document.querySelector('.events-container');
 
-// Sự kiện khi nhấn nút "next"
-nextButton.addEventListener('click', () => {
-    container.scrollBy({
-        left: 300,  // Kéo 300px sang bên phải
-        behavior: 'smooth'
-    });
-});
-
-// Sự kiện khi nhấn nút "prev"
-prevButton.addEventListener('click', () => {
-    container.scrollBy({
-        left: -300,  // Kéo 300px sang bên trái
-        behavior: 'smooth'
-    });
-});
-
-// Lấy phần tử của hamburger menu và trang kéo
-const hamburgerMenu = document.getElementById('hamburger-icon');
-const sidePanel = document.getElementById('sidePanel');
-
-// Khi nhấn vào hamburger menu, mở trang kéo
-hamburgerMenu.addEventListener('click', function() {
-    sidePanel.classList.toggle('open');  // Mở/đóng trang kéo khi nhấn vào nút
-});
 

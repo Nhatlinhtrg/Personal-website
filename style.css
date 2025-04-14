@@ -170,7 +170,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    border-radius: 50px; /* Bo góc cho background ảnh */
+    border-radius: 100px; /* Bo góc cho background ảnh */
 }
 
 /* Nền cho phần chứa ảnh */

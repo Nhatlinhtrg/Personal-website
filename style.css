@@ -161,7 +161,7 @@ body {
 /* HERO SECTION */
 .hero {
     background-image: url('images/hero-bg.jpg');
-    background-size: 90%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;

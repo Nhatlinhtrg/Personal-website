@@ -521,47 +521,55 @@ footer a:hover {
     width: 100%;
 }
 
-/* Make sure the slider (courses-container) works well with flexbox */
+/* Explore Courses Section */
+.explore-courses {
+    background-color: #333; /* You can adjust the background color */
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.explore-courses h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
 .courses-container {
     display: flex;
-    overflow-x: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
-    padding-bottom: 20px;
-    scroll-snap-type: x mandatory;
 }
 
 .course-item {
-    flex: 0 0 250px; /* Ensure the item size remains the same */
-    background-color: #333;
+    background-color: #444;
+    padding: 20px;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    text-align: center;
-    padding: 10px;
-    scroll-snap-align: start;
+    width: 23%; /* You can adjust the width as needed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .course-item img {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
+    height: auto;
+    border-radius: 5px;
 }
 
 .course-item h3 {
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-top: 10px;
 }
 
 .course-item p {
-    color: #ccc;
+    font-size: 1rem;
+    margin-top: 10px;
 }
 
+/* Hover Effect */
 .course-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive design */

@@ -161,7 +161,7 @@ body {
 /* HERO SECTION */
 .hero {
     background-image: url('images/hero-bg.jpg');
-    background-size: 80%;
+    background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
@@ -170,7 +170,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    border-radius: 300px; /* Bo góc cho background ảnh */
+    border-radius: 500px; /* Bo góc cho background ảnh */
 }
 
 /* Nền cho phần chứa ảnh */

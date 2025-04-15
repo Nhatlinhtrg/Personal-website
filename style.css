@@ -521,6 +521,7 @@ footer a:hover {
     width: 100%;
 }
 
+
 /* Make sure the slider (courses-container) works well with flexbox */
 .courses-container {
     display: flex;

@@ -58,39 +58,3 @@ toggleBtns.forEach(button => {
         this.classList.toggle('active');
     });
 });
-
-const coursesContainer = document.querySelector('.courses-container');
-const courseItems = document.querySelectorAll('.course-item');
-let currentIndex = 0;
-const itemsToShow = 4;  // Hiển thị 4 mục trên mỗi dòng
-
-// Hàm di chuyển carousel tự động
-function slideToNext() {
-    if (currentIndex < courseItems.length - itemsToShow) {
-        currentIndex++;
-    } else {
-        currentIndex = 0;  // Quay về phần tử đầu tiên nếu ở cuối
-    }
-    updateSlidePosition();
-}
-
-// Cập nhật vị trí hiển thị của carousel
-function updateSlidePosition() {
-    courseItems.forEach((item, index) => {
-        if (index >= currentIndex && index < currentIndex + itemsToShow) {
-            item.classList.add('visible');  // Hiển thị các mục từ currentIndex đến currentIndex + itemsToShow
-        } else {
-            item.classList.remove('visible');  // Ẩn các mục không cần thiết
-        }
-    });
-
-    const offset = -currentIndex * (courseItems[0].offsetWidth + 20);  // Điều chỉnh theo kích thước của mỗi phần tử
-    coursesContainer.style.transform = `translateX(${offset}px)`;  // Dịch chuyển các phần tử carousel theo trục X
-}
-
-// Khởi tạo lần đầu tiên
-updateSlidePosition();
-
-// Tự động cuộn mỗi 3 giây (3000ms)
-setInterval(slideToNext, 3000);
-

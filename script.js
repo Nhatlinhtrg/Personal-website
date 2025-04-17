@@ -59,42 +59,38 @@ toggleBtns.forEach(button => {
     });
 });
 
-// Carousel (Prev & Next Button)
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
 const coursesContainer = document.querySelector('.courses-container');
-
-// Đếm số lượng các phần tử khóa học
 const courseItems = document.querySelectorAll('.course-item');
 let currentIndex = 0;
+const itemsToShow = 4;  // Hiển thị 4 mục trên mỗi dòng
 
-// Hàm di chuyển carousel sang trái
-function slideToPrev() {
-    if (currentIndex > 0) {
-        currentIndex--;  // Giảm chỉ số index nếu không phải phần tử đầu tiên
-    } else {
-        currentIndex = courseItems.length - 1;  // Nếu ở đầu, quay về phần tử cuối cùng
-    }
-    updateSlidePosition();
-}
-
-// Hàm di chuyển carousel sang phải
+// Hàm di chuyển carousel tự động
 function slideToNext() {
-    if (currentIndex < courseItems.length - 1) {
-        currentIndex++;  // Tăng chỉ số index nếu không phải phần tử cuối cùng
+    if (currentIndex < courseItems.length - itemsToShow) {
+        currentIndex++;
     } else {
-        currentIndex = 0;  // Nếu ở cuối, quay về phần tử đầu tiên
+        currentIndex = 0;  // Quay về phần tử đầu tiên nếu ở cuối
     }
     updateSlidePosition();
 }
 
 // Cập nhật vị trí hiển thị của carousel
 function updateSlidePosition() {
-    const offset = -currentIndex * 280;  // Điều chỉnh theo kích thước của mỗi phần tử (280px)
+    courseItems.forEach((item, index) => {
+        if (index >= currentIndex && index < currentIndex + itemsToShow) {
+            item.classList.add('visible');  // Hiển thị các mục từ currentIndex đến currentIndex + itemsToShow
+        } else {
+            item.classList.remove('visible');  // Ẩn các mục không cần thiết
+        }
+    });
+
+    const offset = -currentIndex * (courseItems[0].offsetWidth + 20);  // Điều chỉnh theo kích thước của mỗi phần tử
     coursesContainer.style.transform = `translateX(${offset}px)`;  // Dịch chuyển các phần tử carousel theo trục X
 }
 
-// Thêm sự kiện cho các nút điều hướng
-prevBtn.addEventListener('click', slideToPrev);  // Khi nhấn nút Prev, di chuyển carousel sang trái
-nextBtn.addEventListener('click', slideToNext);  // Khi nhấn nút Next, di chuyển carousel sang phải
+// Khởi tạo lần đầu tiên
+updateSlidePosition();
+
+// Tự động cuộn mỗi 3 giây (3000ms)
+setInterval(slideToNext, 3000);
 

@@ -486,33 +486,33 @@ footer a:hover {
     left: 0;
 }
 
-/* Styling for the slider and pagination dots */
-.explore-courses {
-    padding: 50px 20px;
-    background-color: #111;
+.featured-courses {
     text-align: center;
-    color: white;
+    padding: 50px 20px;
 }
 
-/* Make sure the slider (courses-container) works well with flexbox */
 .courses-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-bottom: 20px;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột */
+    gap: 20px; /* Khoảng cách giữa các mục */
+    justify-items: center;
+    transition: transform 0.5s ease-in-out;  /* Hiệu ứng chuyển động nếu cần */
 }
 
 .course-item {
-    flex: 0 0 250px; /* Ensure the item size remains the same */
-    background-color: #333;
+    background-color: #222;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    width: 250px;
     text-align: center;
-    padding: 10px;
-    scroll-snap-align: start;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;  /* Ẩn tất cả các mục */
+    transition: opacity 0.5s ease;  /* Thêm hiệu ứng khi thay đổi opacity */
+}
+
+.course-item.visible {
+    opacity: 1;
 }
 
 .course-item img {
@@ -523,38 +523,32 @@ footer a:hover {
 }
 
 .course-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 .course-item p {
     color: #ccc;
+    font-size: 1rem;
+    padding: 0 10px;
 }
 
+/* Hiệu ứng hover */
 .course-item:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .courses-container {
-        gap: 10px;
-    }
-
-    .course-item {
-        flex: 0 0 180px;
+        grid-template-columns: repeat(2, 1fr);  /* 2 cột trên màn hình nhỏ */
     }
 }
 
 @media (max-width: 480px) {
     .courses-container {
-        gap: 5px;
-    }
-
-    .course-item {
-        flex: 0 0 150px;
+        grid-template-columns: 1fr;  /* 1 cột trên màn hình rất nhỏ */
     }
 }
 

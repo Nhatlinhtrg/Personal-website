@@ -486,6 +486,11 @@ footer a:hover {
     left: 0;
 }
 
+.featured-courses {
+    text-align: center;
+    padding: 50px 20px;
+}
+
 .explore-courses {
     padding: 50px 20px;
     background-color: #111;
@@ -497,7 +502,7 @@ footer a:hover {
 .courses-container {
     display: flex;
     overflow: hidden; /* Ẩn các khóa học ngoài vùng hiển thị */
-    gap: 30px;
+    gap: 20px;
     transition: transform 0.5s ease-in-out; /* Hiệu ứng chuyển động */
     justify-content: center;
 }
@@ -549,6 +554,7 @@ footer a:hover {
     font-size: 1.5rem;
     border-radius: 5px;
     z-index: 2;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .prev-btn {
@@ -557,4 +563,9 @@ footer a:hover {
 
 .next-btn {
     right: 10px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
 }

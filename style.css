@@ -511,7 +511,7 @@ footer a:hover {
     transition: opacity 0.5s ease;  /* Thêm hiệu ứng khi thay đổi opacity */
 }
 
-/* Chỉ hiển thị 5 mục */
+/* Chỉ hiển thị các mục có class 'visible' */
 .course-item.visible {
     opacity: 1;
 }
@@ -534,6 +534,7 @@ footer a:hover {
     font-size: 1rem;
     padding: 0 10px;
 }
+
 
 /* Nút điều hướng */
 .prev-btn, .next-btn {

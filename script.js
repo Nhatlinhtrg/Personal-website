@@ -62,23 +62,24 @@ toggleBtns.forEach(button => {
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 const coursesContainer = document.querySelector('.courses-container');
+
+// Đếm số lượng các phần tử khóa học
 const courseItems = document.querySelectorAll('.course-item');
 let currentIndex = 0;
-const itemsToShow = 5;  // Hiển thị 5 mục
 
 // Hàm di chuyển carousel sang trái
 function slideToPrev() {
     if (currentIndex > 0) {
         currentIndex--;
     } else {
-        currentIndex = courseItems.length - itemsToShow;  // Quay về phần tử cuối cùng nếu ở đầu
+        currentIndex = courseItems.length - 4;  // Quay về phần tử cuối cùng nếu ở đầu
     }
     updateSlidePosition();
 }
 
 // Hàm di chuyển carousel sang phải
 function slideToNext() {
-    if (currentIndex < courseItems.length - itemsToShow) {
+    if (currentIndex < courseItems.length - 4) {
         currentIndex++;
     } else {
         currentIndex = 0;  // Quay về phần tử đầu tiên nếu ở cuối
@@ -88,15 +89,7 @@ function slideToNext() {
 
 // Cập nhật vị trí hiển thị của carousel
 function updateSlidePosition() {
-    courseItems.forEach((item, index) => {
-        if (index >= currentIndex && index < currentIndex + itemsToShow) {
-            item.classList.add('visible');
-        } else {
-            item.classList.remove('visible');
-        }
-    });
-
-    const offset = -currentIndex * (courseItems[0].offsetWidth + 20);  // Điều chỉnh theo kích thước của mỗi phần tử
+    const offset = -currentIndex * 280;  // Điều chỉnh theo kích thước của mỗi phần tử (280px)
     coursesContainer.style.transform = `translateX(${offset}px)`;  // Dịch chuyển các phần tử carousel theo trục X
 }
 
@@ -104,5 +97,4 @@ function updateSlidePosition() {
 prevBtn.addEventListener('click', slideToPrev);
 nextBtn.addEventListener('click', slideToNext);
 
-// Khởi tạo lần đầu tiên
-updateSlidePosition();
+

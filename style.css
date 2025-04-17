@@ -486,34 +486,33 @@ footer a:hover {
     left: 0;
 }
 
-.featured-courses {
-    text-align: center;
+/* Styling for the slider and pagination dots */
+.explore-courses {
     padding: 50px 20px;
-    position: relative;
+    background-color: #111;
+    text-align: center;
+    color: white;
 }
 
+/* Make sure the slider (courses-container) works well with flexbox */
 .courses-container {
     display: flex;
-    overflow: hidden;  /* Ẩn các phần tử nằm ngoài vùng hiển thị */
+    overflow-x: auto;
     gap: 20px;
-    justify-content: center;
-    transition: transform 0.5s ease-in-out;  /* Hiệu ứng chuyển động khi thay đổi vị trí */
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
 }
 
 .course-item {
-    background-color: #222;
+    flex: 0 0 250px; /* Ensure the item size remains the same */
+    background-color: #333;
     border-radius: 8px;
     overflow: hidden;
-    width: 250px;
-    text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    opacity: 0;  /* Ẩn tất cả các mục */
-    transition: opacity 0.5s ease;  /* Thêm hiệu ứng khi thay đổi opacity */
-}
-
-/* Chỉ hiển thị các mục có class 'visible' */
-.course-item.visible {
-    opacity: 1;
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 10px;
+    scroll-snap-align: start;
 }
 
 .course-item img {
@@ -524,43 +523,40 @@ footer a:hover {
 }
 
 .course-item h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: white;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 .course-item p {
     color: #ccc;
-    font-size: 1rem;
-    padding: 0 10px;
+}
+
+.course-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .courses-container {
+        gap: 10px;
+    }
+
+    .course-item {
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-container {
+        gap: 5px;
+    }
+
+    .course-item {
+        flex: 0 0 150px;
+    }
 }
 
 
-/* Nút điều hướng */
-.prev-btn, .next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    z-index: 2;
-    transition: background-color 0.3s, transform 0.3s;
-}
 
-.prev-btn {
-    left: 10px;
-}
-
-.next-btn {
-    right: 10px;
-}
-
-.prev-btn:hover, .next-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: scale(1.1);
-}

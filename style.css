@@ -566,3 +566,42 @@ footer a:hover {
         grid-template-columns: 1fr;  /* 1 cột trên màn hình rất nhỏ */
     }
 }
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa văn bản */
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;  /* Sử dụng phông chữ sáng tạo */
+    font-weight: bold;
+    font-size: 2rem;  /* Kích thước chữ */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);  /* Tạo bóng đổ cho chữ */
+}
+
+.text-overlay h3 {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.text-overlay p {
+    font-size: 1rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr);  /* 2 cột trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 768px) {
+    .courses-container {
+        grid-template-columns: 1fr;  /* 1 cột trên màn hình rất nhỏ */
+    }
+}
+

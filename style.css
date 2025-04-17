@@ -501,10 +501,9 @@ footer a:hover {
 .courses-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cột đều nhau */
-    grid-template-rows: repeat(3, auto); /* 3 hàng tự động phù hợp với số lượng mục */
+    grid-template-rows: repeat(3, 1fr); /* 3 hàng đều nhau */
     gap: 20px;  /* Khoảng cách giữa các mục */
     justify-items: center;  /* Căn giữa các mục */
-    margin-top: 20px;
 }
 
 .course-item {
@@ -514,7 +513,11 @@ footer a:hover {
     width: 250px;  /* Chiều rộng của mỗi mục */
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px;  /* Đặt chiều cao cố định để các mục đều nhau */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .course-item img {

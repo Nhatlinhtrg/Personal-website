@@ -59,6 +59,7 @@ toggleBtns.forEach(button => {
     });
 });
 
+// Carousel (Prev & Next Button)
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 const coursesContainer = document.querySelector('.courses-container');
@@ -70,19 +71,19 @@ let currentIndex = 0;
 // Hàm di chuyển carousel sang trái
 function slideToPrev() {
     if (currentIndex > 0) {
-        currentIndex--;
+        currentIndex--;  // Giảm chỉ số index nếu không phải phần tử đầu tiên
     } else {
-        currentIndex = courseItems.length - 4;  // Quay về phần tử cuối cùng nếu ở đầu
+        currentIndex = courseItems.length - 1;  // Nếu ở đầu, quay về phần tử cuối cùng
     }
     updateSlidePosition();
 }
 
 // Hàm di chuyển carousel sang phải
 function slideToNext() {
-    if (currentIndex < courseItems.length - 4) {
-        currentIndex++;
+    if (currentIndex < courseItems.length - 1) {
+        currentIndex++;  // Tăng chỉ số index nếu không phải phần tử cuối cùng
     } else {
-        currentIndex = 0;  // Quay về phần tử đầu tiên nếu ở cuối
+        currentIndex = 0;  // Nếu ở cuối, quay về phần tử đầu tiên
     }
     updateSlidePosition();
 }
@@ -94,7 +95,6 @@ function updateSlidePosition() {
 }
 
 // Thêm sự kiện cho các nút điều hướng
-prevBtn.addEventListener('click', slideToPrev);
-nextBtn.addEventListener('click', slideToNext);
-
+prevBtn.addEventListener('click', slideToPrev);  // Khi nhấn nút Prev, di chuyển carousel sang trái
+nextBtn.addEventListener('click', slideToNext);  // Khi nhấn nút Next, di chuyển carousel sang phải
 

@@ -490,7 +490,7 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(4, 1fr);  /* 4 cột đều nhau */
     grid-template-rows: auto;    /* Dòng tự động phù hợp với kích thước mục */
-    gap: 10px;  /* Khoảng cách giữa các mục giảm xuống */
+    gap: 0px;  /* Khoảng cách giữa các mục giảm xuống */
     justify-items: center;  /* Căn giữa các mục */
     max-width: 1200px;  /* Giới hạn chiều rộng container */
     margin: 0 auto;  /* Căn giữa container */

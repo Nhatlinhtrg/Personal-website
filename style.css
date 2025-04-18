@@ -429,32 +429,23 @@ footer a:hover {
     margin: 0 auto;
 }
 
-/* Phần chứa các khóa học */
-.courses-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
-    gap: 20px;  /* Khoảng cách giữa các mục */
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 /* Các mục khóa học */
 .course-item {
     background: 
+        /* Kết hợp với SVG Pattern */
         url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY2hlbWVzL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc2NoZW1lcy9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHN0eWxlPSJmaWxsOiMwMDI4YTgiIC8+Cjwvc3ZnPg==');
-    background-size: 40px 40px, 40px 40px;
-    color: white;
+    background-size: 40px 40px, 40px 40px;  /* Điều chỉnh kích thước cho cả hai */
+    color: white;  /* Màu chữ */
     padding: 20px;
     border-radius: 10px;
-    height: 300px;
+    height: 300px;  /* Chiều cao cố định cho các khung */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Thêm hiệu ứng chuyển động */
 }
-
 
 /* Chứa ảnh */
 .image-container {
@@ -476,7 +467,7 @@ footer a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);  /* Căn giữa hoàn toàn */
     text-align: center;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.6);  /* Nền mờ cho chữ */
@@ -489,7 +480,7 @@ footer a:hover {
 .text-overlay h3 {
     font-family: 'Bebas Neue', sans-serif;  /* Phông chữ mạnh mẽ cho tiêu đề */
     font-weight: normal;
-    font-size: 4rem;  /* Kích thước chữ tiêu đề */
+    font-size: 3rem;  /* Kích thước chữ tiêu đề */
     letter-spacing: 2px;
     text-transform: uppercase;  /* Chữ hoa */
     color: white;
@@ -500,7 +491,7 @@ footer a:hover {
 .text-overlay p {
     font-family: 'Roboto', sans-serif;  /* Phông chữ phụ dễ đọc */
     font-weight: normal;
-    font-size: 1.5rem;  /* Kích thước chữ mô tả */
+    font-size: 1.2rem;  /* Kích thước chữ mô tả */
     color: white;
     letter-spacing: 1px;
     margin-top: 10px;  /* Khoảng cách giữa tiêu đề và mô tả */
@@ -518,61 +509,19 @@ footer a:hover {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);  /* Thêm bóng đổ khi hover */
 }
 
-/* Ẩn các mục khóa học chưa hiển thị */
-.course-item.hidden {
-    display: none;
-}
-
-/* Hiển thị các mục khóa học ban đầu */
-.course-item.visible {
-    display: block;
-}
-
-/* Nút Load More */
-.load-more-btn {
-    display: block;
-    margin: 20px auto;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    background-color: #3217e1;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Nút Show Less */
-.show-less-btn {
-    display: none; /* Ẩn nút này ban đầu */
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: white;
-    background-color: #e74c3c;  /* Màu nền đỏ */
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-/* Hiệu ứng hover cho nút Load More và Show Less */
-.load-more-btn:hover, .show-less-btn:hover {
-    background-color: #6f93b1;  /* Xanh đậm khi hover */
-}
-
 /* Responsive design: Điều chỉnh hiển thị trên các màn hình nhỏ */
 @media (max-width: 1024px) {
     .courses-container {
-        grid-template-columns: repeat(6, 1fr);  /* 6 cột trên màn hình nhỏ */
+        grid-template-columns: repeat(2, 1fr);  /* 2 cột trên màn hình nhỏ */
     }
 }
 
 @media (max-width: 768px) {
     .courses-container {
-        grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình rất nhỏ */
+        grid-template-columns: repeat(1, 1fr);  /* 1 cột trên màn hình rất nhỏ */
     }
 }
+
 
 /* Nền cho phần chứa ảnh */
 .features {

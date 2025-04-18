@@ -59,23 +59,7 @@ toggleBtns.forEach(button => {
     });
 });
 
-let currentIndex = 2;  // Hiển thị ban đầu 2 mục khóa học
-
-const courses = [
-    {title: 'Course 1', description: 'Short description of the course.' },
-    {title: 'Course 2', description: 'Short description of the course.' },
-    {title: 'Course 3', description: 'Short description of the course.' },
-    { title: 'Course 4', description: 'Short description of the course.' },
-    {title: 'Course 5', description: 'Short description of the course.' },
-    {title: 'Course 6', description: 'Short description of the course.' },
-    {title: 'Course 7', description: 'Short description of the course.' },
-    {title: 'Course 8', description: 'Short description of the course.' },
-    {title: 'Course 9', description: 'Short description of the course.' },
-    {title: 'Course 10', description: 'Short description of the course.' },
-    {title: 'Course 11', description: 'Short description of the course.' },
-    {title: 'Course 12', description: 'Short description of the course.' },
-    // Bạn có thể thêm nhiều khóa học khác vào đây
-];
+let currentIndex = 6;  // Hiển thị ban đầu 2 mục khóa học
 
 function loadMore() {
     const container = document.querySelector('.courses-container');
@@ -92,7 +76,7 @@ function loadMore() {
                 <h3>${course.title}</h3>
                 <p>${course.description}</p>
             </div>
-       `;
+        `;
         container.appendChild(courseItem);
     }
 

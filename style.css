@@ -493,6 +493,16 @@ footer a:hover {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);  /* Thêm bóng đổ khi hover */
 }
 
+/* Ẩn các mục khóa học chưa hiển thị */
+.course-item.hidden {
+    display: none;
+}
+
+/* Hiển thị các mục khóa học đầu tiên */
+.course-item.visible {
+    display: block;
+}
+
 /* Nút Load More */
 .load-more-btn {
     display: block;

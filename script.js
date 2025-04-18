@@ -81,19 +81,46 @@ function loadMore() {
     document.querySelector('.show-less-btn').style.display = 'block';
 }
 
-// Hàm showLess để ẩn các mục khóa học đã tải thêm
-function showLess() {
-    const visibleCourses = document.querySelectorAll('.course-item.visible');
+// Khi trang tải, chỉ hiển thị 6 mục đầu tiên và ẩn phần còn lại
+document.addEventListener("DOMContentLoaded", function() {
+    const allItems = document.querySelectorAll('.course-item');
     
-    // Ẩn các mục khóa học vừa tải thêm (mỗi lần 3 mục)
-    for (let i = visibleCourses.length - 1; i >= 6; i--) {
-        visibleCourses[i].classList.remove('visible');
-        visibleCourses[i].classList.add('hidden');
+    // Ẩn các mục sau mục thứ 6
+    for (let i = 6; i < allItems.length; i++) {
+        allItems[i].classList.remove('visible');
+        allItems[i].classList.add('hidden');
+    }
+});
+
+// Hàm Load More: Hiển thị thêm 6 mục
+function loadMore() {
+    const hiddenItems = document.querySelectorAll('.course-item.hidden');
+    
+    // Hiển thị 6 mục ẩn tiếp theo
+    for (let i = 0; i < 6 && i < hiddenItems.length; i++) {
+        hiddenItems[i].classList.remove('hidden');
+        hiddenItems[i].classList.add('visible');
     }
 
-    // Hiển thị lại nút "Load More" nếu chưa hiển thị hết
-    document.querySelector('.load-more-btn').style.display = 'block';
+    // Nếu không còn mục nào để hiển thị, ẩn nút Load More
+    if (document.querySelectorAll('.course-item.hidden').length === 0) {
+        document.querySelector('.load-more-btn').style.display = 'none';
+        document.querySelector('.show-less-btn').style.display = 'block';  // Hiển thị nút Show Less
+    }
+}
 
-    // Ẩn nút "Show Less"
+// Hàm Show Less: Ẩn các mục đã hiển thị thêm
+function showLess() {
+    const allItems = document.querySelectorAll('.course-item');
+
+    // Ẩn tất cả các mục sau mục thứ 6
+    for (let i = 6; i < allItems.length; i++) {
+        allItems[i].classList.remove('visible');
+        allItems[i].classList.add('hidden');
+    }
+
+    // Hiển thị lại nút Load More và ẩn nút Show Less
+    document.querySelector('.load-more-btn').style.display = 'block';
     document.querySelector('.show-less-btn').style.display = 'none';
 }
+

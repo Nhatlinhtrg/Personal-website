@@ -463,59 +463,72 @@ footer a:hover {
     height: 100%;
 }
 
-/* Ảnh trong các khóa học */
-.image-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;  /* Đảm bảo hình ảnh đầy đủ */
-    border-radius: 12px;  /* Bo góc */
+/* Phần chứa các mục khóa học */
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
+    gap: 20px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Lớp chứa văn bản */
-.text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Các mục khóa học */
+.course-item {
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6);  /* Nền mờ cho chữ */
-    border-radius: 12px;
-    max-width: 90%;
-    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Tiêu đề lớn - phông chữ sáng tạo */
-.text-overlay h3 {
-    font-family: 'Bebas Neue', sans-serif;  /* Phông chữ mạnh mẽ cho tiêu đề */
-    font-weight: normal;
-    font-size: 4rem;  /* Kích thước chữ tiêu đề */
-    letter-spacing: 2px;
-    text-transform: uppercase;  /* Chữ hoa */
-    color: white;
-    margin: 0;  /* Loại bỏ margin để căn chỉnh đẹp */
+/* Tiêu đề sử dụng Montserrat */
+.course-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;  /* Đậm cho tiêu đề */
+    font-size: 2rem;   /* Kích thước tiêu đề */
+    color: #333;       /* Màu chữ tiêu đề */
+    margin-bottom: 10px;
 }
 
-/* Mô tả nhỏ - phông chữ phụ */
-.text-overlay p {
-    font-family: 'Roboto', sans-serif;  /* Phông chữ phụ dễ đọc */
-    font-weight: normal;
-    font-size: 1.5rem;  /* Kích thước chữ mô tả */
-    color: white;
-    letter-spacing: 1px;
-    margin-top: 10px;  /* Khoảng cách giữa tiêu đề và mô tả */
-}
-
-/* Hiệu ứng hover cho ảnh */
-.course-item:hover .text-overlay {
-    opacity: 0.8;  /* Tăng độ mờ cho khung chữ khi hover */
-    transform: translate(-50%, -50%) scale(1.05);  /* Hiệu ứng phóng to khi hover */
+/* Mô tả sử dụng Open Sans */
+.course-item p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;  /* Thường cho mô tả */
+    font-size: 1rem;   /* Kích thước mô tả */
+    color: #555;       /* Màu chữ mô tả */
+    line-height: 1.6;
 }
 
 /* Hiệu ứng hover cho các mục khóa học */
 .course-item:hover {
-    transform: scale(1.05);  /* Phóng to khi hover */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);  /* Thêm bóng đổ khi hover */
+    transform: scale(1.05);  /* Phóng to nhẹ khi hover */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);  /* Thêm bóng đổ khi hover */
+}
+
+/* Hiệu ứng hover cho ảnh */
+.feature-item:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive design: Điều chỉnh hiển thị trên các màn hình nhỏ */
+@media (max-width: 768px) {
+    .courses-container {
+        grid-template-columns: 1fr;  /* 1 cột trên màn hình nhỏ */
+    }
+
+    /* Giảm kích thước chữ khi trên màn hình nhỏ */
+    .course-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .course-item p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Ẩn các mục khóa học chưa hiển thị */

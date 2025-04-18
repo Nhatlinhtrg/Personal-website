@@ -432,7 +432,7 @@ footer a:hover {
 /* Tiêu đề phần khóa học */
 .section-title {
     font-family: 'Montserrat', sans-serif;  /* Sử dụng phông chữ Montserrat */
-    font-weight: 700;  /* Đậm cho tiêu đề */
+    font-weight: 200;  /* Đậm cho tiêu đề */
     font-size: 2.5rem;  /* Kích thước chữ tiêu đề */
     color: wheat;  /* Màu chữ */
     text-align: center;  /* Căn giữa */

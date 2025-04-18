@@ -232,62 +232,6 @@ body {
     z-index: 1;
 }
 
-
-/* Nền cho phần chứa ảnh */
-.features {
-    background: linear-gradient( #000000);  /* Đen pha xanh đậm */
-    padding: 60px 0;
-    text-align: center;
-}
-
-.features .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.feature {
-    width: auto; /* Không ép buộc chiều rộng ảnh */
-    text-align: center;
-    max-width: 300px; /* Giới hạn kích thước tối đa nếu muốn */
-    flex-grow: 1; /* Cho phép ảnh giãn nở tự do */
-}
-
-.feature img {
-    width: 100%; /* Ảnh vẫn chiếm hết không gian của div */
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.feature {
-    width: 300px;
-}
-
-.feature img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.feature h3 {
-    font-size: 1.5rem;
-    color: #222;
-}
-
-.feature p {
-    color: #666;
-}
-
 /* SECTION STANDARD */
 section {
     padding: 60px 20px;
@@ -314,17 +258,6 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* FADE-IN ANIMATION */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 /* Nút "Start Now" */
@@ -593,4 +526,68 @@ footer a:hover {
     .courses-container {
         grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình rất nhỏ */
     }
+}
+/* Nền cho phần chứa ảnh */
+.features {
+    background: linear-gradient( #000000);  /* Đen pha xanh đậm */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature {
+    width: auto; /* Không ép buộc chiều rộng ảnh */
+    text-align: center;
+    max-width: 300px; /* Giới hạn kích thước tối đa nếu muốn */
+    flex-grow: 1; /* Cho phép ảnh giãn nở tự do */
+}
+
+.feature img {
+    width: 100%; /* Ảnh vẫn chiếm hết không gian của div */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.feature {
+    width: 300px;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.feature p {
+    color: #666;
+}
+/* FADE-IN ANIMATION */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

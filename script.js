@@ -67,12 +67,33 @@ function loadMore() {
     
     // Chỉ hiển thị 3 mục tiếp theo mỗi lần nhấn "Load More"
     for (let i = 0; i < 3 && i < hiddenCourses.length; i++) {
-        hiddenCourses[i].classList.remove('hidden');  // Xóa lớp "hidden"
-        hiddenCourses[i].classList.add('visible');  // Thêm lớp "visible"
+        hiddenCourses[i].classList.remove('hidden');
+        hiddenCourses[i].classList.add('visible');
     }
+    currentIndex += 3;
 
-    // Kiểm tra xem đã tải hết các khóa học chưa, nếu rồi thì ẩn nút "Load More"
-    if (hiddenCourses.length <= 3) {
+    // Ẩn nút "Load More" nếu đã hiển thị tất cả khóa học
+    if (currentIndex >= hiddenCourses.length + 6) {
         document.querySelector('.load-more-btn').style.display = 'none';
     }
+
+    // Hiển thị nút "Show Less"
+    document.querySelector('.show-less-btn').style.display = 'block';
+}
+
+// Hàm showLess để ẩn các mục khóa học đã tải thêm
+function showLess() {
+    const visibleCourses = document.querySelectorAll('.course-item.visible');
+    
+    // Ẩn các mục khóa học vừa tải thêm (mỗi lần 3 mục)
+    for (let i = visibleCourses.length - 1; i >= 6; i--) {
+        visibleCourses[i].classList.remove('visible');
+        visibleCourses[i].classList.add('hidden');
+    }
+
+    // Hiển thị lại nút "Load More" nếu chưa hiển thị hết
+    document.querySelector('.load-more-btn').style.display = 'block';
+
+    // Ẩn nút "Show Less"
+    document.querySelector('.show-less-btn').style.display = 'none';
 }

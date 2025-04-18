@@ -498,7 +498,7 @@ footer a:hover {
     display: none;
 }
 
-/* Hiển thị các mục khóa học đầu tiên */
+/* Hiển thị các mục khóa học ban đầu */
 .course-item.visible {
     display: block;
 }
@@ -511,18 +511,30 @@ footer a:hover {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background-color: #3217e1;  /* Màu nền cho nút */
+    background-color: #3217e1;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-/* Hiệu ứng hover cho nút Load More */
-.load-more-btn:hover {
-    background-color: #6f93b1;  /* Xanh đậm khi hover */
+/* Nút Show Less */
+.show-less-btn {
+    display: none; /* Ẩn nút này ban đầu */
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #e74c3c;  /* Màu nền đỏ */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
 }
 
+/* Hiệu ứng hover cho nút Load More và Show Less */
+.load-more-btn:hover, .show-less-btn:hover {
+    background-color: #6f93b1;  /* Xanh đậm khi hover */
+}
 
 /* Responsive design: Điều chỉnh hiển thị trên các màn hình nhỏ */
 @media (max-width: 1024px) {

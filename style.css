@@ -422,7 +422,7 @@ footer a:hover {
 /* Phần chứa các khóa học */
 .courses-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);  /* 12 cột, mỗi cột có kích thước bằng nhau */
+    grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
     gap: 20px;  /* Khoảng cách giữa các mục */
     justify-items: center;
     max-width: 1200px;
@@ -446,7 +446,7 @@ footer a:hover {
 /* Ảnh trong các khóa học */
 .image-container img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;  /* Đảm bảo hình ảnh đầy đủ */
     border-radius: 12px;  /* Bo góc */
 }
@@ -487,32 +487,30 @@ footer a:hover {
     transform: translate(-50%, -50%) scale(1.05);  /* Hiệu ứng phóng to khi hover */
 }
 
-/* Thiết kế cho các khóa học có kích thước khác nhau */
-.course-item.large {
-    grid-column: span 2;  /* Chiếm 2 cột */
-    grid-row: span 2;     /* Chiếm 2 hàng */
-    width: 100%;
-    height: 400px;  /* Chiều cao lớn */
-}
-
-.course-item.medium {
-    grid-column: span 1;  /* Chiếm 1 cột */
-    grid-row: span 1;     /* Chiếm 1 hàng */
-    width: 100%;
-    height: 250px;  /* Chiều cao vừa */
-}
-
-.course-item.small {
-    grid-column: span 1;  /* Chiếm 1 cột */
-    grid-row: span 1;     /* Chiếm 1 hàng */
-    width: 100%;
-    height: 200px;  /* Chiều cao nhỏ */
-}
-
 /* Hiệu ứng hover cho các mục khóa học */
 .course-item:hover {
     transform: scale(1.05);  /* Phóng to khi hover */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);  /* Thêm bóng đổ khi hover */
+}
+
+/* Nút Load More */
+.load-more-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #3217e1;  /* Màu nền cho nút */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút Load More */
+.load-more-btn:hover {
+    background-color: #6f93b1;  /* Xanh đậm khi hover */
 }
 
 /* Responsive design: Điều chỉnh hiển thị trên các màn hình nhỏ */

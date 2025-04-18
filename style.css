@@ -429,14 +429,14 @@ footer a:hover {
     margin: 0 auto;
 }
 
-/* Phần chứa các khóa học */
-.courses-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
-    gap: 20px;  /* Khoảng cách giữa các mục */
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Tiêu đề phần khóa học */
+.section-title {
+    font-family: 'Montserrat', sans-serif;  /* Sử dụng phông chữ Montserrat */
+    font-weight: 700;  /* Đậm cho tiêu đề */
+    font-size: 2.5rem;  /* Kích thước chữ tiêu đề */
+    color: #333;  /* Màu chữ */
+    text-align: center;  /* Căn giữa */
+    margin-bottom: 30px;  /* Khoảng cách dưới tiêu đề */
 }
 
 /* Các mục khóa học */

@@ -437,6 +437,7 @@ footer a:hover {
     color: #333;  /* Màu chữ */
     text-align: center;  /* Căn giữa */
     margin-bottom: 30px;  /* Khoảng cách dưới tiêu đề */
+    margin-top: 50px; 
 }
 
 /* Các mục khóa học */

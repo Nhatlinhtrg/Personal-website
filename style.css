@@ -523,6 +523,7 @@ footer a:hover {
     background-color: #6f93b1;  /* Xanh đậm khi hover */
 }
 
+
 /* Responsive design: Điều chỉnh hiển thị trên các màn hình nhỏ */
 @media (max-width: 1024px) {
     .courses-container {

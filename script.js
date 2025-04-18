@@ -62,18 +62,18 @@ toggleBtns.forEach(button => {
 let currentIndex = 3;  // Hiển thị ban đầu 2 mục khóa học
 
 const courses = [
-    {title: 'Life Management', description:'Master your personal growth' },
-    {title: 'Personality and Its Transformation', description: 'Discover your true potential' },
-    {title: 'Business Model', description: 'Understand the structure of a successful business' },
-    {title: 'Train the Trainers', description: 'Become an effective educator and trainer' },
-    {title: 'Introduction to Vietnamese Culture', description: 'Learn about the history and culture of Vietnam' },
-    {title: 'The Study of Greatest Minds', description: 'Study the thoughts and works of historys greatest thinkers' },
-    {title: 'Finance', description: 'Manage your financial future' },
-    {title: 'Psychology', description: 'Understand the human mind' },
-    {title: 'Foreign Language Acquisitions', description: 'Learn new languages easily' },
-    {title: 'Corporate Management', description: 'Manage businesses effectively' },
-    {title: 'Fundamentals of Neuroscience', description: 'Explore the brain and its functions' },
-    {title: 'Talent Management', description: 'Develop and retain talent' },
+    {title: 'Course 1', description: 'Short description of the course.' },
+    {title: 'Course 2', description: 'Short description of the course.' },
+    {title: 'Course 3', description: 'Short description of the course.' },
+    { title: 'Course 4', description: 'Short description of the course.' },
+    {title: 'Course 5', description: 'Short description of the course.' },
+    {title: 'Course 6', description: 'Short description of the course.' },
+    {title: 'Course 7', description: 'Short description of the course.' },
+    {title: 'Course 8', description: 'Short description of the course.' },
+    {title: 'Course 9', description: 'Short description of the course.' },
+    {title: 'Course 10', description: 'Short description of the course.' },
+    {title: 'Course 11', description: 'Short description of the course.' },
+    {title: 'Course 12', description: 'Short description of the course.' },
     // Bạn có thể thêm nhiều khóa học khác vào đây
 ];
 
@@ -92,7 +92,7 @@ function loadMore() {
                 <h3>${course.title}</h3>
                 <p>${course.description}</p>
             </div>
-        `;
+       `;
         container.appendChild(courseItem);
     }
 

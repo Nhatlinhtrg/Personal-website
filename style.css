@@ -421,7 +421,7 @@ footer a:hover {
 
 /* Phần chứa các khóa học */
 .courses-container {
-    display: flex;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
     gap: 20px;  /* Khoảng cách giữa các mục */
     justify-items: center;
@@ -454,6 +454,7 @@ footer a:hover {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
 

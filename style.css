@@ -594,6 +594,17 @@ footer a:hover {
     max-width: 300px; /* Giới hạn kích thước tối đa nếu muốn */
     flex-grow: 1; /* Cho phép ảnh giãn nở tự do */
 }
+/* Các mục khóa học */
+.feature-item {
+    opacity: 0;  /* Ẩn ảnh ban đầu */
+    transform: translateY(20px);  /* Đưa ảnh xuống dưới */
+    transition: opacity 0.5s ease, transform 0.5s ease;  /* Hiệu ứng fade-in */
+}
+
+.feature-item.visible {
+    opacity: 1;  /* Hiển thị ảnh */
+    transform: translateY(0);  /* Trở lại vị trí ban đầu */
+}
 
 .feature img {
     width: 100%; /* Ảnh vẫn chiếm hết không gian của div */

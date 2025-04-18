@@ -5,11 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Travel - LUONG HUNG DUNG</title>
         <link rel="stylesheet" href="style.css">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Thêm Font Awesome để hiện biểu tượng kính lúp -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     </head>
 <body>
@@ -171,96 +169,67 @@
         </div>
     </section>
     <section class="courses-container">
-        <!-- Phần chứa Carousel -->
-        <div id="coursesCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Các mục khóa học hiển thị ban đầu -->
-                <div class="carousel-item active">
-                    <div class="course-item visible">
-                        <h3>LIFE MANAGEMENT</h3>
-                        <p>Master your personal growth</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item visible">
-                        <h3>Personality and Its Transformation</h3>
-                        <p>Discover your true potential</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item visible">
-                        <h3>BUSINESS MODEL</h3>
-                        <p>Understand the structure of a successful business</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item visible">
-                        <h3>TRAIN THE TRAINERS</h3>
-                        <p>Become an effective educator and trainer</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item visible">
-                        <h3>Introduction to Vietnamese Culture</h3>
-                        <p>Learn about the history and culture of Vietnam</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item visible">
-                        <h3>The Study of Greatest Minds</h3>
-                        <p>Study the thoughts and works of history's greatest thinkers</p>
-                    </div>
-                </div>
-                <!-- Các mục khóa học bị ẩn đi -->
-                <div class="carousel-item">
-                    <div class="course-item hidden">
-                        <h3>FINANCE</h3>
-                        <p>Manage your financial future</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item hidden">
-                        <h3>PSYNOLOGY</h3>
-                        <p>Understand the human mind</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item hidden">
-                        <h3>Foreign Language Acquisitions</h3>
-                        <p>Learn new languages easily</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item hidden">
-                        <h3>CORPORATE MANAGEMENT</h3>
-                        <p>Manage businesses effectively</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item hidden">
-                        <h3>Fundamentals of Neuroscience</h3>
-                        <p>Explore the brain and its functions</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="course-item hidden">
-                        <h3>TALENT MANAGEMENT</h3>
-                        <p>Develop and retain talent</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Nút điều khiển Carousel -->
-            <a class="carousel-control-prev" href="#coursesCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#coursesCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        <!-- Các mục khóa học hiển thị ban đầu -->
+        <div class="course-item visible">
+            <h3>LIFE MANAGEMENT</h3>
+            <p>Master your personal growth</p>
+        </div>
+        <div class="course-item visible">
+            <h3>Personality and Its Transformation</h3>
+            <p>Discover your true potential</p>
+        </div>
+        <div class="course-item visible">
+            <h3>BUSINESS MODEL</h3>
+            <p>Understand the structure of a successful business</p>
+        </div>
+        <div class="course-item visible">
+            <h3>TRAIN THE TRAINERS</h3>
+            <p>Become an effective educator and trainer</p>
+        </div>
+        <div class="course-item visible">
+            <h3>Introduction to Vietnamese Culture</h3>
+            <p>Learn about the history and culture of Vietnam</p>
+        </div>
+        <div class="course-item visible">
+            <h3>The Study of Greatest Minds</h3>
+            <p>Study the thoughts and works of history's greatest thinkers</p>
+        </div>
+        <!-- Các mục khóa học bị ẩn đi -->
+        <div class="course-item hidden">
+            <h3>FINANCE</h3>
+            <p>Manage your financial future</p>
+        </div>
+        <div class="course-item hidden">
+            <h3>PSYCOLOGY</h3>
+            <p>Understand the human mind</p>
+        </div>
+        <div class="course-item hidden">
+            <h3>Foreign Language Acquisitions</h3>
+            <p>Learn new languages easily</p>
+        </div>
+        <div class="course-item hidden">
+            <h3>CORPORATE MANAGEMENT</h3>
+            <p>Manage businesses effectively</p>
+        </div>
+        <div class="course-item hidden">
+            <h3>Fundamentals of Neuroscience</h3>
+            <p>Explore the brain and its functions</p>
+        </div>
+        <div class="course-item hidden">
+            <h3>TALENT MANAGEMENT</h3>
+            <p>Develop and retain talent</p>
         </div>
     </section>
     
+    <!-- Nút Load More -->
+    <button class="load-more-btn" onclick="loadMore()">Load More</button>
+    
+    <!-- Nút Show Less -->
+    <button class="show-less-btn" onclick="showLess()" style="display: none;">Show Less</button>
+    
+    
+    
+
     <!-- Nội dung nổi bật -->
     <section class="features fade-in">
         <div class="container">
@@ -459,9 +428,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

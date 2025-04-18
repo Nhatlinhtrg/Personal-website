@@ -545,7 +545,7 @@ footer a:hover {
 
 /* Hiệu ứng hover cho ảnh */
 .course-item:hover {
-    transform: scale(1.05);  /* Phóng to khi hover */
+    transform: scale(1.01);  /* Phóng to khi hover */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);  /* Thêm bóng đổ khi hover */
 }
 

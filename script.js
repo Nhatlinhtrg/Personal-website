@@ -59,7 +59,7 @@ toggleBtns.forEach(button => {
     });
 });
 
-let currentIndex = 3;  // Hiển thị ban đầu 2 mục khóa học
+let currentIndex = 2;  // Hiển thị ban đầu 2 mục khóa học
 
 const courses = [
     {title: 'Course 1', description: 'Short description of the course.' },

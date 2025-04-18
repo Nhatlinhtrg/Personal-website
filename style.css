@@ -439,6 +439,15 @@ footer a:hover {
     margin: 0 auto;
 }
 
+/* Phần chứa các khóa học */
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 cột, mỗi cột chiếm 1 phần */
+    gap: 20px;  /* Khoảng cách giữa các mục */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* Các mục khóa học */
 .course-item {
     background: 
@@ -450,19 +459,12 @@ footer a:hover {
     color: white;  /* Màu chữ */
     padding: 20px;
     border-radius: 10px;
-    height: 250px;  /* Chiều cao cố định cho các khung */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Tạo bóng đổ cho khung */
     display: flex;
     flex-direction: column;
     justify-content: space-between;  /* Đảm bảo nội dung cách đều */
     text-align: center;
-}
-
-/* Chứa ảnh */
-.image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    height: 300px;  /* Chiều cao cố định cho các khung hình chữ nhật */
 }
 
 /* Ảnh trong các khóa học */
@@ -570,6 +572,7 @@ footer a:hover {
         grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình rất nhỏ */
     }
 }
+
 
 /* Nền cho phần chứa ảnh */
 .features {

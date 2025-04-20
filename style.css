@@ -80,12 +80,33 @@ body {
     height: 100px;  /* Chiều cao logo và chữ đều nhau */
 }
 
-/* MENU */
 .nav-bar {
     display: flex;
-    justify-content: space-between; /* Các mục căn đều ra hai bên */
+    justify-content: space-between;
     align-items: center;
     width: 80%;
+    position: relative;
+}
+
+.language-toggle {
+    position: absolute;
+    left: 0;  /* Positioning it to the left */
+    display: flex;
+    gap: 10px;
+}
+
+.language-toggle button {
+    background-color: #3217e1;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.language-toggle button:hover {
+    background-color: #6f93b1;
 }
 
 .nav-menu {
@@ -103,6 +124,7 @@ body {
     font-weight: normal;
     font-size: 0.9rem;
 }
+
 
 
 /* Thay đổi nút kính lúp thành nút ba gạch ngang */
@@ -657,7 +679,7 @@ footer a:hover {
 
 /* Phần chứa cả hai phần Social Media và Newsletter */
 .connect-section {
-    background-color: #1E6C80;  /* Màu nền */
+    background-color: BLACK;  /* Màu nền */
     padding: 40px 0;
     display: flex;
     justify-content: space-between;
@@ -669,22 +691,26 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 80px;  /* Dịch toàn bộ phần social media sang phải một chút */
 }
 
 .social-media-container h2 {
-    color: white;
+    color: white;  /* Màu chữ tiêu đề */
     font-size: 1.5rem;
     margin-bottom: 20px;
+    margin-left: 20px;
 }
 
+/* Các icon xã hội */
 .social-icons {
     display: flex;
     gap: 15px;
+    margin-left: 60px;  /* Dịch các icon sang phải một chút */
 }
 
 .social-icon {
     display: inline-block;
-    color: white;
+    color: #1E6C80;
     font-size: 1.5rem;
     text-decoration: none;
     padding: 10px;
@@ -693,26 +719,28 @@ footer a:hover {
 }
 
 .social-icon:hover {
-    background-color: rgba(255, 255, 255, 0.3);  /* Hiệu ứng hover */
+    background-color: rgba(0, 0, 0, 0.1);  /* Hiệu ứng hover */
 }
 
-.facebook:hover { background-color: #3b5998; }
-.instagram:hover { background-color: #C13584; }
-.x:hover { background-color: #1d1f23; }
-.youtube:hover { background-color: #FF0000; }
-.linkedin:hover { background-color: #0e76a8; }
+.social-icon.facebook:hover { background-color: #3b5998; }
+.social-icon.instagram:hover { background-color: #C13584; }
+.social-icon.x:hover { background-color: #1d1f23; }
+.social-icon.youtube:hover { background-color: #FF0000; }
+.social-icon.linkedin:hover { background-color: #0e76a8; }
 
 /* Phần chứa form đăng ký newsletter */
 .newsletter-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-right: 60px;
 }
 
 .newsletter-container h2 {
     color: white;
     font-size: 1.5rem;
     margin-bottom: 20px;
+    margin-right: 60px;
 }
 
 .newsletter-form {
@@ -743,3 +771,5 @@ footer a:hover {
 .subscribe-btn:hover {
     background-color: #C0392B;
 }
+
+

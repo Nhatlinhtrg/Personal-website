@@ -123,4 +123,27 @@ function showLess() {
     document.querySelector('.load-more-btn').style.display = 'block';
     document.querySelector('.show-less-btn').style.display = 'none';
 }
+document.getElementById('en-btn').addEventListener('click', function() {
+    changeLanguage('en');
+});
+
+document.getElementById('ru-btn').addEventListener('click', function() {
+    changeLanguage('ru');
+});
+
+function changeLanguage(language) {
+    if (language === 'en') {
+        document.documentElement.lang = 'en';
+        // Change text content for English
+        document.querySelector('h1').textContent = "Education, devoid of ideology.";
+        document.querySelector('p').textContent = "Affordable to all, taught by the best.";
+        // You can add more text content changes here
+    } else if (language === 'ru') {
+        document.documentElement.lang = 'ru';
+        // Change text content for Russian
+        document.querySelector('h1').textContent = "Образование, лишенное идеологии.";
+        document.querySelector('p').textContent = "Доступно для всех, преподаваемое лучшими.";
+        // Add more translations here
+    }
+}
 

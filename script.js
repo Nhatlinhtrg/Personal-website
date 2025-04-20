@@ -137,7 +137,7 @@ function changeLanguage(language) {
         // Change text content for English
         document.querySelector('h1').textContent = "Education, devoid of ideology.";
         document.querySelector('p').textContent = "Affordable to all, taught by the best.";
-        // You can add more text content changes here
+        // Add more translations here
     } else if (language === 'ru') {
         document.documentElement.lang = 'ru';
         // Change text content for Russian
@@ -146,4 +146,5 @@ function changeLanguage(language) {
         // Add more translations here
     }
 }
+
 

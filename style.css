@@ -253,13 +253,16 @@ body {
 
 /* Video Courses Section */
 .video-courses {
-    background-image: url("C:\Users\win\OneDrive\Máy tính\docs\images\HUNGDUNG.jpg"); /* Đường dẫn ảnh */
-    background-size: cover;  /* Đảm bảo ảnh phủ kín toàn bộ phần tử */
+    background-image: url('C:\Users\win\OneDrive\Máy tính\docs\images\HUNGDUNG.jpg'); /* Đường dẫn tới ảnh */
+    background-size: cover;  /* Đảm bảo ảnh phủ kín phần tử */
     background-position: center; /* Căn giữa ảnh */
     position: relative;
-    padding: 100px 20px;
+    padding: 60px 20px; /* Giảm padding để chiều cao nhỏ lại */
     text-align: center;
     color: white;
+    min-height: 400px;  /* Đảm bảo chiều cao tối thiểu */
+    max-height: 600px;  /* Đặt chiều cao tối đa */
+    overflow: hidden;  /* Ẩn phần ảnh bị cắt */
 }
 
 .video-overlay {
@@ -268,46 +271,46 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    filter: blur(5px); /* Slight blur effect */
+    background: rgba(0, 0, 0, 0.5); /* Lớp phủ tối */
+    filter: blur(5px); /* Hiệu ứng làm mờ */
     z-index: 1;
 }
 
 .video-content {
     position: relative;
-    z-index: 2; /* To ensure text appears above overlay */
+    z-index: 2; /* Đảm bảo nội dung nằm trên lớp overlay */
 }
 
 .video-content h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;  /* Giảm kích thước tiêu đề */
     font-weight: 700;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .video-content p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;  /* Giảm kích thước văn bản */
     color: #ddd;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .video-content .highlight {
-    color: #3217e1; /* Highlight color */
+    color: #3217e1; /* Màu nhấn */
     font-weight: bold;
 }
 
 .video-content .description {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;  /* Giảm kích thước mô tả */
+    line-height: 1.5;
     color: #bbb;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .view-courses-btn {
     background-color: #3217e1;
     color: white;
-    font-size: 1.2rem;
-    padding: 15px 30px;
+    font-size: 1rem;
+    padding: 12px 25px;  /* Giảm kích thước nút */
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -315,8 +318,9 @@ body {
 }
 
 .view-courses-btn:hover {
-    background-color: #6f93b1; /* Change color on hover */
+    background-color: #6f93b1; /* Thay đổi màu khi hover */
 }
+
 
 /* SECTION STANDARD */
 section {

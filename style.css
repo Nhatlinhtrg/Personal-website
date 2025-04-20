@@ -251,6 +251,73 @@ body {
     z-index: 1;
 }
 
+/* Video Courses Section */
+.video-courses {
+    background-image: url("C:\Users\win\OneDrive\Máy tính\docs\images\HUNGDUNG.jpg"); /* Đường dẫn ảnh */
+    background-size: cover;  /* Đảm bảo ảnh phủ kín toàn bộ phần tử */
+    background-position: center; /* Căn giữa ảnh */
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    filter: blur(5px); /* Slight blur effect */
+    z-index: 1;
+}
+
+.video-content {
+    position: relative;
+    z-index: 2; /* To ensure text appears above overlay */
+}
+
+.video-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.video-content p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.video-content .highlight {
+    color: #3217e1; /* Highlight color */
+    font-weight: bold;
+}
+
+.video-content .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.view-courses-btn {
+    background-color: #3217e1;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-courses-btn:hover {
+    background-color: #6f93b1; /* Change color on hover */
+}
+
 /* SECTION STANDARD */
 section {
     padding: 60px 20px;

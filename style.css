@@ -177,9 +177,9 @@ body {
     }
 }
 
-/* Phần nền */
+/* Phần nền Hero Banner */
 .hero-banner  {
-    background-image: url('images/hero-bg.jpg');
+    background-image: url('images/hero-bg.jpg'); /* Đảm bảo sử dụng đường dẫn đúng tới ảnh */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -192,7 +192,7 @@ body {
     color: white;
 }
 
-/* Nội dung bên trong */
+/* Nội dung bên trong Hero Banner */
 .hero-content {
     max-width: 800px;
     padding: 20px;
@@ -221,105 +221,97 @@ body {
     margin-bottom: 10px;
 }
 
-/* Nút "Let's join in" */
-.join-btn {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
+.hero-banner button {
+    background-color: #3217e1;
     color: white;
-    background-color: #3217e1; /* Màu xanh dương */
+    font-size: 1.2rem;
+    padding: 15px 30px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-/* Hiệu ứng hover cho nút */
-.join-btn:hover {
-    background-color: #6f93b1; /* Xanh đậm khi hover */
+.hero-banner button:hover {
+    background-color: #6f93b1; /* Change color on hover */
 }
 
-/* Tạo hiệu ứng mờ dần ở các cạnh */
-.hero-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Màu đen mờ */
-    z-index: 1;
-}
-
-/* Video Courses Section */
-.video-courses {
-    background-image: url('C:\Users\win\OneDrive\Máy tính\docs\images\HUNGDUNG.jpg'); /* Đường dẫn tới ảnh */
-    background-size: cover;  /* Đảm bảo ảnh phủ kín phần tử */
-    background-position: center; /* Căn giữa ảnh */
+/* Phần mới dưới Hero Banner */
+.new-section {
     position: relative;
-    padding: 60px 20px; /* Giảm padding để chiều cao nhỏ lại */
-    text-align: center;
+    background-image: url('images/hungdung.jpg'); /* Đảm bảo sử dụng đúng đường dẫn ảnh */
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
     color: white;
-    min-height: 400px;  /* Đảm bảo chiều cao tối thiểu */
-    max-height: 600px;  /* Đặt chiều cao tối đa */
-    overflow: hidden;  /* Ẩn phần ảnh bị cắt */
+    min-height: 600px;
 }
 
-.video-overlay {
+.new-section::before {
+    content: ''; 
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Lớp phủ tối */
-    filter: blur(5px); /* Hiệu ứng làm mờ */
-    z-index: 1;
+    background: radial-gradient(cỉcle, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 11) 100%) ; /* Lớp phủ tối */
+    z-index: 2;
+    border-radius: 400px;
 }
 
-.video-content {
+/* Nội dung bên trong phần mới */
+.new-section-content {
     position: relative;
-    z-index: 2; /* Đảm bảo nội dung nằm trên lớp overlay */
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
-.video-content h2 {
-    font-size: 2rem;  /* Giảm kích thước tiêu đề */
+/* Nội dung bên trái */
+.left-content, .right-content {
+    width: 48%;  /* Chiếm khoảng 48% chiều rộng */
+    font-family: 'Roboto', sans-serif; /* Phông chữ cho phần nội dung */
+}
+
+.content-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Nền tối cho khung chứa nội dung */
+    padding: 20px;
+    border-radius: 15px; /* Bo tròn các góc của khung */
+    height: 100%;
+    display: flex;
+    flex-direction: column;  /* Cho phép các phần tử văn bản xuống dòng */
+    justify-content: center;  /* Căn giữa nội dung */
+    background-color: transparent;
+    max-width: 100%;
+}
+
+.left-content h2, .right-content h2 {
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #fff;
-    margin-bottom: 15px;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: 1px; /* Khoảng cách giữa các chữ */
 }
 
-.video-content p {
-    font-size: 1.1rem;  /* Giảm kích thước văn bản */
+.left-content p, .right-content p {
+    font-size: 1.2rem;
     color: #ddd;
-    margin-bottom: 15px;
-}
-
-.video-content .highlight {
-    color: #3217e1; /* Màu nhấn */
-    font-weight: bold;
-}
-
-.video-content .description {
-    font-size: 1rem;  /* Giảm kích thước mô tả */
-    line-height: 1.5;
-    color: #bbb;
+    line-height: 1.6;
     margin-bottom: 20px;
 }
 
-.view-courses-btn {
-    background-color: #3217e1;
-    color: white;
-    font-size: 1rem;
-    padding: 12px 25px;  /* Giảm kích thước nút */
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.left-content .description, .right-content .description {
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-top: 30px;
+    text-align: justify;
 }
 
-.view-courses-btn:hover {
-    background-color: #6f93b1; /* Thay đổi màu khi hover */
-}
+
+
 
 
 /* SECTION STANDARD */
@@ -509,109 +501,71 @@ footer a:hover {
     left: 0;
 }
 
-/* Phần chứa các khóa học */
+/* Phần chứa các mục khóa học */
 .courses-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
-    gap: 20px;  /* Khoảng cách giữa các mục */
+    grid-template-columns: repeat(4, 1fr);  /* 3 cột trên màn hình lớn */
+    gap: 0px;  /* Khoảng cách giữa các mục */
     justify-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
-
-/* Tiêu đề phần khóa học */
-.section-title {
-    font-family: 'Montserrat', sans-serif;  /* Sử dụng phông chữ Montserrat */
-    font-weight: 200;  /* Đậm cho tiêu đề */
-    font-size: 2.5rem;  /* Kích thước chữ tiêu đề */
-    color: wheat;  /* Màu chữ */
-    text-align: center;  /* Căn giữa */
-    margin-bottom: 30px;  /* Khoảng cách dưới tiêu đề */
-    margin-top: 50px; 
-}
-
 
 /* Chứa ảnh */
 .image-container {
     position: relative;
     width: 100%;
-    height: 100%;
-}
-
-/* Phần chứa các mục khóa học */
-.courses-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 cột trên màn hình lớn */
-    gap: 20px;
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.course-item {
-    padding: 20px;
-    background: repeating-linear-gradient(
-        45deg,    /* Góc nghiêng tạo các đường chéo */
-        #e0e0e0 0px,     /* Màu xám nhạt */
-        #e0e0e0 10px,    /* Đoạn màu xám */
-        #d3d3d3 10px,    /* Màu xám sáng hơn */
-        #d3d3d3 20px     /* Đoạn màu sáng hơn */
-    );
+    height: 300px; /* Chiều cao có thể điều chỉnh */
+    overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+/* Hình ảnh bên trong */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị bóp méo */
+}
+
+/* Đoạn overlay chứa chữ */
+.overlay {
+    position: absolute;
+    top: 50%;  /* Đặt phần tử chồng lên giữa ảnh */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn chỉnh trung tâm */
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 300px;
+    color: white;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ cho chữ dễ đọc */
+    padding: 10px;
+    border-radius: 5px;
 }
 
-/* Tiêu đề sử dụng Montserrat */
-.course-item h3 {
+.overlay h3 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;  /* Đậm cho tiêu đề */
-    font-size: 2rem;   /* Kích thước tiêu đề */
-    color: #333;       /* Màu chữ tiêu đề */
-    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 2rem;
 }
 
-/* Mô tả sử dụng Open Sans */
-.course-item p {
+.overlay p {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;  /* Thường cho mô tả */
-    font-size: 1rem;   /* Kích thước mô tả */
-    color: #555;       /* Màu chữ mô tả */
-    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
-/* Hiệu ứng hover cho các mục khóa học */
-.course-item:hover {
-    transform: scale(1.05);  /* Phóng to nhẹ khi hover */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);  /* Thêm bóng đổ khi hover */
-}
-
-/* Hiệu ứng hover cho ảnh */
-.feature-item:hover {
-    transform: scale(1.05);
+/* Hiệu ứng hover */
+.course-item:hover .overlay {
+    opacity: 1; /* Làm cho phần overlay hiển thị khi hover */
 }
 
 /* Responsive design: Điều chỉnh hiển thị trên các màn hình nhỏ */
 @media (max-width: 768px) {
     .courses-container {
-        grid-template-columns: 1fr;  /* 1 cột trên màn hình nhỏ */
-    }
-
-    /* Giảm kích thước chữ khi trên màn hình nhỏ */
-    .course-item h3 {
-        font-size: 1.5rem;
-    }
-
-    .course-item p {
-        font-size: 0.9rem;
+        grid-template-columns: 1fr; /* 1 cột trên màn hình nhỏ */
     }
 }
+
+
 
 /* Ẩn các mục khóa học chưa hiển thị */
 .course-item.hidden {

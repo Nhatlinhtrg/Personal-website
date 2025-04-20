@@ -97,7 +97,7 @@ function loadMore() {
     const hiddenItems = document.querySelectorAll('.course-item.hidden');
     
     // Hiển thị 6 mục ẩn tiếp theo
-    for (let i = 0; i < 6 && i < hiddenItems.length; i++) {
+    for (let i = 0; i < 4 && i < hiddenItems.length; i++) {
         hiddenItems[i].classList.remove('hidden');
         hiddenItems[i].classList.add('visible');
     }
@@ -114,7 +114,7 @@ function showLess() {
     const allItems = document.querySelectorAll('.course-item');
 
     // Ẩn tất cả các mục sau mục thứ 6
-    for (let i = 6; i < allItems.length; i++) {
+    for (let i = 8; i < allItems.length; i++) {
         allItems[i].classList.remove('visible');
         allItems[i].classList.add('hidden');
     }

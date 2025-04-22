@@ -502,10 +502,20 @@ footer a:hover {
 }
 
 /* Phần chứa các mục khóa học */
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;  /* Sử dụng phông chữ Montserrat */
+    font-weight: 200;  /* Đậm cho tiêu đề */
+    font-size: 2.5rem;  /* Kích thước chữ tiêu đề */
+    color: wheat;  /* Màu chữ */
+    text-align: center;  /* Căn giữa */
+    margin-bottom: 30px;  /* Khoảng cách dưới tiêu đề */
+    margin-top: 50px;
+}
 .courses-container {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(4, 1fr);  /* 3 cột trên màn hình lớn */
-    gap: 0px;  /* Khoảng cách giữa các mục */
+    gap: 10px;  /* Khoảng cách giữa các mục */
     justify-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -536,7 +546,7 @@ footer a:hover {
     text-align: center;
     color: white;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ cho chữ dễ đọc */
+    background-color: TRANSPARENT; 
     padding: 10px;
     border-radius: 5px;
 }
@@ -544,13 +554,119 @@ footer a:hover {
 .overlay h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1rem;
+
 }
 
-.overlay p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+/* Phong cách cho từ LIFE (phóng to và giãn ra) */
+.style-life-management .word-large-life {
+    font-size: 3rem;  /* Phóng to từ LIFE */
+    letter-spacing: 9px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+/* Phong cách cho từ MANAGEMENT (thu nhỏ lại) */
+.style-life-management .word-small-life {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+.style-trainers .word-small-trainer {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+.style-trainers .word-medium-trainer {
+    font-size: 2.5rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+.style-trainers .word-large-trainer {
+    font-size: 1.6rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+
+.style-fundamentals-of-neuronscience .word-small-neuronscience {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 0px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+    font-style: italic;
+}
+.style-fundamentals-of-neuronscience .word-medium-neuronscience{
+    font-size: 1.5rem;  /* Phóng to từ LIFE */
+    letter-spacing: 1px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+.style-fundamentals-of-neuronscience .word-large-neuronscience{
+    font-size: 1rem;  /* Phóng to từ LIFE */
+    letter-spacing: 0px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+
+.style-talent-management .word-large-talent {
+    font-size: 2rem;  /* Phóng to từ LIFE */
+    letter-spacing: 2px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa */
+
+}
+.style-talent-management .word-small-talent {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1.5px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+.style-the-startup .word-large-startup {
+    font-size: 1.8rem;  /* Phóng to từ LIFE */
+    letter-spacing: 2px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa *
+}
+.style-the-startup .word-medium-startup {
+font-size: 1.5rem;  /* Phóng to từ LIFE */
+letter-spacing: 4px;  /* Giãn khoảng cách giữa các chữ */
+text-transform: uppercase;  /* Chữ in hoa *
+}
+
+
+.style-the-startup .word-small-startup {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+
+
+
+
+.style-the-franchise .word-small-franchise {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 20px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+    text-align: center; 
+
+}
+
+.style-the-franchise .word-large-franchise{
+    font-size: 1.5rem;  /* Phóng to từ LIFE */
+    letter-spacing: 0.5px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa */
+
+}
+
+.style-risk-management .word-large-risk {
+    font-size: 3rem;  /* Phóng to từ LIFE */
+    letter-spacing: 9px;  /* Giãn khoảng cách giữa các chữ */
+    text-transform: uppercase;  /* Chữ in hoa */
+}
+.style-risk-management .word-small-risk {
+    font-size: 1rem;  /* Thu nhỏ từ MANAGEMENT */
+    letter-spacing: 1.5px;  /* Khoảng cách chữ nhỏ hơn */
+    text-transform: uppercase;  /* Chữ in hoa */
+
 }
 
 /* Hiệu ứng hover */

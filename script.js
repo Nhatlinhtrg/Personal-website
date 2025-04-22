@@ -59,21 +59,19 @@ toggleBtns.forEach(button => {
     });
 });
 
-let currentIndex = 6;  // Hiển thị ban đầu 6 mục khóa học
+let currentIndex = 8;  // Hiển thị ban đầu 6 mục khóa học
 
-// Hàm loadMore để hiển thị thêm các mục khóa học
+// Hàm Load More - Hiển thị các mục khóa học bị ẩn
 function loadMore() {
-    const hiddenCourses = document.querySelectorAll('.course-item.hidden');
-    
-    // Chỉ hiển thị 3 mục tiếp theo mỗi lần nhấn "Load More"
-    for (let i = 0; i < 3 && i < hiddenCourses.length; i++) {
-        hiddenCourses[i].classList.remove('hidden');
-        hiddenCourses[i].classList.add('visible');
+    var hiddenItems = document.querySelectorAll('.course-item.hidden');
+    for (var i = 0; i < hiddenItems.length; i++) {
+        hiddenItems[i].classList.add('visible');
+        hiddenItems[i].classList.remove('hidden');
     }
-    currentIndex += 3;
 
-    // Ẩn nút "Load More" nếu đã hiển thị tất cả khóa học
-    if (currentIndex >= hiddenCourses.length + 6) {
+    // Ẩn nút "Load More" khi không còn mục ẩn
+    var hiddenItemsAfterLoad = document.querySelectorAll('.course-item.hidden');
+    if (hiddenItemsAfterLoad.length === 0) {
         document.querySelector('.load-more-btn').style.display = 'none';
     }
 
@@ -81,70 +79,19 @@ function loadMore() {
     document.querySelector('.show-less-btn').style.display = 'block';
 }
 
-// Khi trang tải, chỉ hiển thị 6 mục đầu tiên và ẩn phần còn lại
-document.addEventListener("DOMContentLoaded", function() {
-    const allItems = document.querySelectorAll('.course-item');
-    
-    // Ẩn các mục sau mục thứ 6
-    for (let i = 6; i < allItems.length; i++) {
-        allItems[i].classList.remove('visible');
-        allItems[i].classList.add('hidden');
-    }
-});
-
-// Hàm Load More: Hiển thị thêm 6 mục
-function loadMore() {
-    const hiddenItems = document.querySelectorAll('.course-item.hidden');
-    
-    // Hiển thị 6 mục ẩn tiếp theo
-    for (let i = 0; i < 4 && i < hiddenItems.length; i++) {
-        hiddenItems[i].classList.remove('hidden');
-        hiddenItems[i].classList.add('visible');
-    }
-
-    // Nếu không còn mục nào để hiển thị, ẩn nút Load More
-    if (document.querySelectorAll('.course-item.hidden').length === 0) {
-        document.querySelector('.load-more-btn').style.display = 'none';
-        document.querySelector('.show-less-btn').style.display = 'block';  // Hiển thị nút Show Less
-    }
-}
-
-// Hàm Show Less: Ẩn các mục đã hiển thị thêm
+// Hàm Show Less - Ẩn bớt các mục khóa học
 function showLess() {
-    const allItems = document.querySelectorAll('.course-item');
+    var visibleItems = document.querySelectorAll('.course-item.visible');
+    var itemsToHide = Array.from(visibleItems).slice(8); // Giữ lại 8 mục đầu
 
-    // Ẩn tất cả các mục sau mục thứ 6
-    for (let i = 8; i < allItems.length; i++) {
-        allItems[i].classList.remove('visible');
-        allItems[i].classList.add('hidden');
+    for (var i = 0; i < itemsToHide.length; i++) {
+        itemsToHide[i].classList.add('hidden');
+        itemsToHide[i].classList.remove('visible');
     }
 
-    // Hiển thị lại nút Load More và ẩn nút Show Less
+    // Hiển thị lại nút "Load More"
     document.querySelector('.load-more-btn').style.display = 'block';
+
+    // Ẩn nút "Show Less" khi đã ẩn bớt
     document.querySelector('.show-less-btn').style.display = 'none';
 }
-document.getElementById('en-btn').addEventListener('click', function() {
-    changeLanguage('en');
-});
-
-document.getElementById('ru-btn').addEventListener('click', function() {
-    changeLanguage('ru');
-});
-
-function changeLanguage(language) {
-    if (language === 'en') {
-        document.documentElement.lang = 'en';
-        // Change text content for English
-        document.querySelector('h1').textContent = "Education, devoid of ideology.";
-        document.querySelector('p').textContent = "Affordable to all, taught by the best.";
-        // Add more translations here
-    } else if (language === 'ru') {
-        document.documentElement.lang = 'ru';
-        // Change text content for Russian
-        document.querySelector('h1').textContent = "Образование, лишенное идеологии.";
-        document.querySelector('p').textContent = "Доступно для всех, преподаваемое лучшими.";
-        // Add more translations here
-    }
-}
-
-

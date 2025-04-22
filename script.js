@@ -59,7 +59,7 @@ toggleBtns.forEach(button => {
     });
 });
 
-let currentIndex = 8;  // Hiển thị ban đầu 6 mục khóa học
+let currentIndex = 6;  // Hiển thị ban đầu 6 mục khóa học
 
 // Hàm Load More - Hiển thị các mục khóa học bị ẩn
 function loadMore() {
@@ -82,7 +82,7 @@ function loadMore() {
 // Hàm Show Less - Ẩn bớt các mục khóa học
 function showLess() {
     var visibleItems = document.querySelectorAll('.course-item.visible');
-    var itemsToHide = Array.from(visibleItems).slice(8); // Giữ lại 8 mục đầu
+    var itemsToHide = Array.from(visibleItems).slice(6); // Giữ lại 8 mục đầu
 
     for (var i = 0; i < itemsToHide.length; i++) {
         itemsToHide[i].classList.add('hidden');

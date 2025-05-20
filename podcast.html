@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Huberman Lab</title>
+<style>
+  /* Reset và cơ bản */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #fafafa;
+    color: #000;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .logo {
+    border: 3px solid #0da7f2;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #0da7f2;
+    letter-spacing: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+  nav > div {
+    position: relative;
+    cursor: pointer;
+  }
+  nav > div:hover > .dropdown {
+    display: block;
+  }
+  .dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 4px;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    min-width: 120px;
+  }
+  .dropdown a {
+    display: block;
+    padding: 5px 0;
+    font-weight: normal;
+  }
+
+  .right-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-member {
+    background-color: #8959ff;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-member:hover {
+    background-color: #6e44d4;
+  }
+  .login, .search {
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .search input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    display: none;
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  .search:hover input,
+  .search input:focus {
+    display: inline-block;
+  }
+
+  /* Main content */
+  main {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  .podcast-image {
+    border: 5px solid #0da7f2;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .podcast-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .podcast-text-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    color: #0da7f2;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+    font-family: 'Courier New', monospace;
+    line-height: 1.2;
+    user-select: none;
+  }
+  .podcast-info {
+    max-width: 600px;
+    flex: 1 1 300px;
+  }
+  .podcast-info h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  .podcast-info p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .podcast-info > div:first-of-type {
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .listen-platforms {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .platform {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+  }
+  .platform:hover {
+    background-color: #f0f0f0;
+  }
+  .platform svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* Search topics section */
+  .search-container {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+  }
+  .search-container h1 {
+    font-weight: 700;
+    margin-bottom: 5px;font-size: 2rem;
+  }
+  .search-container p {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1rem;
+  }
+  .search-box {
+    display: inline-flex;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 40px;
+  }
+  .search-box input {
+    border: none;
+    padding: 12px 20px;
+    flex-grow: 1;
+    font-size: 16px;
+    outline: none;
+  }
+  .search-btn {
+    background: none;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .topic {
+    background: #f3f3f3;
+    padding: 25px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+  .topic:hover {
+    background: #e0e0e0;
+  }
+  .icon {
+    color: #000;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  .topic p {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+  }
+  .explore-btn {
+    background: #00aeff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 40px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .explore-btn:hover {
+    background: #0096e6;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    main {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .podcast-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+    .podcast-image img {
+      height: auto;
+    }
+  }
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    nav {
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .right-actions {
+      gap: 15px;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .search input {
+      width: 100%;
+      max-width: 200px;
+      display: none;
+    }
+    .search:hover input,
+    .search input:focus {
+      display: inline-block;
+    }
+    .search-box {
+      max-width: 100%;
+    }
+    .topics {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+
+.latest-episode {
+  padding: 30px 20px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #111;
+  background: #fafafa;
+  transition: box-shadow 0.3s ease;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.latest-episode:hover {
+  box-shadow: 0 20px 40px rgba(0, 170, 255, 0.3);
+}
+
+.latest-episode .container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.episode-image {
+  flex: 1 1 320px;
+  max-width: 480px;
+  padding: 8px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #00aaff, #004466, #00aaff);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.episode-image:hover {
+  transform: scale(1.05);
+}
+
+.episode-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.episode-info {
+  flex: 2 1 450px;
+}
+
+.episode-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.episode-meta .tag {
+  background: #e0f4ff;
+  color: #0077cc;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.4);
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.episode-meta .tag:hover {
+  background-color: #b1defd;
+}
+
+.episode-meta time {
+  font-style: normal;
+}
+
+.episode-title {
+  font-size: 2.3rem;
+  margin: 0 0 15px;
+  line-height: 1.15;
+  font-weight: 600;
+  cursor: default;
+  transition: color 0.3s ease;
+}
+
+.episode-title:hover {
+  color: #0077cc;
+}
+
+.episode-desc {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: #333;
+  line-height: 1.5;
+  cursor: default;
+}
+
+.category {
+  font-size: 0.9rem;
+  background: #d6eaff;
+  padding: 6px 14px;
+  border-radius: 30px;
+  color: #005b99;
+  display: inline-block;
+  font-weight: 600;
+  box-shadow: 0 0 6px rgba(0, 91, 153, 0.35);
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .latest-episode .container {
+    flex-direction: column;
+  }
+  .episode-image,
+  .episode-info {
+    max-width: 100%;
+  }
+  .episode-title {
+    font-size: 1.8rem;
+  }
+  .episode-desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .latest-episode {
+    padding: 20px 15px;
+  }
+  .episode-title {
+    font-size: 1.4rem;
+  }
+  .episode-desc {
+    font-size: 0.95rem;
+  }
+}
+
+.podcast-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 15px;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.podcast-section .section-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.podcast-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.podcast-card {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #ccc;
+  flex: 1 1 32%;
+  display: flex;
+  flex-direction: column;
+}
+
+.podcast-header {
+  display: flex;
+  background: #000;
+  color: #fff;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.podcast-header img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.podcast-content {
+  flex-shrink: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.podcast-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.podcast-host {
+  margin: 5px 0 0;
+  font-weight: 700;
+}
+
+.podcast-brand {
+  background: #0071f3;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  margin-top: 5px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.podcast-content.black-bg {
+  background: #000;
+  padding: 10px;
+}
+
+.podcast-details {
+  padding: 15px 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.podcast-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.podcast-tag.guest {
+  background: #d7efd7;
+  color: #2e7d32;
+}
+
+.podcast-tag.solo {
+  background: #cce4f7;
+  color: #1565c0;
+}
+
+.podcast-details time {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.podcast-details h4 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.podcast-tags span {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #555;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .podcast-list {
+    flex-direction: column;
+  }
+  .podcast-card {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+  .podcast-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .podcast-header img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.xyz-podcast-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.xyz-section-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.xyz-episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.xyz-episode-card {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.xyz-thumb-container {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+}
+
+.xyz-thumb-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.xyz-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  user-select: none;
+  color: #333;
+  background-color: #ddd;
+}
+
+.xyz-tag-essentials {
+  background-color: #bbb;
+}
+
+.xyz-tag-guest {
+  background-color: #a4c68d;
+  color: #2f4a1c;
+}
+
+.xyz-date {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  background: rgba(255 255 255 / 0.85);
+  padding: 3px 7px;
+  border-radius: 3px;
+  color: #555;
+  user-select: none;
+}
+
+.xyz-episode-title {
+  font-size: 1rem;
+  padding: 14px 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  flex-grow: 1;
+}
+
+.xyz-btn-discover {
+  display: block;
+  margin: 30px auto 0;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.xyz-btn-discover:hover {
+  background-color: #008ecc;
+}
+
+@media (max-width: 600px) {
+  .xyz-section-header {
+    font-size: 1.4rem;
+  }
+  .xyz-episode-title {
+    font-size: 0.9rem;
+  }
+  .xyz-btn-discover {
+    width: 100%;
+    padding: 16px 0;
+  }
+}
+
+footer {
+    background: #fff;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    border: 3px solid #0099ff;
+    color: #0099ff;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1 1 200px;
+    min-width: 180px;
+    margin-bottom: 30px;
+  }
+
+  .footer-column-header {
+    color: #999;
+    margin-bottom: 15px;
+    font-weight: normal;
+  }
+
+  .footer-column a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-routine {
+    border: 1px solid #0099ff;
+    border-radius: 20px;
+    color: #0099ff;
+    font-weight: 700;
+    padding: 5px 15px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+    }
+    .footer-column {
+      min-width: 100%;
+    }
+  }     
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HUBERMAN LAB</div>
+  <nav>
+    <div>
+      Podcast
+      <div class="dropdown">
+        <a href="#">Episode 1</a>
+        <a href="#">Episode 2</a>
+      </div>
+    </div>
+    <div>
+      Resources
+      <div class="dropdown">
+        <a href="#">Resource 1</a>
+        <a href="#">Resource 2</a>
+      </div>
+    </div>
+    <div>Newsletter</div>
+    <div>Merch</div>
+    <div>Book</div>
+    <div>About</div>
+  </nav>
+  <div class="right-actions">
+    <button class="btn-member">Become a Member</button>
+    <div class="login">Log In</div>
+    <div class="search">
+      Search
+      <input type="text" placeholder="Search..." />
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="podcast-image">
+    <img src="/mnt/data/IMG_20250517_181640_899.jpg" alt="Huberman Lab Podcast" />
+    <div class="podcast-text-overlay">
+      HUBERMAN<br />LAB
+    </div>
+  </div>
+  <div class="podcast-info">
+    <h1>Huberman Lab</h1>
+    <p>Regularly ranked as the No. 1 health podcast in the world, Dr. Andrew Huberman discusses science and science-based tools for everyday life. New episodes are released every Monday and Thursday.</p>
+    <div>Listen to or watch on your favorite platform</div>
+    <div class="listen-platforms">
+      <div class="platform">
+        <!-- YouTube icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" fill="red">
+          <path d="M10 15l5.19-3L10 9v6z"/>
+          <path d="M21.8 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9-2.7-.2-6.8-.2-6.8-.2s-4.1 0-6.8.2c-.4 0-1.2 0-1.9.9-.6.6-.8 2-.8 2S3 9.8 3 11.6v.8c0 1.8.2 3.6.2 3.6s.2 1.4.8 2c.7.8 1.6.7 2 1 .9.1 6.1.2 6.1.2s4.1 0 6.8-.2c.4 0 1.3 0 1.9-.9.6-.6.8-2 .8-2s.2-1.8.2-3.6v-.8c0-1.8-.2-3.6-.2-3.6z"/></svg>
+        YouTube
+      </div>
+      <div class="platform">
+        <!-- Apple Podcasts icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" fill="#aa52e8">
+          <path d="M12 2a7 7 0 0 0-7 7c0 3.87 2.91 7 6.5 7.93V19a1.5 1.5 0 0 0 3 0v-2.07C16.09 16 19 12.87 19 9a7 7 0 0 0-7-7zM11 14.5h2v1h-2z"/>
+        </svg>
+        Apple Podcasts
+      </div>
+      <div class="platform">
+        <!-- Spotify icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 168 168" width="20" fill="#1db954">
+          <circle cx="84" cy="84" r="84" />
+          <path fill="#fff" d="M119 111a6 6 0 0 1-8.2 2 61 61 0 0 0-35-9.4 61 61 0 0 0-18 3.3 6 6 0 1 1-4.1-11 74 74 0 0 1 22-3.9 74 74 0 0 1 43 11 6 6 0 0 1 2 8.2zM123 88a7 7 0 0 1-9.3 2.3 78 78 0 0 0-43.3-11 78 78 0 0 0-26 5 7 7 0 0 1-5-12.9 92 92 0 0 1 31-6.2 92 92 0 0 1 50 13 7 7 0 0 1 2.3 9.3zM115 64a9 9 0 0 1-11.8 2.7 100 100 0 0 0-55.4-13 9 9 0 0 1-6.2-16.7 118 118 0 0 1 66 15 9 9 0 0 1 7.3 12z"/>
+        </svg>
+        Spotify
+      </div>
+      <div class="platform">
+        <!-- YouTube Music icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24" fill="red">
+          <path d="M10 15l5.19-3L10 9v6z"/>
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <circle cx="12" cy="12" r="10" fill="none" stroke="red" stroke-width="2"/>
+        </svg>
+        YouTube Music
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Search topics section -->
+<section class="search-container" aria-label="Search Huberman Lab topics">
+  <h1>Looking for something specific?</h1>
+  <p>Search the entire Huberman Lab content library.</p>
+  <div class="search-box" role="search">
+    <input type="text" placeholder="What are you looking for?" aria-label="Search content" />
+    <button class="search-btn" aria-label="Search">return</button>
+  </div>
+
+  <div class="topics" role="list">
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+          <path d="M12 1v22M8 5h8a4 4 0 1 1-8 0z"/>
+        </svg>
+      </div>
+      <p>Cold Plunges and Deliberate Cooling</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="10" y1="8" x2="10" y2="16"/>
+          <line x1="14" y1="8" x2="14" y2="16"/>
+        </svg>
+      </div>
+      <p>Fitness and Workout Routines</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </div>
+      <p>Light Exposure and Circadian Rhythm</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8v4l3 3"/>
+        </svg>
+      </div>
+      <p>Mental Health</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="7" width="18" height="10" rx="2"/>
+          <line x1="7" y1="7" x2="7" y2="17"/>
+        </svg>
+      </div>
+      <p>Sleep Hygiene</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="10" rx="5"/>
+          <line x1="12" y1="7" x2="12" y2="17"/>
+        </svg>
+      </div>
+      <p>Supplementation</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20v-8"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M16 4a4 4 0 0 1-8 0"/>
+        </svg>
+      </div>
+      <p>The Brain and Neuroplasticity</p>
+    </div>
+    <div class="topic" role="listitem" tabindex="0">
+      <div class="icon" aria-hidden="true">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7" cy="12" r="3"/>
+          <circle cx="17" cy="12" r="3"/>
+          <line x1="10" y1="12" x2="14" y2="12"/>
+        </svg>
+      </div>
+      <p>The Science of ADHD</p>
+    </div>
+  </div>
+
+  <button class="explore-btn">Explore All Topics</button>
+</section>
+
+<section class="latest-episode">
+  <div class="container">
+    <div class="episode-image">
+      <img src="/mnt/data/image (25).png" alt="Discover Your Mind - Dr. Karl Deisseroth" />
+    </div>
+    <div class="episode-info">
+      <div class="episode-meta">
+        <span class="tag">Essentials</span>
+        <time datetime="2025-05-15">May 15, 2025</time>
+      </div>
+      <h2 class="episode-title">
+        Essentials: <br />
+        Understanding & Healing the Mind |<br />
+        Dr. Karl Deisseroth
+      </h2>
+      <p class="episode-desc">
+        Explore groundbreaking neuroscience with Dr. Karl Deisseroth on new treatments for depression and PTSD using optogenetics, brain interfaces, and psychedelics.
+      </p>
+      <span class="category">Mental Health & Addiction</span>
+    </div>
+  </div>
+</section>
+
+<section class="podcast-section">
+  <h2 class="section-title">Featured Episodes</h2>
+  <div class="podcast-list">
+    <article class="podcast-card">
+      <div class="podcast-header">
+        <img src="episode1.jpg" alt="Dr. Casey Means" />
+        <div class="podcast-content">
+          <h3>TRANSFORM YOUR HEALTH</h3>
+          <p class="podcast-host">DR. CASEY MEANS</p>
+          <span class="podcast-brand">HUBERMAN LAB</span>
+        </div>
+        <img src="episode1-2.jpg" alt="Dr. Casey Means smiling" />
+      </div>
+      <div class="podcast-details">
+        <span class="podcast-tag guest">Guest Episode</span>
+        <time datetime="2024-05-06">May 6, 2024</time>
+        <h4>Dr. Casey Means: Transform Your Health by Improving Metabolism, Hormone & Blood Sugar Regulation</h4>
+        <div class="podcast-tags">
+          <span>Neurobiology & Physiology</span>
+          <span>Hormone Health</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="podcast-card">
+      <div class="podcast-header">
+        <div class="podcast-content black-bg">
+          <h3>USING LIGHT FOR HEALTH</h3>
+          <span class="podcast-brand">HUBERMAN LAB</span>
+        </div>
+        <img src="episode2.jpg" alt="Dr. Casey Means" />
+      </div>
+      <div class="podcast-details">
+        <span class="podcast-tag solo">Solo Episode</span>
+        <time datetime="2022-04-18">April 18, 2022</time>
+        <h4>Using Light (Sunlight, Blue Light & Red Light) to Optimize Health</h4>
+        <div class="podcast-tags">
+          <span>Building Your Daily Routine</span>
+          <span>Optimizing Your Environment</span>
+          <span>Light Exposure & Circadian Rhythm</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="podcast-card">
+      <div class="podcast-header">
+        <img src="episode3.jpg" alt="Dr. Peter Attia" />
+        <div class="podcast-content">
+          <h3>HORMONES FITNESS & LONGEVITY</h3>
+          <p class="podcast-host">DR. PETER ATTIA</p>
+          <span class="podcast-brand">HUBERMAN LAB</span>
+        </div>
+        <img src="episode3-2.jpg" alt="Dr. Peter Attia smiling" />
+      </div>
+      <div class="podcast-details">
+        <span class="podcast-tag guest">Guest Episode</span>
+        <time datetime="2022-08-15">August 15, 2022</time>
+        <h4>Dr. Peter Attia: Exercise, Nutrition, Hormones for Vitality & Longevity</h4>
+        <div class="podcast-tags">
+          <span>Aging & Longevity</span>
+          <span>Hormone Health</span>
+          <span>Supplements</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="xyz-podcast-wrapper">
+  <h2 class="xyz-section-header">Recent Episodes</h2>
+  <div class="xyz-episodes-grid">
+    <article class="xyz-episode-card">
+      <div class="xyz-thumb-container">
+        <img src="https://via.placeholder.com/320x140" alt="Discover Your Mind" />
+        <span class="xyz-tag xyz-tag-essentials">Essentials</span>
+        <time class="xyz-date" datetime="2025-05-15">May 15, 2025</time>
+      </div>
+      <h3 class="xyz-episode-title">Essentials: Understanding & Healing the Mind | Dr. Karl Deisseroth</h3>
+    </article>
+    <article class="xyz-episode-card">
+      <div class="xyz-thumb-container">
+        <img src="https://via.placeholder.com/320x140" alt="How Diet Choice Impacts Health" />
+        <span class="xyz-tag xyz-tag-guest">Guest Episode</span>
+        <time class="xyz-date" datetime="2025-05-12">May 12, 2025</time>
+      </div>
+      <h3 class="xyz-episode-title">How Different Diets Impact Your Health | Dr. Christopher Gardner</h3>
+    </article>
+    <article class="xyz-episode-card">
+      <div class="xyz-thumb-container">
+        <img src="https://via.placeholder.com/320x140" alt="Hearing Balance & Learning" />
+        <span class="xyz-tag xyz-tag-essentials">Essentials</span>
+        <time class="xyz-date" datetime="2025-05-08">May 8, 2025</time>
+      </div>
+      <h3 class="xyz-episode-title">Essentials: How Hearing & Balance Enhance Focus & Learning</h3>
+    </article>
+    <article class="xyz-episode-card">
+      <div class="xyz-thumb-container">
+        <img src="https://via.placeholder.com/320x140" alt="Contracts for Love & Money" />
+        <span class="xyz-tag xyz-tag-guest">Guest Episode</span>
+        <time class="xyz-date" datetime="2025-05-05">May 5, 2025</time>
+      </div>
+      <h3 class="xyz-episode-title">Contracts of Love & Money That Make or Break Relationships | James Sexton</h3>
+    </article>
+        <article class="xyz-episode-card">
+      <div class="xyz-thumb-container">
+        <img src="https://via.placeholder.com/320x140" alt="Contracts for Love & Money" />
+        <span class="xyz-tag xyz-tag-guest">Guest Episode</span>
+        <time class="xyz-date" datetime="2025-05-05">May 5, 2025</time>
+      </div>
+      <h3 class="xyz-episode-title">Contracts of Love & Money That Make or Break Relationships | James Sexton</h3>
+    </article>
+        <article class="xyz-episode-card">
+      <div class="xyz-thumb-container">
+        <img src="https://via.placeholder.com/320x140" alt="Contracts for Love & Money" />
+        <span class="xyz-tag xyz-tag-guest">Guest Episode</span>
+        <time class="xyz-date" datetime="2025-05-05">May 5, 2025</time>
+      </div>
+      <h3 class="xyz-episode-title">Contracts of Love & Money That Make or Break Relationships | James Sexton</h3>
+    </article>
+  </div>
+  <button class="xyz-btn-discover">Discover 200+ Episodes</button>
+</section>
+
+</body>
+<footer>
+  <div>
+    <span class="footer-logo">HUBERMAN LAB</span>
+  </div>
+
+  <div class="footer-container">
+    <div class="footer-column">
+      <div class="footer-column-header">Content</div>
+      <a href="#">Podcast</a>
+      <a href="#">Topics</a>
+      <a href="#">NSDR</a>
+      <a href="#" class="icon-link">💬 Ask Huberman Lab</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Book</a>
+      <a href="#" class="btn-routine">Andrew's Routine</a>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-column-header">Huberman Lab</div>
+      <a href="#">About</a>
+      <a href="#">Events</a>
+      <a href="#">Sponsors</a>
+      <a href="#">Merch</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+      <a href="#">Constructive Critique</a>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-column-header">Huberman Lab Premium</div>
+      <a href="#">Become a Member</a>
+      <a href="#">About Premium</a>
+      <a href="#">Log In</a>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-column-header">Legal</div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">California Privacy Rights</a>
+      <a href="#">Cookie Preferences</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Copyright Guidelines</a>
+      <a href="#">Disclaimer & Disclosures</a>
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    © 2025 Scicomm Media LLC<br />
+    Huberman Lab® is a registered trademark of Scicomm Media LLC.
+  </div>
+
+  <div class="footer-social" aria-label="Social Media Links">
+    <!-- Thêm icon social ở đây hoặc dùng icon library nếu cần -->
+  </div>
+</footer>
+</html>

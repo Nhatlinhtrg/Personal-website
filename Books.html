@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Books and Collections</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    /* Thanh tiêu đề */
+    .sup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 1px solid #eee;
+    }
+    .sup-branding {
+      display: flex;
+      align-items: center;
+    }
+    .sup-logo {
+      font-size: 24px;
+      margin-right: 10px;
+      color: #8b0000;
+    }
+    .sup-text {
+      font-size: 16px;
+      letter-spacing: 3px;
+      color: #444;
+    }
+    .sup-menu {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      color: #666;
+    }
+    .sup-menu a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .sup-menu a:hover {
+      text-decoration: underline;
+    }
+    .sup-search {
+      font-size: 16px;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    /* Welcome Section */
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #8B0000;
+  color: white;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.welcome-banner {
+  max-width: 60%;
+  text-align: center; /* Căn giữa tất cả nội dung trong phần này */
+  display: flex;
+  flex-direction: column; /* Đặt các mục theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  align-items: center; /* Căn giữa theo chiều ngang */
+}
+
+.welcome-banner h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-left:430px; 
+}
+
+.welcome-banner p {
+  font-size: 14px;
+  margin-left:400px; 
+
+}
+
+.catalog-search-input {
+  padding: 10px;
+  width: 80%;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  margin-left:400px; 
+
+}
+
+ .vaclav-books {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+
+  }
+
+  .vaclav-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .vaclav-list {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+  }
+
+  .vaclav-item {
+    flex: 1;
+    color: #fff; /* chữ màu trắng để nổi trên background */
+    padding: 40px 30px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin-top: 30px;
+  }
+
+  /* Background ảnh riêng cho từng phần */
+  .vaclav-item.item1 {
+    background-image: url('images/book1.webp');
+  }
+
+  .vaclav-item.item2 {
+    background-image: url('images/book2.webp');
+  }
+
+  .vaclav-item.item3 {
+    background-image: url('images/book3.webp');
+  }
+
+  .vaclav-category {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  }
+
+  .vaclav-heading {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  }
+
+  .vaclav-description {
+    font-size: 14px;
+    color: #f0f0f0;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  }
+
+
+
+    /* Mục ảnh giới thiệu sách */
+    .summer-reads {
+      position: relative;
+      width: 100%;
+      max-height: 490px;
+      overflow: hidden;
+    }
+    .summer-reads img {
+      width: 50%;
+      height: auto;
+      display: block;
+      margin:0 auto; 
+      border-radius: 10px;
+      
+    }
+    .summer-reads-text {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-left: 310px;
+    }
+    .summer-reads-text small {
+      font-weight: bold;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .summer-reads-text h2 {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+    }
+    .summer-reads-text p {
+      font-size: 14px;
+      margin: 0;
+      color: #333;
+    }
+
+     .ct {
+    display: flex;
+    gap: 10px;
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    
+  }
+  .lt {
+    flex: 2;
+    position: relative;
+  }
+  .lt img {
+    width: 500px;
+    height: auto;
+    display: block;
+  }
+  .tx {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 12px;
+    font-size: 13px;
+    max-width: 476px;
+  }
+  .rt {
+    flex: 1;
+    margin-left: 0px;
+  }
+  .rt .lb {
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .rt .hd {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .rt .ds {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .rt img {
+    width: 100%;
+    height: auto;
+  }
+
+
+  .promo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px;
+    background-color: #fef9a7;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* background code effect (giả lập) */
+  .promo-section::before {
+    content: "int main() { printf(\"Hello World\"); return 0; } // code sample ...";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #e1e05f;
+    opacity: 0.3;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+        border-radius: 10px;
+
+  }
+  .promo-text {
+    background: #fffde3;
+    padding: 20px 25px;
+    border-radius: 6px;
+    max-width: 320px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+  }
+  .promo-text small {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  .promo-text h2 {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    color: #222;
+  }
+  .promo-text p {
+    margin: 0;
+    font-style: italic;
+    color: #555;
+    font-size: 14px;
+  }
+  .promo-image img {
+    max-width: 220px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.15);
+    border-radius: 10px;
+  }
+    /* Discover Collections */
+    .discover-collections {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .discover-collections h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+    .discover-collections p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    .collections-columns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .collections-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 250px;
+    }
+    .collection-item {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: normal;
+      text-align: left;
+      width: 100%;
+    }
+    .collection-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      filter: brightness(1.05);
+    }
+    /* Màu từng mục */
+    .psychotherapy { background-color: #26023c2f; }
+    .philosophy { background-color: #545770; margin-left: 40px; }
+    .anthology { background-color: #79a7a2; margin-left: 40px; }
+    .literature { background-color: #8f5e72; margin-left: 60px; }
+    .fiction { background-color: #7d5d3d; margin-left: 60px; }
+    .political { background-color: #455a64; margin-left: 80px; }
+    .alternative { background-color: #5d4037; margin-left: 40px; }
+    .biographies { background-color: #405d6e; margin-left: 40px; }
+    .leaders { background-color: #9462aa; margin-left: 20px; }
+    .social-sciences { background-color: #325e59; margin-left: 55px; }
+    .genetics { background-color: #487a4b; }
+    .industry { background-color: #3b324e; margin-left: 65px; }
+    .military { background-color: #412222; margin-left: 40px; }
+    .mystery { background-color: #37474f; margin-left: 75px; }
+    .religion { background-color: #6d4c41; margin-left: 50px; }
+
+    @media (max-width: 768px) {
+      .collections-columns {
+        flex-direction: column;
+      }
+      .summer-reads-text {
+        max-width: 90%;
+        left: 5%;
+        right: 5%;
+      }
+    }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #222;
+    margin-left: 120px;
+  }
+
+  .reading-lists {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    padding: 20px 40px;
+    width: 1180px; /* 5 mục: 5*220 + 4*20 */
+    overflow-x: hidden; /* ẩn phần dư */
+    scroll-behavior: smooth;
+    background-color: #f0f2f7;
+  }
+
+  .list-item {
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .title-section .label {
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .title-section .title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 6px;
+  }
+
+  .title-section .description {
+    font-size: 10px;
+    color: #666;
+  }
+
+  .image-section .video-thumb {
+    width: 100%;
+    height: 120px;
+    background-color: #ccc;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .image-section .video-thumb::after {
+    content: '▶';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-buttons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .btn {
+    pointer-events: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    color: #e03e3e;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 2px 4px rgba(224, 62, 62, 0.3);
+    opacity: 1;
+    visibility: visible;
+    z-index: 1100;
+  }
+
+  .btn:hover {
+    background-color: #e03e3e;
+    color: white;
+    box-shadow: 0 4px 8px rgba(224, 62, 62, 0.8);
+  }
+
+  .btn:active {
+    background-color: #b82b2b;
+    color: white;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .btn.prev {
+    left: 8px;
+  }
+
+  .btn.next {
+    right: 8px;
+  }
+
+   .section {
+    display: flex;
+    background-color: #e9ebe1;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+  }
+
+  .quote-container {
+    flex: 1;
+    max-width: 400px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .quote-icon {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+        margin-left: 100px ;
+
+  }
+
+  .quote-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    margin-left: 100px ;
+  }
+
+  .quote-author {
+    font-size: 14px;
+    color: #555;
+        margin-left: 100px ;
+
+  }
+
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-container img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .quote-container {
+      max-width: 100%;
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      justify-content: flex-start;
+    }
+  }
+     /* Mục mới */
+     .signup-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #f4f4f4;
+      margin:0 auto; 
+      border-radius: 10px;
+      width: 80%;
+    }
+    .signup-section img {
+      width: 20%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .signup-section-content {
+      max-width: 60%;
+    }
+    .signup-section-content h2 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .signup-section-content p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .signup-section-content button {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .signup-section-content button:hover {
+      background-color: #444;
+    }
+
+    /* Custom Footer Section */
+.custom-footer {
+  background-color: #212121;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.custom-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.custom-footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.custom-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.custom-footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.custom-footer-socials a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.custom-footer-socials a:hover {
+  opacity: 0.7;
+}
+
+.custom-footer-info {
+  display: flex;
+  gap: 15px;
+}
+
+.custom-footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.custom-footer-info a:hover {
+  text-decoration: underline;
+}
+
+.custom-footer p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+  </style>
+</head>
+<body>
+<!-- Thanh tiêu đề -->
+  <div class="sup-header">
+    <div class="sup-branding">
+      <div class="sup-text">LUONG HUNG DUNG</div>
+    </div>
+    <div class="sup-menu">
+      <a href="index.html">Home</a>
+      <a href="#">Journals</a>
+      <a href="#">For Authors</a>
+      <a href="#">About</a>
+      <span class="sup-search">&#128269;</span>
+    </div>
+  </div>
+
+  <!-- Welcome Section -->
+<div class="welcome-section">
+  <div class="welcome-banner">
+    <h1>Welcome to LIBRARY.HUNGDUNG</h1>
+    <p>HOLLIS is the library catalog. You can also browse all services & tools.</p>
+    <input type="text" class="catalog-search-input" placeholder="Search HOLLIS">
+  </div>
+</div>
+<div class="vaclav-books">
+  <h2 class="vaclav-title">Books by Vaclav Smil</h2>
+
+  <div class="vaclav-list">
+    <!-- Item 1 -->
+    <div class="vaclav-item item1">
+      <div class="vaclav-category">THE SMIL TEST</div>
+      <h3 class="vaclav-heading">Three cheers for the dull, factually correct middle</h3>
+      <p class="vaclav-description">A new masterpiece from one of my favorite authors.</p>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="vaclav-item item2">
+      <div class="vaclav-category">FACTS OF LIFE</div>
+      <h3 class="vaclav-heading">What sweat, wine, and electricity can teach us about...</h3>
+      <p class="vaclav-description"><em>Numbers Don’t Lie</em> is Vaclav Smil’s most accessible book yet.</p>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="vaclav-item item3">
+      <div class="vaclav-category">SMIL TEST</div>
+      <h3 class="vaclav-heading">Is this really an unrivaled era of innovation?</h3>
+      <p class="vaclav-description">Vaclav Smil has written “a brief history of hype and failure.”</p>
+    </div>
+  </div>
+</div>
+
+  <!-- Mục sách mùa hè -->
+  <div class="summer-reads">
+    <img src="images/your-image.jpg" alt="Books I read this summer">
+    <div class="summer-reads-text">
+      <small>IN SERVICE</small>
+      <h2>5 great things to read or watch this summer</h2>
+      <p>I found an unintentional theme connecting them all.</p>
+    </div>
+  </div>
+
+    <div class="vaclav-list">
+    <!-- Item 1 -->
+    <div class="vaclav-item item1">
+      <div class="vaclav-category">THE SMIL TEST</div>
+      <h3 class="vaclav-heading">Three cheers for the dull, factually correct middle</h3>
+      <p class="vaclav-description">A new masterpiece from one of my favorite authors.</p>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="vaclav-item item2">
+      <div class="vaclav-category">FACTS OF LIFE</div>
+      <h3 class="vaclav-heading">What sweat, wine, and electricity can teach us about...</h3>
+      <p class="vaclav-description"><em>Numbers Don’t Lie</em> is Vaclav Smil’s most accessible book yet.</p>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="vaclav-item item3">
+      <div class="vaclav-category">SMIL TEST</div>
+      <h3 class="vaclav-heading">Is this really an unrivaled era of innovation?</h3>
+      <p class="vaclav-description">Vaclav Smil has written “a brief history of hype and failure.”</p>
+    </div>
+  </div>
+</div>
+
+  
+
+  <div class="ct">
+  <div class="lt">
+    <img src="images/left.jpg" alt="Left Image" />
+    <div class="tx">Vaclav Smil and I discuss shifting diets—like why Spain’s meat consumption surged, then fell, and why some countries barely eat meat at all.</div>
+  </div>
+  <div class="rt">
+    <div class="lb">HIGH-STAKES STEAKS</div>
+    <div class="hd">Is there enough meat for everyone?</div>
+    <div class="ds">Can we produce enough meat for everyone without wrecking the planet?</div>
+    <img src="images/right.jpg" alt="Right Image" />
+  </div>
+</div>
+
+   <div class="promo-section">
+    <div class="promo-text">
+      <small>Starting Line</small>
+      <h2>My first memoir is now available</h2>
+      <p>Source Code runs from my childhood through the early days of Microsoft.</p>
+    </div>
+    <div class="promo-image">
+      <img src="images/book3.jpg" alt="Bill Gates book cover" />
+    </div>
+  </div>
+
+  <!-- Discover Collections -->
+  <div class="discover-collections">
+    <h2>Discover Collections</h2>
+    <p>Serious minds deserve serious mentors.</p>
+
+    <div class="collections-columns">
+      <div class="collections-column">
+        <a href="Psychotherapy.html"><button class="collection-item psychotherapy">Psychotherapy & Counseling</button></a>
+        <a href="Anthology.html"><button class="collection-item anthology">Biographies & Anthology</button></a>
+        <a href="Fiction.html"><button class="collection-item fiction">Science Fiction & Fantasy</button></a>
+        <a href="Alternative.html"><button class="collection-item alternative">Alternative & Complementary Medicine & Meditation</button></a>
+        <a href="Leaders.html"><button class="collection-item leaders">Leaders & Notable People</button></a>
+        <a href="Genetics.html"><button class="collection-item genetics">Evolution & Genetics</button></a>
+        <a href="Military.html"><button class="collection-item military">Military & Wars</button></a>
+      </div>
+
+      <div class="collections-column">
+        <a href="Philosophy.html"><button class="collection-item philosophy">Philosophy & Schools of Thought</button></a>
+        <a href="Literature.html"><button class="collection-item literature">Literature</button></a>
+        <a href="Political.html"><button class="collection-item political">Political Science</button></a>
+        <a href="Biographies.html"><button class="collection-item biographies">Biographies & Memoirs</button></a>
+        <a href="Social-Sciences.html"><button class="collection-item social-sciences">Politics & Social Sciences</button></a>
+        <a href="Industry.html"><button class="collection-item industry">Business & Industry</button></a>
+        <a href="Mystery.html"><button class="collection-item mystery">Mystery, Thriller & Suspense</button></a>
+        <a href="Religion.html"><button class="collection-item religion">Religion & Spirituality</button></a>
+      </div>
+    </div>
+  </div>
+
+
+
+<h2 class="section-title">My Reading Lists</h2>
+<div class="reading-lists">
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">READ, WATCH, LISTEN</div>
+      <div class="title">Great books, courses, and music for the holidays</div>
+      <div class="description">Some favorites from 2023, including a new playlist.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">READ, WATCH, AND LISTEN</div>
+      <div class="title">Great books, songs, and shows for the summer</div>
+      <div class="description">Because there’s more to life than reading. (Though reading is still the best.)</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">PAGE TURNERS</div>
+      <div class="title">5 of my all-time favorite books</div>
+      <div class="description">I decided to try something different for my list of holiday books this year.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">NOW READING</div>
+      <div class="title">5 great ...</div>
+      <div class="description">I loved ... something ...</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <!-- Mục 5 -->
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">BOOK CLUB</div>
+      <div class="title">Monthly picks for avid readers</div>
+      <div class="description">Discover the hottest reads selected by our community.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <!-- Mục 6 -->
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">AUTHOR SPOTLIGHT</div>
+      <div class="title">Interview with bestselling authors</div>
+      <div class="description">Insights and stories from your favorite writers.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <!-- Mục 7 -->
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">GENRE FOCUS</div>
+      <div class="title">Exploring new and classic genres</div>
+      <div class="description">From fantasy to biography, find your next favorite.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <!-- Mục 8 -->
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">NEW RELEASES</div>
+      <div class="title">Latest books hitting the shelves</div>
+      <div class="description">Stay updated with fresh releases this month.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <!-- Mục 9 -->
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">TOP RATED</div>
+      <div class="title">Readers’ favorite books of the year</div>
+      <div class="description">Highly recommended titles by the community.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <!-- Mục 10 -->
+  <div class="list-item">
+    <div class="title-section">
+      <div class="label">CLASSIC PICKS</div>
+      <div class="title">Timeless books everyone should read</div>
+      <div class="description">Essential classics that have stood the test of time.</div>
+    </div>
+    <div class="image-section">
+      <div class="video-thumb"></div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <div class="btn prev">&lt;</div>
+    <div class="btn next">&gt;</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="quote-container">
+    <div class="quote-icon">“</div>
+    <div class="quote-text">
+      Reading fuels a sense of curiosity about the world, which I think helped drive me forward in my career and in the work that I do now with my foundation.
+    </div>
+    <div class="quote-author">Bill Gates</div>
+  </div>
+  <div class="image-container">
+    <img src="images/quote.jpg" alt="Bill Gates reading" />
+  </div>
+</div>
+
+
+  <!-- Mục Signup -->
+  <div class="signup-section">
+    <img src="images/signup.jpg" alt="Bill Gates image">
+    <div class="signup-section-content">
+      <h2>Want good news in your inbox?</h2>
+      <p>Become a Gates Notes Insider today to receive my newsletter and learn about the incredible progress being made in global health, energy innovation, and more.</p>
+      <button>Sign up to get my newsletter</button>
+    </div>
+  </div>
+  
+<!-- Footer Section -->
+<footer class="custom-footer">
+  <div class="custom-footer-links">
+    <a href="#">Home</a>
+    <a href="#">Journals</a>
+    <a href="#">For Authors</a>
+    <a href="#">About</a>
+  </div>
+  <div class="custom-footer-bottom">
+    <div class="custom-footer-socials">
+      <a href="https://www.facebook.com" target="_blank">f</a>
+      <a href="https://twitter.com" target="_blank">x</a>
+      <a href="https://www.instagram.com" target="_blank">i</a>
+      <a href="https://www.linkedin.com" target="_blank">in</a>
+    </div>
+    <div class="custom-footer-info">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>&copy; 2025 The Gates Notes LLC</p>
+  </div>
+
+
+</footer>
+
+<script>
+  const readingLists = document.querySelector('.reading-lists');
+const btnPrev = document.querySelector('.btn.prev');
+const btnNext = document.querySelector('.btn.next');
+
+const scrollAmount = (220 + 20) * 5; // 5 mục
+
+btnPrev.addEventListener('click', () => {
+  readingLists.scrollBy({
+    left: -scrollAmount,
+    behavior: 'smooth'
+  });
+});
+
+btnNext.addEventListener('click', () => {
+  readingLists.scrollBy({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+});
+</script>
+</body>
+</html>
+
+

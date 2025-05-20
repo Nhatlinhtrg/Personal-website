@@ -1,182 +1,1595 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Travel - LUONG HUNG DUNG</title>
-        <link rel="stylesheet" href="style.css">
-    
-        <!-- Thêm Font Awesome để hiện biểu tượng kính lúp -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MIT OpenCourseWare</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      background-color: black;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .main-content {
+      background: url('images/course-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      padding: 60px 20px 20px 20px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      font-weight: 900;
+      font-size: 28px;
+      margin-right: 8px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-give {
+      background-color: #a3143a;
+      border: none;
+      padding: 8px 15px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-right: 15px;
+    }
+
+    .btn-give:hover {
+      background-color: #7a0f2d;
+    }
+
+    .search-section {
+      flex: 1 1 400px;
+      max-width: 450px;
+      background: rgba(0,0,0,0.6);
+      padding: 25px 20px;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .search-section input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .search-section button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #0078a8;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .search-section button:hover {
+      background-color: #005f75;
+    }
+
+    .search-section .explore-btn {
+      background-color: #a3143a;
+      margin-left: 10px;
+    }
+
+    .search-section .explore-btn:hover {
+      background-color: #7a0f2d;
+    }
+
+    .info-group {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .info-group a {
+      color: #3498db;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+
+    .info-group a:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-section {
+      flex: 1 1 400px;
+      max-width: 500px;
+      background: rgba(0, 115, 158, 0.8);
+      padding: 25px 30px;
+      border-radius: 5px;
+      margin-left: 40px;
+      font-weight: 700;
+      font-size: 16px;
+      box-sizing: border-box;
+      margin-top: 0;
+    }
+
+    .highlight-section p {
+      font-weight: 400;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .highlight-section a {
+      color: white;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .podcast-section {
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 960px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+    }
+
+    .podcast-logo img {
+      width: 150px;
+      height: auto;
+    }
+
+    .podcast-content {
+      color: white;
+      margin-left: 20px;
+    }
+
+    .podcast-content h2 {
+      margin: 0 0 8px 0;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .podcast-content p {
+      margin: 0 0 5px 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+.podcast-content a {
+      color: #3498db;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    @media(max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+        padding-top: 20px;
+        min-height: auto;
+      }
+      .highlight-section {
+        margin-left: 0;
+        margin-top: 30px;
+        max-width: 100%;
+      }
+      .podcast-section {
+        flex-direction: column;
+        max-width: 100%;
+        margin-top: 30px;
+      }
+      .podcast-content {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+
+    /* --- Phần Featured Courses mới --- */
+
+    .featured-courses {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .featured-courses h2 {
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .new-courses h2 {
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align:left; 
+      margin-left: 150px;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .slider-btn {
+      background-color: #a3143a;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+
+    .slider-btn:hover {
+      background-color: #7a0f2d;
+    }
+
+    .courses-list {
+      display: flex;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      width: 960px;
+      gap: 20px;
+      background: #222;
+      padding: 10px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      overflow: hidden;
+      width: 220px;
+      flex-shrink: 0;
+      color: black;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .course-info {
+      padding: 12px 15px;
+      font-size: 14px;
+      color: #222;
+      flex-grow: 1;
+    }
+
+    .course-info small {
+      font-weight: 600;
+      color: #666;
+    }
+
+    .course-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 8px 0 6px 0;
+      color: #000;
+    }
+
+    .course-info p {
+      margin: 2px 0;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 1000px) {
+      .courses-list {
+        width: 100%;
+      }
+    }
+
+ .donation-section {
+  max-width: 800px;  /* thu nhỏ chiều rộng */
+  margin: 30px auto 50px;
+  padding: 15px 20px;
+  background: rgba(163, 20, 58, 0.9);
+  border-radius: 5px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* không xuống dòng */
+  box-sizing: border-box;
+}
+
+.donation-text {
+  font-weight: 700;
+  font-size: 14px;  /* giảm font size */
+  max-width: 600px;
+}
+
+.donation-text a {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.donation-text a:hover {
+  color: #ffb6c1;
+}
+
+.btn-donate {
+  background-color: #a3143a;
+  border: none;
+  padding: 8px 20px;  /* giảm padding */
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;  /* giảm font size */
+  white-space: nowrap;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-donate:hover {
+  background-color: #7a0f2d;
+}
+
+@media (max-width: 600px) {
+  .donation-section {
+    max-width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .donation-text {
+    max-width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .btn-donate {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+.discover-collections {
+  max-width: 850px; /* Giới hạn chiều rộng */
+  margin: 0 auto;   /* Căn giữa */
+  padding: 15px 10px; /* Giảm padding */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+.discover-collections .section-title {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.discover-collections .section-desc {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.discover-collections .tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+}
+
+.discover-collections .tag {
+  padding: 6px 12px;
+  border: 1px solid #0078a8;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: #0078a8;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  border-style: solid;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.discover-collections .tag:hover,
+.discover-collections .tag:focus {
+  background-color: #e0f0f8;
+  outline: none;
+}
+
+.ocw-news {
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+.ocw-news-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.ocw-news-container {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.ocw-main-news {
+  flex: 3;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.ocw-main-news img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ocw-main-news-info {
+  position: absolute;
+  bottom: 0;
+  background: rgba(30, 44, 61, 0.85);
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.ocw-main-news-info .ocw-date {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.ocw-main-news-info h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ocw-side-news {
+  flex: 2;
+  background: #121212;
+  color: #ddd;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ocw-side-news-item {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.ocw-side-news-item img {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ocw-side-news-item h4 {
+  font-size: 14px;
+  margin: 0 0 6px 0;
+  color: #eee;
+}
+
+.ocw-side-news-item time {
+  font-size: 12px;
+  color: #888;
+}
+
+.ocw-side-news-item:hover {
+  background: #333;
+}
+
+.share-story-section {
+  background-color: #061129;
+  padding: 20px 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 4px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text h2 {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 4px 0;
+}
+
+.text p {
+  font-weight: 300;
+  font-size: 12px;
+  color: #cfd8dc;
+  margin: 0;
+}
+
+.btn-share {
+  background: white;
+  color: #061129;
+  border: none;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn-share:hover {
+  background: #eaeaea;
+}
+
+/* Phần chứa cả hai phần Social Media và Newsletter */
+.connect-section {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #061129;
+    margin-top:30px; 
+
+}
+
+/* Phần chứa các icon social media */
+.social-media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 80px;  /* Dịch toàn bộ phần social media sang phải một chút */
+        border-radius: 10px; /* Bo tròn góc */
+        background-color: white;
+        padding:21px; 
+        margin-left: 170px;
+}
+
+.social-media-container h2 {
+    color: black;  /* Màu chữ tiêu đề */
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+/* Các icon xã hội */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;  /* Dịch các icon sang phải một chút */
+}
+
+.social-icon {
+    display: inline-block;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #1ABC9C; /* Màu khi hover */
+}
+
+/* Tùy chỉnh màu sắc cho từng icon nếu cần */
+.social-icon.facebook:hover {
+    color: #3b5998; /* Màu khi hover trên Facebook */
+}
+
+.social-icon.telegram:hover {
+    color: #0088cc; /* Màu khi hover trên Telegram */
+}
+
+.social-icon.instagram:hover {
+    color: #c1358488; /* Màu khi hover trên Instagram */
+}
+
+.social-icon.whatsapp:hover {
+    color: #25D366; /* Màu khi hover trên WhatsApp */
+}
+
+.social-icon.linkedin:hover {
+    color: #0e76a8; /* Màu khi hover trên LinkedIn */
+}
+
+.social-icon.facebook:hover { background-color: #3b5998; }
+.social-icon.instagram:hover { background-color: #C13584; }
+.social-icon.x:hover { background-color: #1d1f23; }
+.social-icon.youtube:hover { background-color: #FF0000; }
+.social-icon.linkedin:hover { background-color: #0e76a8; }
+
+/* Phần chứa form đăng ký newsletter */
+.newsletter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right:100px; 
+        border-radius: 10px; /* Bo tròn góc */
+        background-color: white;
+    padding: 26px
+}
+
+.newsletter-container h2 {
+    color: black;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    margin-right: 60px;
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.subscribe-btn {
+    padding: 10px 20px;
+    background-color: #C0392B;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-btn:hover {
+    background-color: #610000;
+}
+.supporters-section {
+    background-color:antiquewhite; /* Light gray background */
+    padding: 40px 0;
+    margin-top: 0px;
+}
+
+.supporters-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.supporters-container h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.supporters-logos {
+    display: flex;
+    justify-content: space-around; /* Creates equal spacing between logos */
+    align-items: center;
+    flex-wrap: wrap; /* Allows logos to wrap to the next line on smaller screens */
+}
+
+.supporters-logos img {
+    max-width: 150px; /* Maximum width of each logo */
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.supporters-logos img:hover {
+    transform: scale(1.1); /* Zoom in effect when hovering over logos */
+}
+
+.footer-section {
+    background-color: white; /* Light gray background */
+    padding: 5px 0;
+    margin-top: 0px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex; /* Sử dụng Flexbox để căn chỉnh phần tử */
+    justify-content:left; /* Đặt khoảng cách giữa logo và văn bản */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.footer-left {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc cho logo và văn bản */
+}
+
+.footer-logo {
+    max-width: 40px;
+    margin-right: 10px; /* Khoảng cách giữa logo và văn bản */
+}
+
+.footer-container p {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    text-align: left;
+    color: black; 
+}
+
+.footer-container a {
+    color: #1a4bbc;
+    text-decoration: none;
+    font-size: 1.3rem;
+    display: inline-block;
+    margin-top: 10px;
+    color:black; 
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.ocw-stories-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 0 15px;
+}
+
+.ocw-stories-section h2 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 16px;
+  text-align: center;
+    color: white;
+
+}
+
+.ocw-description {
+  font-size: 16px;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.ocw-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.ocw-slider-btn {
+  background-color: #a3143a;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+.ocw-slider-btn:hover,
+.ocw-slider-btn:focus {
+  background-color: #7a0f2d;
+  outline: none;
+}
+
+.ocw-cards-wrapper {
+  overflow-x: hidden;
+  width: calc(5 * 220px + 4 * 15px);
+}
+
+.ocw-cards {
+  display: flex;
+  gap: 15px;
+  scroll-behavior: smooth;
+  transition: transform 0.3s ease;
+}
+
+.ocw-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.ocw-cards {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ocw-card {
+  min-width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  box-sizing: border-box;
+  background: #fafafa;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ocw-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.ocw-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ocw-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.ocw-card a {
+  font-size: 13px;
+  color: #0b6cbf;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.ocw-card a:hover,
+.ocw-card a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+.ocw-view-all-btn {
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #0b6cbf;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.ocw-view-all-btn:hover,
+.ocw-view-all-btn:focus {
+  text-decoration: underline;
+  outline: none;
+}
+  </style>
+</head>
 <body>
-
-    <!-- Header -->
-    <header class="top-navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="LHD Logo" class="lhd-logo">
-                <h1>LUONG HUNG DUNG</h1>
-            </div>
-            <!-- Menu điều hướng -->
-<!-- Menu điều hướng -->
-<nav class="nav-bar">
-    <ul class="nav-menu">
-        <li><a href="index.html"><strong>Home</strong></a></li>
-        <li><a href="memoir.html"><strong>Memoir</strong></a></li>
-        <li><a href="travel.html"><strong>Travel</strong></a></li>
-        <li><a href="education.html"><strong>DungOpenCourseWare</strong></a></li>
-        <li><a href="notes.html"><strong>Notes</strong></a></li>
-        <li><a href="archived.html"><strong>Archived</strong></a></li>
-    </ul>
-    <!-- Kính lúp trong thanh menu -->
-    <a href="#" class="subscribe-button">Subscribe</a>  <!-- Thêm nút Subscribe ở đây -->
-    <a href="#" class="start-now-button">Start Now</a>
-    <div class="hamburger-menu">
-        <a href="#" id="hamburger-icon"><i class="fas fa-bars"></i></a>
-    </div>
-</nav>
-</div>
-</header>
-
-<!-- Nội dung trang chính của bạn (Hero, Features, v.v.) -->
-
-<!-- Trang kéo (side-panel) -->
-<div class="side-panel" id="side-panel">
-    <div class="side-panel-content">
-        <div class="search-container">
-            <input type="text" class="search-box" placeholder="Here are what you can explore.">
-            <button class="search-btn">
-                <i class="fas fa-search"></i>  <!-- Kính lúp -->
-            </button>
-        <ul>
-            <!-- Research for the First Book's Publication -->
-            <li><a href="#">Research for the First Book's Publication</a>
-<!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>                <ul class="subfolders">
-                    <li><a href="#">Connecting the Dots</a></li>
-                </ul>
-            </li>
-
-            <!-- Awakening from Within -->
-            <li><a href="#">Awakening from Within</a>
-<!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>                <ul class="subfolders">
-                    <li><a href="#">Theories</a></li>
-                    <li><a href="#">Practices</a></li>
-                    <li><a href="#">Spiritual Journey</a></li>
-                </ul>
-            </li>
-
-            <!-- Corporate Management -->
-            <li><a href="#">Corporate Management</a>
-<!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>                <ul class="subfolders">
-                    <li><a href="#">Business Management</a></li>
-                    <li><a href="#">Entrepreneurship</a></li>
-                    <li><a href="#">Leadership</a></li>
-                </ul>
-            </li>
-
-            <!-- Talent Management -->
-            <li><a href="#">Talent Management</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Managing self</a></li>
-                    <li><a href="#">Managing people</a></li>
-                </ul>
-            </li>
-
-            <!-- Explore -->
-            <li><a href="#">Explore</a>
-<!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>                <ul class="subfolders">
-                    <li><a href="#">Mindset</a></li>
-                    <li><a href="#">Wealth</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Relationships</a></li>
-                    <li><a href="#">Happiness</a></li>
-                    <li><a href="#">The Skill Toolkits</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-
-
-<script src="script.js"></script>
-    
-</nav>
-
-        </div>
+  <div class="container">
+    <header>
+      <div class="logo"><span>MIT</span> OpenCourseWare</div>
+      <nav>
+        <button class="btn-give">GIVE NOW &#10084;</button>
+        <a href="#">ABOUT OCW</a>
+        <a href="#">HELP & FAQs</a>
+        <a href="#">CONTACT US</a>
+      </nav>
     </header>
 
-    <!-- Section: Educational Resources -->
-    <section class="education-intro">
-        <div class="container">
-            <h2>Educational Resources</h2>
-            <p>Introduction to educational resources (Add your content here).</p>
+    <div class="main-content">
+      <div class="search-section">
+        <label for="searchInput"><strong>Discover courses, materials, & teaching resources</strong></label><br><br>
+        <input type="text" id="searchInput" placeholder="Search courses, materials...">
+        <button>Search</button>
+        <button class="explore-btn">Explore</button>
+
+        <div class="info-group">
+          <span><strong>Are you new to OCW?</strong> <a href="#">Get Started</a></span>
+          <span style="margin-left: 30px;"><strong>Looking for teaching materials?</strong> <a href="#">Educators Start Here</a></span>
+        </div>
+      </div>
+
+      <div class="highlight-section">
+        <p>UNLOCKING KNOWLEDGE,<br>EMPOWERING MINDS.</p>
+        <p>Free lecture notes, exams, and videos from MIT.<br>No registration required.</p>
+        <p><a href="#">LEARN MORE ABOUT THE OCW MISSION</a></p>
+      </div>
+
+<div class="podcast-section">
+        <div class="podcast-logo">
+          <img src="/mnt/data/IMG_20250515_125347_827.jpg" alt="Chalk Radio Podcast" />
+        </div>
+        <div class="podcast-content">
+          <h2>Chalk Radio: a podcast about inspired teaching at MIT</h2>
+          <p>New Episode: MIT Economist Andrew W. Lo on Finance, AI, and Human Behavior</p>
+          <a href="#">Listen now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phần Featured Courses nằm ngoài main-content -->
+  <section class="featured-courses">
+    <h2>Featured Courses</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev-btn" aria-label="Previous">&#8592;</button>
+      <div class="courses-list">
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/res-18-010-a-vision-of-linear-algebra-fall-2019/images/course-image.jpg" alt="A Vision of Linear Algebra" />
+          <div class="course-info">
+            <small>RES.18-010 | UNDERGRADUATE</small>
+            <h3>A Vision of Linear Algebra</h3>
+            <p>Instructor: Prof. Gilbert Strang</p>
+            <p>Topics: Mathematics, Linear Algebra</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/res-tll-008-social-and-ethical-responsibilities-of-computing-serc/images/course-image.jpg" alt="Social and Ethical Responsibilities of Computing" />
+          <div class="course-info">
+            <small>RES.TLL-008 | NON-CREDIT</small>
+            <h3>Social and Ethical Responsibilities of Computing (SERC)</h3>
+            <p>Instructor: SERC Contributors</p>
+            <p>Topics: Engineering, Computer Science, Artificial Intelligence</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-spring-2020/images/course-image.jpg" alt="Matrix Calculus" />
+          <div class="course-info">
+            <small>18.S096 | UNDERGRADUATE</small>
+            <h3>Matrix Calculus for Machine Learning and Beyond</h3>
+            <p>Instructors: Prof. Alan Edelman, Prof. Steven G. Johnson</p>
+            <p>Topics: Mathematics, Applied Mathematics, Calculus</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/21g-010-introduction-to-european-and-latin-american-fiction-fall-2016/images/course-image.jpg" alt="Introduction to European and Latin American Fiction" />
+          <div class="course-info">
+            <small>21G.010 | UNDERGRADUATE</small>
+            <h3>Introduction to European and Latin American Fiction</h3>
+            <p>Instructor: Prof. Margery Resnick</p>
+            <p>Topics: Humanities, Literature, Fiction</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/images/course-image.jpg" alt="Intro to CS and Programming" />
+          <div class="course-info">
+            <small>6.0001 | UNDERGRADUATE</small>
+            <h3>Introduction to Computer Science and Programming</h3>
+            <p>Instructor: Prof. Ana Bell</p>
+            <p>Topics: Computer Science, Programming</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/images/course-image.jpg" alt="Linear Algebra" />
+          <div class="course-info">
+            <small>18.06 | UNDERGRADUATE</small>
+            <h3>Linear Algebra</h3>
+            <p>Instructor: Prof. Gilbert Strang</p>
+            <p>Topics: Mathematics, Linear Algebra</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+
+<img src="https://ocw.mit.edu/courses/24-900-the-human-brain-fall-2013/images/course-image.jpg" alt="The Human Brain" />
+          <div class="course-info">
+            <small>24.900 | GRADUATE</small>
+            <h3>The Human Brain</h3>
+            <p>Instructor: Prof. Emery N. Brown</p>
+            <p>Topics: Neuroscience, Biology</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/images/course-image.jpg" alt="Introduction to Algorithms" />
+          <div class="course-info">
+            <small>6.006 | UNDERGRADUATE</small>
+            <h3>Introduction to Algorithms</h3>
+            <p>Instructor: Prof. Erik Demaine</p>
+            <p>Topics: Computer Science, Algorithms</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-440j-quantum-computation-fall-2008/images/course-image.jpg" alt="Quantum Computation" />
+          <div class="course-info">
+            <small>18.440J | GRADUATE</small>
+            <h3>Quantum Computation</h3>
+            <p>Instructor: Prof. Peter Shor</p>
+            <p>Topics: Physics, Quantum Computing</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/2-001-structure-of-engineering-revolutions-fall-2010/images/course-image.jpg" alt="Structure of Engineering Revolutions" />
+          <div class="course-info">
+            <small>2.001 | UNDERGRADUATE</small>
+            <h3>Structure of Engineering Revolutions</h3>
+            <p>Instructor: Prof. John Doe</p>
+            <p>Topics: Engineering, History</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/1-00-introduction-to-computer-science-fall-2019/images/course-image.jpg" alt="Intro to Computer Science" />
+          <div class="course-info">
+            <small>1.00 | UNDERGRADUATE</small>
+            <h3>Introduction to Computer Science</h3>
+            <p>Instructor: Prof. Jane Smith</p>
+            <p>Topics: Computer Science</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/3-091-introduction-to-solid-state-chemistry-fall-2010/images/course-image.jpg" alt="Solid State Chemistry" />
+          <div class="course-info">
+            <small>3.091 | UNDERGRADUATE</small>
+            <h3>Introduction to Solid State Chemistry</h3>
+            <p>Instructor: Prof. Albert Einstein</p>
+            <p>Topics: Chemistry, Materials Science</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/5-60-differential-equations-fall-2008/images/course-image.jpg" alt="Differential Equations" />
+          <div class="course-info">
+            <small>5.60 | UNDERGRADUATE</small>
+            <h3>Differential Equations</h3>
+            <p>Instructor: Prof. Isaac Newton</p>
+            <p>Topics: Mathematics</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2014/images/course-image.jpg" alt="Probability and Statistics" />
+          <div class="course-info">
+            <small>18.05 | UNDERGRADUATE</small>
+            <h3>Introduction to Probability and Statistics</h3>
+            <p>Instructor: Prof. Blaise Pascal</p>
+            <p>Topics: Mathematics, Statistics</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/21l-001-writing-and-experience-in-early-america-fall-2016/images/course-image.jpg" alt="Writing and Experience in Early America" />
+          <div class="course-info">
+            <small>21L.001 | UNDERGRADUATE</small>
+            <h3>Writing and Experience in Early America</h3>
+            <p>Instructor: Prof. Mark Twain</p>
+            <p>Topics: Literature, History</p>
+          </div>
+        </div>
+
+<div class="course-card">
+          <img src="https://ocw.mit.edu/courses/24-905-biological-bases-of-behavior-fall-2012/images/course-image.jpg" alt="Biological Bases of Behavior" />
+          <div class="course-info">
+            <small>24.905 | GRADUATE</small>
+            <h3>Biological Bases of Behavior</h3>
+            <p>Instructor: Prof. Sigmund Freud</p>
+            <p>Topics: Neuroscience, Psychology</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next-btn" aria-label="Next">&#8594;</button>
+    </div>
+  </section>
+
+  <section class="donation-section">
+  <div class="donation-text">
+    <strong>Your Donation Makes a Difference</strong><br />
+    <a href="#">Learn more</a> about how you can help MIT OpenCourseWare share knowledge with the world.
+  </div>
+  <button class="btn-donate">GIVE NOW &#10084;</button>
+</section>
+
+<section class="discover-collections">
+  <h2 class="section-title">Discover Collections</h2>
+  <p class="section-desc">
+    OCW offers course content and materials related to a wide range of collections. Below are some topics available for you to explore:
+  </p>
+  <div class="tags-container">
+    <button class="tag">Africana Studies</button>
+    <button class="tag">Energy</button>
+    <button class="tag">Entrepreneurship</button>
+    <button class="tag">Environment &amp; Sustainability</button>
+    <button class="tag">Introductory Programming</button>
+    <button class="tag">Introductory Science and Math</button>
+    <button class="tag">MBA First-Semester Core</button>
+    <button class="tag">MIT Open Learning Library</button>
+    <button class="tag">OCW Scholar</button>
+    <button class="tag">Transportation</button>
+  </div>
+</section>
+
+  <section class="new-courses">
+    <h2>New Courses</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev-btn" aria-label="Previous">&#8592;</button>
+      <div class="courses-list">
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/res-18-010-a-vision-of-linear-algebra-fall-2019/images/course-image.jpg" alt="A Vision of Linear Algebra" />
+          <div class="course-info">
+            <small>RES.18-010 | UNDERGRADUATE</small>
+            <h3>A Vision of Linear Algebra</h3>
+            <p>Instructor: Prof. Gilbert Strang</p>
+            <p>Topics: Mathematics, Linear Algebra</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/res-tll-008-social-and-ethical-responsibilities-of-computing-serc/images/course-image.jpg" alt="Social and Ethical Responsibilities of Computing" />
+          <div class="course-info">
+            <small>RES.TLL-008 | NON-CREDIT</small>
+            <h3>Social and Ethical Responsibilities of Computing (SERC)</h3>
+            <p>Instructor: SERC Contributors</p>
+            <p>Topics: Engineering, Computer Science, Artificial Intelligence</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-spring-2020/images/course-image.jpg" alt="Matrix Calculus" />
+          <div class="course-info">
+            <small>18.S096 | UNDERGRADUATE</small>
+            <h3>Matrix Calculus for Machine Learning and Beyond</h3>
+            <p>Instructors: Prof. Alan Edelman, Prof. Steven G. Johnson</p>
+            <p>Topics: Mathematics, Applied Mathematics, Calculus</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/21g-010-introduction-to-european-and-latin-american-fiction-fall-2016/images/course-image.jpg" alt="Introduction to European and Latin American Fiction" />
+          <div class="course-info">
+            <small>21G.010 | UNDERGRADUATE</small>
+            <h3>Introduction to European and Latin American Fiction</h3>
+            <p>Instructor: Prof. Margery Resnick</p>
+            <p>Topics: Humanities, Literature, Fiction</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/images/course-image.jpg" alt="Intro to CS and Programming" />
+          <div class="course-info">
+            <small>6.0001 | UNDERGRADUATE</small>
+            <h3>Introduction to Computer Science and Programming</h3>
+            <p>Instructor: Prof. Ana Bell</p>
+            <p>Topics: Computer Science, Programming</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/images/course-image.jpg" alt="Linear Algebra" />
+          <div class="course-info">
+            <small>18.06 | UNDERGRADUATE</small>
+            <h3>Linear Algebra</h3>
+            <p>Instructor: Prof. Gilbert Strang</p>
+            <p>Topics: Mathematics, Linear Algebra</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+
+<img src="https://ocw.mit.edu/courses/24-900-the-human-brain-fall-2013/images/course-image.jpg" alt="The Human Brain" />
+          <div class="course-info">
+            <small>24.900 | GRADUATE</small>
+            <h3>The Human Brain</h3>
+            <p>Instructor: Prof. Emery N. Brown</p>
+            <p>Topics: Neuroscience, Biology</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/images/course-image.jpg" alt="Introduction to Algorithms" />
+          <div class="course-info">
+            <small>6.006 | UNDERGRADUATE</small>
+            <h3>Introduction to Algorithms</h3>
+            <p>Instructor: Prof. Erik Demaine</p>
+            <p>Topics: Computer Science, Algorithms</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-440j-quantum-computation-fall-2008/images/course-image.jpg" alt="Quantum Computation" />
+          <div class="course-info">
+            <small>18.440J | GRADUATE</small>
+            <h3>Quantum Computation</h3>
+            <p>Instructor: Prof. Peter Shor</p>
+            <p>Topics: Physics, Quantum Computing</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/2-001-structure-of-engineering-revolutions-fall-2010/images/course-image.jpg" alt="Structure of Engineering Revolutions" />
+          <div class="course-info">
+            <small>2.001 | UNDERGRADUATE</small>
+            <h3>Structure of Engineering Revolutions</h3>
+            <p>Instructor: Prof. John Doe</p>
+            <p>Topics: Engineering, History</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/1-00-introduction-to-computer-science-fall-2019/images/course-image.jpg" alt="Intro to Computer Science" />
+          <div class="course-info">
+            <small>1.00 | UNDERGRADUATE</small>
+            <h3>Introduction to Computer Science</h3>
+            <p>Instructor: Prof. Jane Smith</p>
+            <p>Topics: Computer Science</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/3-091-introduction-to-solid-state-chemistry-fall-2010/images/course-image.jpg" alt="Solid State Chemistry" />
+          <div class="course-info">
+            <small>3.091 | UNDERGRADUATE</small>
+            <h3>Introduction to Solid State Chemistry</h3>
+            <p>Instructor: Prof. Albert Einstein</p>
+            <p>Topics: Chemistry, Materials Science</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/5-60-differential-equations-fall-2008/images/course-image.jpg" alt="Differential Equations" />
+          <div class="course-info">
+            <small>5.60 | UNDERGRADUATE</small>
+            <h3>Differential Equations</h3>
+            <p>Instructor: Prof. Isaac Newton</p>
+            <p>Topics: Mathematics</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2014/images/course-image.jpg" alt="Probability and Statistics" />
+          <div class="course-info">
+            <small>18.05 | UNDERGRADUATE</small>
+            <h3>Introduction to Probability and Statistics</h3>
+            <p>Instructor: Prof. Blaise Pascal</p>
+            <p>Topics: Mathematics, Statistics</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="https://ocw.mit.edu/courses/21l-001-writing-and-experience-in-early-america-fall-2016/images/course-image.jpg" alt="Writing and Experience in Early America" />
+          <div class="course-info">
+            <small>21L.001 | UNDERGRADUATE</small>
+            <h3>Writing and Experience in Early America</h3>
+            <p>Instructor: Prof. Mark Twain</p>
+            <p>Topics: Literature, History</p>
+          </div>
+        </div>
+
+<div class="course-card">
+          <img src="https://ocw.mit.edu/courses/24-905-biological-bases-of-behavior-fall-2012/images/course-image.jpg" alt="Biological Bases of Behavior" />
+          <div class="course-info">
+            <small>24.905 | GRADUATE</small>
+            <h3>Biological Bases of Behavior</h3>
+            <p>Instructor: Prof. Sigmund Freud</p>
+            <p>Topics: Neuroscience, Psychology</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next-btn" aria-label="Next">&#8594;</button>
+    </div>
+  </section>
+
+<section class="ocw-news">
+  <h3 class="ocw-news-title">OCW News</h3>
+  <div class="ocw-news-container">
+    <div class="ocw-main-news">
+      <img src="your-main-image.jpg" alt="Main News" />
+      <div class="ocw-main-news-info">
+        <p class="ocw-date">May 7, 2025</p>
+        <h2>AI-enabled translations initiative empowers Ukrainian learners with new skills</h2>
+      </div>
+    </div>
+    <div class="ocw-side-news">
+      <article class="ocw-side-news-item">
+        <img src="your-image1.jpg" alt="News 1" />
+        <div>
+          <h4>Martina Solano Soto wants to solve the mysteries of the …</h4>
+          <time datetime="2025-04-30">April 30, 2025</time>
+        </div>
+      </article>
+      <article class="ocw-side-news-item">
+        <img src="your-image2.jpg" alt="News 2" />
+        <div>
+          <h4>Data, Not Guesswork: The 2025 MIT OpenCourseWare User Survey</h4>
+          <time datetime="2025-04-22">April 22, 2025</time>
+        </div>
+      </article>
+      <article class="ocw-side-news-item">
+        <img src="your-image3.jpg" alt="News 3" />
+        <div>
+          <h4>Chalk Radio season 7 unlocks new ways of understanding one’s …</h4>
+          <time datetime="2025-04-16">April 16, 2025</time>
+        </div>
+      </article>
+      <article class="ocw-side-news-item">
+        <img src="your-image4.jpg" alt="News 4" />
+        <div>
+          <h4>MIT Open Learning speaker series bridges AI and open …</h4>
+          <time datetime="2025-04-14">April 14, 2025</time>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="share-story-section">
+  <div class="content">
+    <div class="text">
+      <h2>Share your OCW story. We'd love to hear from you!</h2>
+      <p>How OCW has made an impact in your life.</p>
+    </div>
+    <button class="btn-share">Share your Story</button>
+  </div>
+</section>
+
+<section class="ocw-stories-section">
+  <h2>OpenCourseWare <strong>Stories</strong></h2>
+  <p class="ocw-description">
+    Stories from the OpenCourseWare community reflect the profound impact of sharing knowledge and the transformative power of open education.
+  </p>
+
+  <div class="ocw-slider-container">
+    <button class="ocw-slider-btn ocw-prev-btn" aria-label="Previous">&#x276E;</button>
+
+    <div class="ocw-cards-wrapper">
+      <div class="ocw-cards">
+        <!-- 10 cards -->
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1011/300/200" alt="Doğa Kürkçüoğlu" />
+          <h3>Doğa Kürkçüoğlu</h3>
+          <p>MIT OpenCourseWare sparks the joy of deep understanding With the help of MIT’s online resources.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1012/300/200" alt="June Odongo" />
+          <h3>June Odongo</h3>
+          <p>Entrepreneur creates career pathways with MIT OpenCourseWare free online courses.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1013/300/200" alt="Andrea Henshall" />
+          <h3>Andrea Henshall</h3>
+          <p>Veteran and PhD student using MIT Open Learning for aeronautics degrees.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1014/300/200" alt="Student 4" />
+          <h3>Student 4</h3>
+          <p>Example description of story 4 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1015/300/200" alt="Student 5" />
+          <h3>Student 5</h3>
+          <p>Example description of story 5 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1016/300/200" alt="Student 6" />
+          <h3>Student 6</h3>
+          <p>Example description of story 6 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1017/300/200" alt="Student 7" />
+          <h3>Student 7</h3>
+          <p>Example description of story 7 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1018/300/200" alt="Student 8" />
+          <h3>Student 8</h3>
+          <p>Example description of story 8 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1019/300/200" alt="Student 9" />
+          <h3>Student 9</h3>
+          <p>Example description of story 9 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+
+        <article class="ocw-card">
+          <img src="https://picsum.photos/id/1020/300/200" alt="Student 10" />
+          <h3>Student 10</h3>
+          <p>Example description of story 10 with inspiring educational journey.</p>
+          <a href="#">Read Full Story</a>
+        </article>
+      </div>
+    </div>
+
+    <button class="ocw-slider-btn ocw-next-btn" aria-label="Next">&#x276F;</button>
+  </div>
+
+  <button class="ocw-view-all-btn">View All OCW Stories &gt;</button>
+</section>
+
+<section class="connect-section">
+        <div class="social-media-container">
+            <h2>STAY CONNECTED WITH DUNG</h2>
+            <div class="social-icons">
+                <a href="#" class="social-icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" class="social-icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    
+        <div class="newsletter-container">
+            <h2>SUBSCRIBE TO MY WEBSITE</h2>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Your email address..." />
+                <button class="subscribe-btn">SIGN ME UP</button>
+            </div>
         </div>
     </section>
 
-    <!-- Section: Courses and Programs -->
-    <section class="course-offerings">
-        <div class="container">
-            <h3>Courses and Programs</h3>
-            <p>Overview of courses offered (Add your content here).</p>
-
-            <div class="course">
-                <h4>Course Name 1</h4>
-                <p>Description of Course 1 (Add your content here).</p>
+    <section class="supporters-section">
+        <div class="supporters-container">
+            <h2>MY CORPORATE AND FOUNDATION INPUT</h2>
+            <div class="supporters-logos">
+                <img src="images/path_to_your_logo1.webp" alt="Logo 1">
+                <img src="images/path_to_your_logo1.webp" alt="Logo 2">
+                <img src="images/path_to_your_logo1.webp" alt="Logo 3">
+                <img src="images/path_to_your_logo1.webp" alt="Logo 4">
+                <img src="images/path_to_your_logo1.webp" alt="Logo 5">
             </div>
-
-            <div class="course">
-                <h4>Course Name 2</h4>
-                <p>Description of Course 2 (Add your content here).</p>
-            </div>
-
-            <!-- Add more courses as needed -->
         </div>
     </section>
 
-    <!-- Section: Training Options -->
-    <section class="training-options">
-        <div class="container">
-            <h3>Training Options</h3>
-            <p>Details about in-house and public training options (Add your content here).</p>
-
-            <div class="training-option">
-                <h4>In-House Training</h4>
-                <p>Description of In-House Training (Add your content here).</p>
-            </div>
-
-            <div class="training-option">
-                <h4>Public Training</h4>
-                <p>Description of Public Training (Add your content here).</p>
-            </div>
-
-            <!-- Add more training options as needed -->
+    <section class="footer-section">
+        <div class="footer-container">
+            <img src="images/logo.png" alt="Dung Learning Logo" class="footer-logo">
+            <p>MIT OpenCourseWare is an online publication of materials from over 2,500 MIT courses, freely sharing knowledge with learners and educators around the world.| <a href="#">Learn more</a>| &copy; 2025 Dung Academy</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Dung's Memoir. All rights reserved. | <a href="contact.html">Contact Us</a></p>
-        </div>
-    </footer>
+
+
+  <script>
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const coursesList = document.querySelector('.courses-list');
+
+    const cardWidth = coursesList.querySelector('.course-card').offsetWidth + 20; // card width + gap
+    const scrollAmount = cardWidth * 4;  // scroll 4 card mỗi lần
+
+    prevBtn.addEventListener('click', () => {
+      coursesList.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      coursesList.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+(function() {
+  const prevBtn = document.querySelector('.ocw-prev-btn');
+  const nextBtn = document.querySelector('.ocw-next-btn');
+  const cardsContainer = document.querySelector('.ocw-cards');
+  const cards = cardsContainer.querySelectorAll('.ocw-card');
+
+  const cardStyle = getComputedStyle(cards[0]);
+  const cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginRight || 15);
+
+  const visibleCards = 5;
+  const scrollCount = 5;
+
+  let currentIndex = 0;
+  const maxIndex = cards.length - visibleCards;
+
+  function updateScroll() {
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    const scrollX = cardWidth * currentIndex;
+    cardsContainer.style.transform = `translateX(-${scrollX}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex -= scrollCount;
+    updateScroll();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex += scrollCount;
+    updateScroll();
+  });
+})();
+  </script>
+
+  
 
 </body>
 </html>

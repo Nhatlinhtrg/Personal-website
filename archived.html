@@ -3,144 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archived - LUONG HUNG DUNG</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Archived - Open Matters Blog</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: grey;
+        }
+
+        /* Unique header container */
+        .custom-header-container-001 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: grey;
+            padding: 10px 20px;
+        }
+
+        /* Logo and text next to it */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .unique-logo-style-001 img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-size: 27px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px; 
+            border: 5px solid rgb(104, 42, 11) ;
+            border-radius: 15px;
+            background-color: rgb(104, 42, 11) ;
+            padding:20px; 
+        }
+
+        /* Navbar with red background */
+        .navigation-links-001 ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            background-color: #f1f1f1; /* Màu đỏ */
+            padding: 10px;
+
+        }
+
+        .navigation-links-001 a {
+            text-decoration: none;
+            color: black; /* Màu chữ trắng */
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 60px;
+        }
+
+        .navigation-links-001 a:hover {
+            color: grey; /* Màu sáng hơn khi hover */
+        }
+
+        /* Search section with input and dropdown buttons */
+        .search-section {
+            display: flex;
+            gap: 15px;
+            background-color: #541809; /* Màu nền đỏ */
+            padding:20px;
+            max-width: 1210px;
+            margin-top: 40px; /* Tạo khoảng cách từ header */
+            justify-content: center;  
+            margin-left: 15px;   
+        }
+
+        .search-section input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            width: 250px;
+        }
+
+        .search-section select,
+        .search-section button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 15px;
+            border: 2px solid rgb(104, 42, 11); /* Viền xanh */
+
+        }
+
+        .search-section button {
+            background-color: #541809; /* Màu nền đỏ */
+            color: white;
+            font-weight: bold;
+        }
+
+        .search-section button:hover {
+            background-color: #e76f51;
+            color: white;
+        }
+
+        .search-section select {
+            background-color: #541809; /* Màu nền đỏ */
+            color: white;
+            margin-left: 40px;
+            border: 2px solid rgb(104, 42, 11); /* Viền xanh */
+            border-radius: 15px;
+
+
+        }
+
+        .search-section select:hover {
+            background-color: #e76f51;
+            color: white;
+        }
+        /* Lưới các thẻ bài */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 40px 40px;
+            margin-top: 0px;
+            background-color: white;
+            max-width: 1210px;
+            margin-left: 15px;
+
+            
+            
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 0.5px solid grey;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .card-footer {
+            font-size: 12px;
+            color: #e76f51;
+            font-weight: bold;
+        }
+
+                /* Site footer styles */
+        .site-footer {
+        background-color: #541809; /* Màu nền đỏ */
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .site-footer .section {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .site-footer h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .site-footer .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .site-footer .tag-cloud a {
+            background-color: #fff;
+            color: #e76f51;
+            padding: 10px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .site-footer .tag-cloud a:hover {
+            background-color: #e76f51;
+            color: white;
+        }
+
+        .site-footer .terms a {
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .site-footer .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bottom logo */
+        .site-footer .footer-logo {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .site-footer .footer-logo img {
+            max-width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="custom-header-container-001">
+
+
+        <div class="logo-container">
+            <div class="logo-text">LUONG HUNG DUNG</div>
+        </div>
+        <nav class="navigation-links-001">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html">Give to OCW</a></li>
+                <li><a href="newsletter-archive.html">OCW Newsletter Archive</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search in resources..." oninput="filterCards()">
+        <select id="categorySelect" onchange="filterCards()">
+            <option value="">Select Category</option>
+            <option value="cat1">Category 1</option>
+            <option value="cat2">Category 2</option>
+            <option value="cat3">Category 3</option>
+        </select>
+        <select id="authorSelect" onchange="filterCards()">
+            <option value="">Select Author</option>
+            <option value="author1">Author 1</option>
+            <option value="author2">Author 2</option>
+            <option value="author3">Author 3</option>
+        </select>
+        <button onclick="filterCards()">Search</button>
+    </section>
+
+    <!-- Card Section -->
+    <section class="card-container" id="cardContainer">
+        <div class="card" data-category="cat1" data-author="author1">
+            <img src="https://via.placeholder.com/300" alt="Image 1">
+            <div class="card-body">
+                <div class="card-title">Chalk Radio season 7 unlocks new ways of understanding one’s potential</div>
+                <div class="card-description">After years of delivering top-notch audio content, Chalk Radio® debuts a new video format featuring MIT’s Andrew...</div>
+                <div class="card-footer">MIT OpenCourseWare 485 Resources</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="cat2" data-author="author2">
+            <img src="https://via.placeholder.com/300" alt="Image 2">
+            <div class="card-body">
+                <div class="card-title">MIT Open Learning speaker series bridges AI and open education</div>
+                <div class="card-description">The AI + Open Education Initiative Speaker Series, hosted by MIT OpenCourseWare’s Collaborations Program, brings global voices...</div>
+                <div class="card-footer">MIT OpenCourseWare 485 Resources</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="cat3" data-author="author3">
+            <img src="https://via.placeholder.com/300" alt="Image 3">
+            <div class="card-body">
+                <div class="card-title">Courses from MIT’s 2025 MacVicar Fellows</div>
+                <div class="card-description">For the past 33 years, the MacVicar Faculty Fellows Program has honored several MIT professors each year who...</div>
+                <div class="card-footer">MIT OpenCourseWare 485 Resources</div>
+            </div>
+        </div>
+
+         <!-- Card 4 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300" alt="Image 4">
+            <div class="card-body">
+                <div class="card-title">For this computer scientist, MIT OpenCourseWare was the start of a life-changing journey</div>
+                <div class="card-description">Ana Trisović, who studies the democratization of AI, reflects on a career path that she began as...</div>
+                <div class="card-footer">MIT OpenCourseWare 485 Resources</div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300" alt="Image 5">
+            <div class="card-body">
+                <div class="card-title">11 free courses taught by MIT’s 2025 National Academy of Engineering electees</div>
+                <div class="card-description">Learn chemical engineering, electrical engineering, and more with online resources from MIT Open Learning...</div>
+                <div class="card-footer">MIT OpenCourseWare 485 Resources</div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300" alt="Image 6">
+            <div class="card-body">
+                <div class="card-title">In the Living Room with Open Education Network & MIT OpenCourseWare</div>
+                <div class="card-description">MIT OpenCourseWare collaborates on an event for Open Education Global’s Open Education Week...</div>
+                <div class="card-footer">MIT OpenCourseWare 485 Resources</div>
+            </div>
+        </div>
+
+        <!-- More cards can be added similarly -->
+    </section>
+
+
+
+
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="top-navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="LHD Logo" class="lhd-logo">
-            <h1>LUONG HUNG DUNG</h1>
-        </div>
-        <!-- Menu điều hướng -->
-<nav class="nav-bar">
-    <ul class="nav-menu">
-        <li><a href="index.html"><strong>Home</strong></a></li>
-        <li><a href="memoir.html"><strong>Memoir</strong></a></li>
-        <li><a href="travel.html"><strong>Travel</strong></a></li>
-        <li><a href="education.html"><strong>DungOpenCourseWare</strong></a></li>
-        <li><a href="notes.html"><strong>Notes</strong></a></li>
-        <li><a href="archived.html"><strong>Archived</strong></a></li>
-    </ul>
-    <!-- Kính lúp trong thanh menu -->
-    <a href="#" class="subscribe-button">Subscribe</a>  <!-- Thêm nút Subscribe ở đây -->
-    <a href="#" class="start-now-button">Start Now</a>
-    <div class="hamburger-menu">
-        <a href="#" id="hamburger-icon"><i class="fas fa-bars"></i></a>
-    </div>
-</nav>
-</div>
-</header>
-
-<!-- Nội dung trang chính của bạn (Hero, Features, v.v.) -->
-
-<!-- Trang kéo (side-panel) -->
-<div class="side-panel" id="side-panel">
-    <div class="side-panel-content">
-        <ul>
-            <!-- Research for the First Book's Publication -->
-            <li><a href="#">Research for the First Book's Publication</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Connecting the Dots</a></li>
-                </ul>
-            </li>
-
-            <!-- Awakening from Within -->
-            <li><a href="#">Awakening from Within</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Theories</a></li>
-                    <li><a href="#">Practices</a></li>
-                    <li><a href="#">Spiritual Journey</a></li>
-                </ul>
-            </li>
-
-              <!-- Talent Management -->
-              <li><a href="#">Talent Management</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Managing self</a></li>
-                    <li><a href="#">Managing people</a></li>
-                </ul>
-            </li>
-
-            <!-- Corporate Management -->
-            <li><a href="#">Corporate Management</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Business Management</a></li>
-                    <li><a href="#">Entrepreneurship</a></li>
-                    <li><a href="#">Leadership</a></li>
-                </ul>
-            </li>
-
-            <!-- Explore -->
-            <li><a href="#">Explore</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Mindset</a></li>
-                    <li><a href="#">Wealth</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Relationships</a></li>
-                    <li><a href="#">Happiness</a></li>
-                    <li><a href="#">The Skill Toolkits</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-
-
-<script src="script.js"></script>
-    
-</nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <section class="archived-section">
-        <div class="container">
-            <h2>Archived Works & Memories</h2>
-            <p>Here you can browse older reflections, writings, or memories that are no longer part of the main journey, but still valuable.</p>
-
-            <!-- Thêm nội dung lưu trữ ở đây -->
-            <div class="archive-item">
-                <h3>2023 - Reflections on Growth</h3>
-                <p>Some thoughts and entries from my growth journey in 2023...</p>
-            </div>
-
-            <div class="archive-item">
-                <h3>2022 - First Travel Diary</h3>
-                <p>Travel stories and personal records from early explorations.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Other content above footer -->
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 LUONG HUNG DUNG. All rights reserved. | <a href="contact.html">Contact Us</a></p>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Tag Cloud Section -->
+            <div class="section">
+                <h2>Tag Cloud</h2>
+                <div class="tag-cloud">
+                    <a href="#">Awards</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Chalk Radio</a>
+                    <a href="#">Conferences</a>
+                    <a href="#">Courses</a>
+                    <a href="#">Current events</a>
+                    <a href="#">edX</a>
+                    <a href="#">Events</a>
+                    <a href="#">Faculty Profile</a>
+                    <a href="#">Featured Content</a>
+                    <a href="#">Flipped classroom</a>
+                    <a href="#">HarvardX</a>
+                    <a href="#">Higher education</a>
+                    <a href="#">Highlights for High School</a>
+                    <a href="#">Intellectual property</a>
+                    <a href="#">Media coverage</a>
+                    <a href="#">MIT Community</a>
+                    <a href="#">MITx</a>
+                    <a href="#">MOOC</a>
+                    <a href="#">New Courses</a>
+                    <a href="#">News</a>
+                    <a href="#">OCW Consortium</a>
+                    <a href="#">OCW Educator</a>
+                    <a href="#">OCW Scholar</a>
+                    <a href="#">OCW Use & Impact</a>
+                    <a href="#">Office of Digital Learning</a>
+                    <a href="#">Open Access</a>
+                    <a href="#">Open data</a>
+                    <a href="#">Open Education</a>
+                    <a href="#">Open Educational Resources</a>
+                    <a href="#">Open Learning</a>
+                    <a href="#">Open licensing</a>
+
+
+<a href="#">Open textbooks</a>
+                    <a href="#">Outreach</a>
+                    <a href="#">Policy</a>
+                    <a href="#">Professional education</a>
+                    <a href="#">Recognition</a>
+                    <a href="#">Research</a>
+                    <a href="#">Secondary education</a>
+                    <a href="#">Site enhancements</a>
+                    <a href="#">Sustainability</a>
+                    <a href="#">Translations</a>
+                    <a href="#">User Stories</a>
+                    <a href="#">xConsortium</a>
+                    <a href="#">XSeries</a>
+                </div>
+            </div>
+
+            <!-- Terms Section -->
+            <div class="section terms">
+                <h2>Our Terms And Conditions</h2>
+                <a href="#">Check Our Privacy Policy</a>
+            </div>
         </div>
+
+    
     </footer>
+
+</body>
+</html>
+
+
+    <script>
+        function filterCards() {
+            var searchInput = document.getElementById('searchInput').value.toLowerCase();
+            var categorySelect = document.getElementById('categorySelect').value;
+            var authorSelect = document.getElementById('authorSelect').value;
+            var cards = document.getElementsByClassName('card');
+
+            for (var i = 0; i < cards.length; i++) {
+                var title = cards[i].getElementsByClassName('card-title')[0].innerText.toLowerCase();
+                var category = cards[i].getAttribute('data-category');
+                var author = cards[i].getAttribute('data-author');
+
+if ((title.includes(searchInput) || searchInput === '') &&
+                    (category.includes(categorySelect) || categorySelect === '') &&
+                    (author.includes(authorSelect) || authorSelect === '')) {
+                    cards[i].style.display = '';
+                } else {
+                    cards[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>

@@ -1,351 +1,1572 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Travel - LUONG HUNG DUNG</title>
-        <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TCN Styled Page with Dropdown</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: "Georgia", serif;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+    }
+    /* Header Nav */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom:  0.5px solid rgb(75, 75, 75) ;
+      border-top:  0.5px solid rgb(75, 75, 75) ;
+
+    }
+    .logo {
+      margin-bottom: 5px;
+      color: white;
+      font-weight: 900;
+      font-size: 21px;
+      padding: 6px 16px;
+    }
+    nav {
+      display: flex;
+      gap: 14px;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-left: 100px;
+    }
+    nav > div, nav > a {
+      cursor: pointer;
+    }
+    /* Dropdown watch menu */
+    .watch-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      color: white;
+    }
+    .arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .arrow.open {
+      transform: rotate(180deg);
+    }
+    /* Search and subscribe */
+    .search-subscribe {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .search-input {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      width: 180px;
+      font-size: 14px;
+    }
+    .subscribe-btn {
+      background-color: #8B0000;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+    }
+    /* Auth links */
+    .auth-links {
+      font-size: 13px;
+      color: #ccc;
+      text-align: right;
+      margin-top: -25px;
+    }
+    .auth-links a {
+      color: #ccc;
+      margin-left: 10px;
+    }
+    /* Morning Note Section */
+    .morning-note {
+      margin-top: 20px;
+      color: #bbb;
+      font-family: Arial, sans-serif;
+      border-bottom:  0.5px solid rgb(75, 75, 75) ;
+    }
+    .morning-note strong {
+      background: #ddd;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: black;
+      font-weight: 600;
+      font-size: 16px;
+      margin-left: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .morning-note .date {
+      font-size: 11px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .morning-note .headline {
+      font-weight: 600;
+      margin-left: 10px;
+      color: black;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+    .morning-note .subheadline {
+      margin-left: 130px;
+      font-size: 13px;
+      color: #444;
+      font-family: Arial, sans-serif;
+    }
+    /* Main banner */
+    .main-banner {
+      background-color: #4a5543;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      padding: 40px 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 30px;
+      color: white;
+      font-weight: 700;
+      font-family: "Georgia", serif;
+    }
+    .banner-text {
+      flex: 1 1 320px;
+    }
+    .banner-text h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+    .banner-text p {
+      font-weight: 400;
+      font-size: 16px;
+      margin: 0 0 20px;
+    }
+    .btn-shop {
+      background-color: #8B0000;
+      padding: 12px 30px;
+      border: none;
+      font-weight: 700;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .banner-products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      flex: 1 1 320px;
+}
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .product img {
+      max-width: 100px;
+      border-radius: 8px;
+      background: #2f3a28;
+      padding: 10px;
+    }
+    .coasters {
+      max-width: 80px;
+    }
+    /* Banner logo */
+    .banner-logo {
+      margin-top: auto;
+      align-self: flex-end;
+      font-weight: bold;
+      background: white;
+      color: black;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+    }
+    /* Watch Section */
+    #watch-section {
+      background-color: #f8f5ef;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 1200px;
+      margin: 20px auto 30px auto;
+      color: black;
+      font-family: Arial, sans-serif;
+      display: none;
+    }
+    .watch-columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .watch-column {
+      flex: 1 1 200px;
+    }
+    .watch-column strong {
+      font-weight: 700;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .watch-column ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .watch-column ul li {
+      margin-bottom: 6px;
+    }
+    .watch-column ul li a {
+      color: black;
+      text-decoration: none;
+    }
+    .watch-column ul li a:hover {
+      color: #d52b1e;
+    }
+    .sub-list {
+      color: #555;
+    }
+    .featured {
+      flex: 1 1 250px;
+    }
+    .featured-image img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .about-sam-harris {
+  position: relative;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-family: Arial, sans-serif;
+  height: 300px; /* chiều cao tùy chỉnh */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-sam-harris img {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5); /* làm tối ảnh để chữ nổi bật */
+}
+
+.about-sam-harris .overlay-text {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  margin-left: 600px;
+}
+
+.about-sam-harris a {
+  color: #d52b1e;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-sam-harris {
+    height: 250px;
+  }
+  .about-sam-harris .overlay-text {
+    padding: 20px;
+    font-size: 16px;
+  }
+}
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      #watch-section {
+        margin: 15px 10px 30px 10px;
+        padding: 15px 10px;
+      }
+      .watch-columns {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .watch-column {
+        flex: 1 1 100%;
+      }
+      .main-banner {
+        flex-direction: column;
+        padding: 30px 15px;
+      }
+      .banner-text h1 {
+        font-size: 32px;
+      }
+      .banner-products {
+        justify-content: flex-start;
+      }
+      .morning-note .subheadline {
+        margin-left: 0;
+      }
+      /* Responsive for About Sam Harris */
+      .about-sam-harris {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .about-sam-harris > div {
+        flex: none;
+      }
+    }
+
+    .discover-collections {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 25px 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.discover-collections h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 8px;
+    color: white;
+}
+
+.discover-collections p {
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  color: white;
+}
+
+.collections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.collections a.collection-link {
+  text-decoration: none;
+  flex: 1 1 auto;
+  min-width: 200px; /* tránh nút quá nhỏ */
+}
+
+.collection-item {
+  width: 100%;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  border: 1.8px solid #8B0000;
+  border-radius: 25px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: normal;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.collection-item:hover,
+.collection-item:focus {
+  background-color: #8B0000;
+  color: white;
+  outline: none;
+}
+
+/* Responsive: trên màn nhỏ thì các nút full chiều ngang */
+@media (max-width: 640px) {
+  .collections {
+    flex-direction: column;
+  }
+  .collections a.collection-link {
+    min-width: 100%;
+  }
+  .collection-item {
+    font-size: 1.05rem;
+    padding: 12px 20px;
+  }
+}
+
+    /* --- Phần Featured Courses mới --- */
+
+    .featured-courses {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .featured-courses h2 {
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .slider-btn {
+      background-color: #a3143a;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+
+    .slider-btn:hover {
+      background-color: #7a0f2d;
+    }
+
+    .courses-list {
+      display: flex;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      width: 960px;
+      gap: 20px;
+      background: #222;
+      padding: 10px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      overflow: hidden;
+      width: 220px;
+      flex-shrink: 0;
+      color: black;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .course-info {
+      padding: 12px 15px;
+      font-size: 14px;
+      color: #222;
+      flex-grow: 1;
+    }
+
+    .course-info small {
+      font-weight: 600;
+      color: #666;
+    }
+
+    .course-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 8px 0 6px 0;
+      color: #000;
+    }
+
+    .course-info p {
+      margin: 2px 0;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 1000px) {
+      .courses-list {
+        width: 100%;
+      }
+    }
+
+    .latest-episode {
+  padding: 30px 20px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #111;
+  background: #fafafa;
+  transition: box-shadow 0.3s ease;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.latest-episode:hover {
+  box-shadow: 0 20px 40px rgba(207, 50, 14, 0.3);
+}
+
+.latest-episode .container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.episode-image {
+  flex: 1 1 320px;
+  max-width: 480px;
+  padding: 8px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #00aaff, #004466, #00aaff);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.episode-image:hover {
+  transform: scale(1.05);
+}
+
+.episode-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.episode-info {
+  flex: 2 1 450px;
+}
+
+.episode-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.episode-meta .tag {
+  background: #571004;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 5px rgba(204, 51, 0, 0.4);
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.episode-meta .tag:hover {
+  background-color: #4d322d;
+}
+
+.episode-meta time {
+  font-style: normal;
+}
+
+.episode-title {
+  font-size: 2.3rem;
+  margin: 0 0 15px;
+  line-height: 1.15;
+  font-weight: 600;
+  cursor: default;
+  transition: color 0.3s ease;
+}
+
+.episode-title:hover {
+  color: #571004;
+}
+
+.episode-desc {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: #333;
+  line-height: 1.5;
+  cursor: default;
+}
+
+.category {
+  font-size: 0.9rem;
+  background: #571004;
+  padding: 6px 14px;
+  border-radius: 30px;
+  color: white;
+  display: inline-block;
+  font-weight: 600;
+  box-shadow: 0 0 6px rgba(153, 51, 0, 0.35);
+  user-select: none;
+}
+
+.section-title-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg); /* Xoay văn bản theo chiều dọc */
+    font-size: 1.6rem; /* Kích thước chữ lớn hơn để làm nổi bật */
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    margin-right: 500px; /* Điều chỉnh khoảng cách từ bên trái */
+    margin-top: 2470px;
+    border-radius: 10px;
+    background-color: #8B0000;
+    padding: 20px;
+    border-radius: 20px;
     
-        <!-- Thêm Font Awesome để hiện biểu tượng kính lúp -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    </head>
+}
+
+.features .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 50px ;
+}
+
+.feature {
+    width: auto; /* Không ép buộc chiều rộng ảnh */
+    text-align: center;
+    max-width: 300px; /* Giới hạn kích thước tối đa nếu muốn */
+    flex-grow: 1; /* Cho phép ảnh giãn nở tự do */
+}
+/* Các mục khóa học */
+.feature-item {
+    opacity: 0;  /* Ẩn ảnh ban đầu */
+    transform: translateY(20px);  /* Đưa ảnh xuống dưới */
+    transition: opacity 0.5s ease, transform 0.5s ease;  /* Hiệu ứng fade-in */
+}
+
+.feature-item.visible {
+    opacity: 1;  /* Hiển thị ảnh */
+    transform: translateY(0);  /* Trở lại vị trí ban đầu */
+}
+
+.feature img {
+    width: 100%; /* Ảnh vẫn chiếm hết không gian của div */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.feature {
+    width: 300px;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.feature p {
+    color: #666;
+}
+/* FADE-IN ANIMATION */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.whh-upcoming-events {
+  margin-top: 40px;
+}
+.whh-events-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.whh-event {
+  flex: 1 1 30%;
+  border-right: 1px solid #8B0000;
+  padding-right: 15px;
+  box-sizing: border-box;
+  color: white;
+}
+.whh-event:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.whh-event h4 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.whh-event-type {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+.whh-event-date {
+  font-weight: 700;
+  font-size: 12px;
+  background: #ffc107;
+  padding: 3px 6px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.whh-event p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .whh-exhibits-list {
+    flex-direction: column;
+  }
+  .whh-exhibit {
+    flex: 1 1 100%;
+    min-height: 120px;
+  }
+  .whh-events-list {
+    flex-direction: column;
+  }
+  .whh-event {
+    flex: 1 1 100%;
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid #8B0000;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  .whh-event:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .whh-see-all {
+    float: none;
+    display: block;
+    margin-top: 10px;
+    margin-right: 300px;
+  }
+}
+
+ /* Mục mới */
+     .signup-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #f4f4f4;
+      margin:0 auto; 
+      border-radius: 10px;
+      width: 80%;
+    }
+    .signup-section img {
+      width: 20%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .signup-section-content {
+      max-width: 60%;
+    }
+    .signup-section-content h2 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: black;
+    }
+    .signup-section-content p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .signup-section-content button {
+      background-color: #ffc107;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 700px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .signup-section-content button:hover {
+      background-color: #444;
+    }
+
+    .defend-truth-section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ece9e2;
+  padding: 40px;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  max-width: 85%;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.defend-truth-content {
+  flex: 1 1 350px;
+  max-width: 600px;
+}
+
+.defend-truth-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.defend-truth-button {
+  background-color: #c00;
+  color: white;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.defend-truth-benefits {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.defend-truth-benefits li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 1rem;
+  color: #333;
+}
+
+.defend-truth-benefits li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #000;
+}
+
+.defend-truth-note {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.defend-truth-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.defend-truth-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .defend-truth-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .defend-truth-button {
+    width: 100%;
+  }
+
+  .defend-truth-benefits li {
+    text-align: left;
+  }
+}
+
+     .footer-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .footer-image img {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+  .footer-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 25vh;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+  }
+  .footer-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+  }
+  @media (max-width: 600px) {
+    .footer-image {
+      font-size: 1.2rem;
+      height: 40vh;
+    }
+    .footer-image::after {
+      height: 15vh;
+    }
+  }
+
+footer {
+    background: #000;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 0px solid;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    border: 3px solid #0099ff;
+    color: #0099ff;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1 1 200px;
+    min-width: 180px;
+    margin-bottom: 30px;
+  }
+
+  .footer-column-header {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: normal;
+  }
+
+  .footer-column a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-routine {
+    border: 1px solid #0099ff;
+    border-radius: 20px;
+    color: #0099ff;
+    font-weight: 700;
+    padding: 5px 15px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-size: 14px;
+    color: white;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+    }
+    .footer-column {
+      min-width: 100%;
+    }
+  }   
+   .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Luôn đứng trên cùng */
+  }
+  /* Popup chính */
+  .popup {
+    background: #f9f7f3;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+  /* Logo TCN */
+  .popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .popup-header img {
+    height: 30px;
+    margin-right: 10px;
+  }
+  .popup-header .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  /* Tiêu đề lớn */
+  .popup h2 {
+    margin: 10px 0 15px;
+    font-size: 24px;
+  }
+  /* Mô tả */
+  .popup p {
+    margin-bottom: 15px;
+    color: #555;
+  }
+  /* Input email */
+  .popup input[type="email"] {
+    width: 70%;
+    padding: 8px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  /* Nút đăng ký */
+  .popup button {
+    background-color: #b40e0e;
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  /* Checkbox và điều khoản */
+  .terms {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #444;
+  }
+  .terms a {
+    color: #666;
+    text-decoration: underline;
+  }
+  /* Ảnh và background decor */
+  .decor {
+    margin-top: 20px;
+    position: relative;
+    height: 150px;
+  }
+  .decor img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  /* Nút đóng popup */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+  }
+  .close-btn:hover {
+    color: #b40e0e;
+  }  
+
+  </style>
+</head>
 <body>
-
-<!-- Header -->
-<header class="top-navbar">
-    <div class="navbar-container">
-        <!-- Logo và tên -->
-        <div class="logo">
-            <img src="images/logo.png" alt="LHD Logo" class="lhd-logo">
-            <div class="logo-text">
-                <div>LUONG HUNG DUNG</div>
-            </div>
+  <div class="container">
+      <section class="top-header">
+                      <div class="logo">LUONG HUNG DUNG</div>
+        <div class="auth-links">
+          <a href="#">CREATE ACCOUNT</a> | <a href="#">SIGN IN</a>
         </div>
+    </section>
+    <header>
 
-        <!-- Menu điều hướng -->
-        <nav class="nav-bar">
-            <ul class="nav-menu">
-                <li><a href="index.html"><strong>Home</strong></a></li>
-                <li><a href="memoir.html"><strong>Memoir</strong></a></li>
-                <li><a href="travel.html"><strong>Travel</strong></a></li>
-                <li><a href="education.html"><strong>DungOpenCourseWare</strong></a></li>
-                <li><a href="notes.html"><strong>Notes</strong></a></li>
-                <li><a href="archived.html"><strong>Archived</strong></a></li>
-            </ul>
-
-            <!-- Language toggle after Archived -->
-            <div class="language-toggle">
-                <span id="en-btn">EN</span> | <span id="ru-btn">RU</span>
-            </div>
-
-            <a href="#" class="subscribe-button">Subscribe</a>
-            <a href="#" class="start-now-button">Start Now</a>
-            <div class="hamburger-menu">
-                <a href="#" id="hamburger-icon"><i class="fas fa-bars"></i></a>
-            </div>
-        </nav>
-    </div>
-</header>
-
-
-<!-- Nội dung trang chính của bạn (Hero, Features, v.v.) -->
-
-<!-- Trang kéo (side-panel) -->
-<div class="side-panel" id="side-panel">
-    <div class="side-panel-content">
-        <!-- Thêm Search Box trong trang kéo -->
-        <div class="search-container">
-            <input type="text" class="search-box" placeholder="Here are what you can explore.">
-            <button class="search-btn">
-                <i class="fas fa-search"></i>  <!-- Kính lúp -->
-            </button>
+      <nav>
+        <div class="watch-menu">
+          EXPLORE
+          <span class="arrow">&#x25BC;</span>
         </div>
-        <ul>
-            <!-- Research for the First Book's Publication -->
-            <li><a href="#">Research for the First Book's Publication</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Connecting the Dots</a></li>
-                </ul>
-            </li>
-
-            <!-- Awakening from Within -->
-            <li><a href="#">Awakening from Within</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Theories</a></li>
-                    <li><a href="#">Practices</a></li>
-                    <li><a href="#">Spiritual Journey</a></li>
-                </ul>
-            </li>
-
-            <!-- Corporate Management -->
-            <li><a href="#">Corporate Management</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Business Management</a></li>
-                    <li><a href="#">Entrepreneurship</a></li>
-                    <li><a href="#">Leadership</a></li>
-                </ul>
-            </li>
-
-              <!-- Talent Management -->
-              <li><a href="#">Talent Management</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Managing self</a></li>
-                    <li><a href="#">Managing people</a></li>
-                </ul>
-            </li>
-
-            <!-- Explore -->
-            <li><a href="#">Explore</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-                <ul class="subfolders">
-                    <li><a href="#">Mindset</a></li>
-                    <li><a href="#">Wealth</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Relationships</a></li>
-                    <li><a href="#">Happiness</a></li>
-                    <li><a href="#">The Skill Toolkits</a></li>
-                </ul>
-            </li>
-           
-            <li><a href="#">Genes</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-            </li>
-
-            <li><a href="#">Cosmology</a>
-                <!-- Nút mũi tên -->
-<button class="toggle-btn">
-    <i class="fas fa-chevron-down"></i>  <!-- Mũi tên Font Awesome -->
-</button>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<script src="script.js"></script>
-</nav>
-        </div>
+                    <a href="index.html"><strong>Home</strong></a>
+                    <a href="memoir.html"><strong>Memoir</strong></a>
+                    <a href="travel.html"><strong>Travel</strong></a>
+                    <a href="books.html"><strong>Books</strong></a>
+                    <a href="podcast.html"><strong>Podcast</strong></a>
+                    <a href="open_courseware.html"><strong>CourseWare</strong></a>
+                    <a href="notes.html"><strong>Notes</strong></a>
+                    <a href="archived.html"><strong>Archived</strong></a>
+      </nav>
+      <div class="search-subscribe">
+        <input class="search-input" type="search" placeholder="Search" />
+        <button class="subscribe-btn">SUBSCRIBE →</button>
+      </div>
     </header>
 
-    <!-- Hero Banner -->
-<section class="hero-banner">
-    <div class="hero-content">
-        <h1>Education, devoid of ideology.</h1>
-        <p>Affordable to all, taught by the best.</p>
-        <div class="included:">
-            <div class="left-side">
-                <ul>
-                    <li><i class="fas fa-check"></i> 4 New College Courses Monthly</li>
-                    <li><i class="fas fa-check"></i> World-Class Professors</li>
-                    <li><i class="fas fa-check"></i> 41,257 Students</li>
-                </ul>
-            </div>
-            <div class="right-side">
-                <ul>
-                    <li><i class="fas fa-check"></i> Intellectually Driven Community</li>
-                    <li><i class="fas fa-check"></i> 35+ 8-Hour Lectures</li>
-                </ul>
-            </div>
+    <!-- Watch Section -->
+    <div id="watch-section" aria-label="Watch Tucker menu">
+      <div class="watch-columns">
+        <div class="watch-column">
+          <strong>Research for the First Book's Publication</strong>
+          <ul>
+            <li><a href="#">Connecting the Dots</a></li>
+          </ul>
         </div>
-        <button class="join-btn">Let's join in</button>
+        <div class="watch-column">
+          <strong>Awakening from Within</strong>
+          <ul class="sub-list">
+            <li>Theories</li>
+            <li>Practices</li>
+            <li>Spiritual Journey</li>
+          </ul>
+        </div>
+        <div class="watch-column">
+          <strong>Corporate Managemen</strong>
+          <ul class="sub-list">
+            <li>Business Management</li>
+            <li>Entrepreneurship</li>
+            <li>Leadership</li>
+          </ul>
+        </div>
+                <div class="watch-column">
+          <strong>Talent Management</strong>
+          <ul class="sub-list">
+            <li>Managing self</li>
+            <li>Managing people</li>
+          </ul>
+        </div>
+                <div class="watch-column">
+          <strong>Podcast</strong>
+          <ul class="sub-list">
+            <li>Mindset</li>
+            <li>Wealth</li>
+            <li>Health</li>
+            <li>Relationships</li>
+            <li>Happiness</li>
+            <li>The Skill Toolkits</li>            
+          </ul>
+        </div>
+
+                        <div class="watch-column">
+          <strong>Genes</strong>
+        </div>
+
+        
+                        <div class="watch-column">
+          <strong>Cosmology</strong>
+        </div>
+      </div>
     </div>
+
+
+
+    <section class="morning-note">
+      <div class="date">FRIDAY, MAY 16</div>
+      <strong>Morning Note</strong>
+      <span class="headline">James Comey Is Under Investigation</span>
+      <div class="subheadline">Did he really call for Donald Trump's murder?</div>
+    </section>
+
+    <section class="main-banner" aria-label="Shop section">
+      <div class="banner-text">
+        <h1>Crafted with<br />Education​ <br />Devoid of ideology</h1>
+        <p>Affordable to All<br />Taught by the best.</p>
+        <button class="btn-shop">JOIN IN</button>
+      </div>
+      <div class="banner-products" aria-label="Product images">
+        <div class="product">
+          <img src="images/hero-bg2 .jpg" alt="Camo hat" />
+        </div>
+        <div class="product">
+          <img src="images/hero-bg2 .jpg" alt="White t-shirt with forest design" />
+        </div>
+        <div class="product">
+          <img src="images/hero-bg3.jpg" alt="Green hat" />
+        </div>
+        <div class="product">
+          <img src="images/hero-bg4.jpg" alt="Leather coasters" class="coasters" />
+        </div>
+        <div class="product">
+          <img src="https://i.imgur.com/7uVspOx.png" alt="Black hat" />
+        </div>
+        <div class="product">
+          <img src="https://i.imgur.com/OScQ2pn.png" alt="Beige t-shirt with forest design" />
+        </div>
+      </div>
+      <div class="banner-logo">Dung Experiences</div>
+    </section>
+  <!-- About Sam Harris Section -->
+<section class="about-sam-harris">
+  <img src="images/photo.jpg" alt="Sam Harris" />
+  <div class="overlay-text">
+    <p>
+      Luong Hung Dung is a neuroscientist, philosopher, New York Times best-selling 
+      <a href="#">author</a>, host of 
+      <a href="#">Making Sense,</a> and creator of 
+      <a href="#">Waking Up.</a>
+    </p>
+  </div>
+</section>
+<section class="discover-collections" aria-label="Discover Collections">
+  <h2>Discover Collections</h2>
+  <p>Serious minds deserve serious mentors.</p>
+  <div class="collections">
+    <a href="Psychotherapy.html" class="collection-link">
+      <button class="collection-item" type="button">Psychotherapy & Counseling</button>
+    </a>
+    <a href="Philosophy.html" class="collection-link">
+      <button class="collection-item" type="button">Philosophy & Schools of Thought</button>
+    </a>
+    <a href="Anthology.html" class="collection-link">
+      <button class="collection-item" type="button">Biographies & Anthology</button>
+    </a>
+    <a href="Literature.html" class="collection-link">
+      <button class="collection-item" type="button">Literature</button>
+    </a>
+    <a href="Fiction.html" class="collection-link">
+      <button class="collection-item" type="button">Science Fiction & Fantasy</button>
+    </a>
+    <a href="Political.html" class="collection-link">
+      <button class="collection-item" type="button">Political Science</button>
+    </a>
+    <a href="Alternative.html" class="collection-link">
+      <button class="collection-item" type="button">Alternative & Complementary Medicine & Meditation</button>
+    </a>
+    <a href="Biographies.html" class="collection-link">
+      <button class="collection-item" type="button">Biographies & Memoirs</button>
+    </a>
+    <a href="Leaders.html" class="collection-link">
+      <button class="collection-item" type="button">Leaders & Notable People</button>
+    </a>
+    <a href="Social-Sciences.html" class="collection-link">
+      <button class="collection-item" type="button">Politics & Social Sciences</button>
+    </a>
+    <a href="Genetics.html" class="collection-link">
+      <button class="collection-item" type="button">Evolution & Genetics</button>
+    </a>
+    <a href="Industry.html" class="collection-link">
+      <button class="collection-item" type="button">Business & Industry</button>
+    </a>
+    <a href="Military.html" class="collection-link">
+      <button class="collection-item" type="button">Military & Wars</button>
+    </a>
+    <a href="Mystery.html" class="collection-link">
+      <button class="collection-item" type="button">Mystery, Thriller & Suspense</button>
+    </a>
+    <a href="Religion.html" class="collection-link">
+      <button class="collection-item" type="button">Religion & Spirituality</button>
+    </a>
+  </div>
 </section>
 
-<!-- New Section Below Hero Banner -->
-<section class="new-section">
-    <div class="new-section-overlay"></div>
-    <div class="new-section-content">
-        <div class="left-content">
-            <div class="content-container">
-                <h2>Four New Video Courses Every Month</h2>
-                <p>Expert-Taught 8-Hour Courses by Professors from Harvard, Cambridge, Oxford and More</p>
-                <p class="description">Challenge your intellect and expand your understanding with upcoming courses from Stanford, McGill, Harvard Medical School, Hillsdale, Columbia and more. We provide profound and practical knowledge in Humanities, Finance, Health, Fitness, Sciences and more.</p>
-            </div>
+  <!-- Phần Featured Courses nằm ngoài main-content -->
+  <section class="featured-courses">
+    <h2>Featured Courses</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev-btn" aria-label="Previous">&#8592;</button>
+      <div class="courses-list">
+        <div class="course-card">
+          <img src="images/course1.jpg" alt="Life Management" />
+          <div class="course-info">
+            <small>RES.18-010 | UNDERGRADUATE</small>
+            <h3>LIFE MANAGEMENTt</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Planning tools, conflict resolution, Relationships Building, Productivity</p>
+          </div>
         </div>
-        <div class="right-content">
-            <div class="content-container">
-                <h2>EVOLUTIONARY INFERENCE</h2>
-                <p>with Dr. Brett Weinstein & Dr. Heather Heying</p>
-                <p>In this nine-hour course, Dr. Heying and Dr. Weinstein explore the fundamentals of the biology of evolution, providing tools to interpret the natural world through the lens of evolutionary inference.</p>
-            </div>
+
+        <div class="course-card">
+          <img src="images/course2.jpg" alt="PERSONALITY AND ITS TRANSFORMATION" />
+          <div class="course-info">
+            <small>RES.TLL-008 | NON-CREDIT</small>
+            <h3>PERSONALITY AND ITS TRANSFORMATION</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Personality traits, identity revolution, Neuroplasticity</p>
+          </div>
         </div>
+
+        <div class="course-card">
+          <img src="images/course3.png" alt="The Handbook of Business Model Generation" />
+          <div class="course-info">
+            <small>18.S096 | UNDERGRADUATE</small>
+            <h3>THE HANDBOOK OF BUSINESS MODEL GENERATION</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Business model innovation, Customer Relationships, Market segmentation</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course4.jpg" alt="Train the Trainers" />
+          <div class="course-info">
+            <small>21G.010 | UNDERGRADUATE</small>
+            <h3>TRAIN THE TRAINERS</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: facilities skills, Training needs analysis, engagement strategies</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course5.jpg" alt="Introduction to Vietnamese Culture" />
+          <div class="course-info">
+            <small>6.0001 | UNDERGRADUATE</small>
+            <h3>INTRODUCTION TO VIETNAMESE CULTURE</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Vietnamese Cuisine, Ancestor Worship, Art and Literature</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course6.jpg" alt="The Study of Greatest Minds" />
+          <div class="course-info">
+            <small>18.06 | UNDERGRADUATE</small>
+            <h3>THE SYUDY OF GREATEST MIND</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Genius, Perseverance, Breakthroughs, Visionaries</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+
+<img src="images/course7.jpg" alt="Finance" />
+          <div class="course-info">
+            <small>24.900 | GRADUATE</small>
+            <h3>FINANCE</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Risk Management, Financial Planning, Investment, Assets, Cash Flow</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course8.webp" alt="Psychology" />
+          <div class="course-info">
+            <small>6.006 | UNDERGRADUATE</small>
+            <h3>PSYCHOLOGY</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Psychotherapy, Neuroscience, Developmental Stages, Conditioning, Human Mind</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course9.webp" alt="Foreign Language Acquisitions" />
+          <div class="course-info">
+            <small>18.440J | GRADUATE</small>
+            <h3>FOREIGN LANGUAGE ACQUISITIONS</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Language input, Listening Comprehension, Language immersion</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course10.jpg" alt="Principles of Corporate Governance" />
+          <div class="course-info">
+            <small>2.001 | UNDERGRADUATE</small>
+            <h3>PRINCIPLES OF CORPORATE GOVERNANCE</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Executive Compensation, Governance Framework, Corporate Social Responsibility</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course11.webp" alt="Fundamentals of Neuroscience" />
+          <div class="course-info">
+            <small>1.00 | UNDERGRADUATE</small>
+            <h3>FUNDAMENTALS OF NEURONSCIENCE</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Brain Region, Myelin Sheath, Neural Plasticity, Cognitive Neuroscience</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course12.webp" alt="Talent Management" />
+          <div class="course-info">
+            <small>3.091 | UNDERGRADUATE</small>
+            <h3>TALENT MANAGEMENT</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Leadership Development, organizational Culture, coaching and Mentoring, Workforce Planning</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course13.webp" alt="The Startup Owner's Manual" />
+          <div class="course-info">
+            <small>5.60 | UNDERGRADUATE</small>
+            <h3>Differential Equations</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Startup, Product Market Fit, Minimum Viable Product,</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course14.webp" alt="The Franchise Kit" />
+          <div class="course-info">
+            <small>18.05 | UNDERGRADUATE</small>
+            <h3>THE FRANCHISE KIT</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Franchise Agreement, Operations Manual, Expansion Strategy, Marketing Support</p>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="images/course15.webp" alt="Risk Management" />
+          <div class="course-info">
+            <small>21L.001 | UNDERGRADUATE</small>
+            <h3>RISK MANAGEMENT</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Risk Assessment, Contingency Planning, Crisis Management, Business Continuity</p>
+          </div>
+        </div>
+
+<div class="course-card">
+          <img src="IMAGES/course16.jpg" alt="Knowledge Management" />
+          <div class="course-info">
+            <small>24.905 | GRADUATE</small>
+            <h3>KNOWLEDGE MANAGEMENT</h3>
+            <p>Instructor: Luong Hung Dung</p>
+            <p>Topics: Intellectual Capital, Communities of Practice, Innovation, Organizational Learning</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next-btn" aria-label="Next">&#8594;</button>
     </div>
+  </section>
+
+  <section class="latest-episode">
+  <div class="container">
+    <div class="episode-image">
+      <img src="/mnt/data/image (25).png" alt="Discover Your Mind - Dr. Karl Deisseroth" />
+    </div>
+    <div class="episode-info">
+      <div class="episode-meta">
+        <span class="tag">Essentials</span>
+        <time datetime="2025-05-15">May 15, 2025</time>
+      </div>
+      <h2 class="episode-title">
+        Essentials: <br />
+        Understanding & Healing the Mind |<br />
+        Instructor Luong Hung Dung 
+      </h2>
+      <p class="episode-desc">
+        Explore groundbreaking neuroscience with Instructor Luong Hung Dung on new treatments for depression and PTSD using optogenetics, brain interfaces, and psychedelics.
+      </p>
+      <span class="category">Mental Health & Addiction</span>
+    </div>
+  </div>
 </section>
 
-
-    <!-- Tiêu đề của mục khóa học -->
-<h2 class="section-title">DUNG'S SELECTED COLLECTION OF OPENCOURSEWARE</h2>
-
-<<section class="courses-container">
-    <!-- Mục khóa học Life Management -->
-    <div class="course-item visible style-life-management">
-        <div class="image-container">
-            <img src="images/course1.jpg" alt="Course 1">
-            <div class="overlay">
-                <h3><span class="word-large-life">LIFE</span> <span class="word-small-life">MANAGEMENT</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item visible">
-        <div class="image-container">
-            <img src="images/course2.jpg" alt="Course 2">
-            <div class="overlay">
-                <h3><span class="word-medium">PERSONALITY</span> <span class="word-large">AND ITS</span> TRANSFORMATION</span></h3>            </div>
-        </div>
-    </div>
-
-    <div class="course-item visible">
-        <div class="image-container">
-            <img src="images/course3.png" alt="Course 3">
-            <div class="overlay">
-                <h3>THE HANDBOOK OF BUSINESS MODEL GENERATION</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item visible style-trainers">
-        <div class="image-container">
-            <img src="images/course4.jpg" alt="Course 4">
-            <div class="overlay">
-                <h3><span class="word-small-trainer">TRAIN</span>  <span class="word-medium-trainer">THE</span> <span class="word-large-trainer">TRAINERS</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item visible">
-        <div class="image-container">
-            <img src="images/course5.jpg" alt="Course 5">
-            <div class="overlay">
-                <h3>Introduction to Vietnamese Culture</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item visible">
-        <div class="image-container">
-            <img src="images/course6.jpg" alt="Course 6">
-            <div class="overlay">
-                <h3>The Study of Greatest Minds</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden">
-        <div class="image-container">
-            <img src="images/course7.jpg" alt="Course 7">
-            <div class="overlay">
-                <h3>FINANCE</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden">
-        <div class="image-container">
-            <img src="images/course8.webp" alt="Course 8">
-            <div class="overlay">
-                <h3>PSYCOLOGY</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden">
-        <div class="image-container">
-            <img src="images/course9.webp" alt="Course 9">
-            <div class="overlay">
-                <h3>Foreign Language Acquisitions</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden">
-        <div class="image-container">
-            <img src="images/course10.jpg" alt="Course 10">
-            <div class="overlay">
-                <h3>PRINCIPLES OF CORPORATE GOVERNANCE</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden style-fundamentals-of-neuronscience">
-        <div class="image-container">
-            <img src="images/course11.webp" alt="Course 11">
-            <div class="overlay">
-                <h3><span class="word-small-neuronscience">FUNDAMENTALS</span> <span class="word-medium-neuronscience">OF</span> <span class="word-large-neuronscience">NEURONSCIENCE</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden style-talent-management">
-        <div class="image-container">
-            <img src="images/course12.webp" alt="Course 12">
-            <div class="overlay">
-                <h3><span class="word-large-talent">TALENT</span> <span class="word-small-talent">MANAGEMENT</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden style-the-startup">
-        <div class="image-container">
-            <img src="images/course13.webp" alt="Course 13">
-            <div class="overlay">
-                <h3><span class="word-large-startup">THE STARTUP</span> <span class="word-medium-startup">OWNER'S</span> <span class="word-small-startup">MANUAL</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden style-the-franchise">
-        <div class="image-container">
-            <img src="images/course14.webp" alt="Course 14">
-            <div class="overlay">
-                <h3><span class="word-small-franchise">THE</span> <span class="word-large-franchise">FRANCHISE <span class="word-small-franchise">KIT</span></h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="course-item hidden style-risk-management">
-        <div class="image-container">
-            <img src="images/course15.webp" alt="Course 15">
-            <div class="overlay">
-                <h3><span class="word-large-risk">RISK</span> <span class="word-small-risk">MANAGEMENT</span></h3>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Nút Load More -->
-<button class="load-more-btn" onclick="loadMore()">Load More</button>
-
-<!-- Nút Show Less -->
-<button class="show-less-btn" onclick="showLess()" style="display: none;">Show Less</button>
-
-    
-
-    <!-- Nội dung nổi bật -->
-    <section class="features fade-in">
+<section class="features fade-in">
         <div class="container">
+            <div class="section-title-left">DUNG'S JOURNEY</div> <!-- Tựa đề của phần -->
             <div class="feature">
                 <img src="images/image1.jpg" alt="Image 1">
             </div>
@@ -392,174 +1613,262 @@
             <div class="feature">
                 <img src="images/image12.jpg" alt="Image 12"> <!-- Ảnh thứ 4 -->
             </div>
-
-            <div class="feature">
-                <img src="images/image13.jpg" alt="Image 13"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image14.jpg" alt="Image 14"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image15.jpg" alt="Image 15"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image16.jpg" alt="Image 16"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image18.jpg" alt="Image 18"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image19.jpg" alt="Image 19"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image21.jpg" alt="Image 21"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image22.jpg" alt="Image 22"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image23.jpg" alt="Image 23"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image24.jpg" alt="Image 24"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image25.jpg" alt="Image 25"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image26.jpg" alt="Image 26"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image27.jpg" alt="Image 27"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image28.jpg" alt="Image 28"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image29.jpg" alt="Image 29"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image30.jpg" alt="Image 30"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image31.jpg" alt="Image 31"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image33.jpg" alt="Image 33"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image34.jpg" alt="Image 34"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image35.jpg" alt="Image 35"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image36.jpg" alt="Image 36"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image37.jpg" alt="Image 37"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image38.jpg" alt="Image 38"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image39.jpg" alt="Image 39"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image40.jpg" alt="Image 40"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image41.jpg" alt="Image 41"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image43.jpg" alt="Image 43"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image44.jpg" alt="Image 44"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image47.jpg" alt="Image 47"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image48.jpg" alt="Image 48"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image49.jpg" alt="Image 49"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image50.jpg" alt="Image 50"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image51 (2).jpg" alt="Image 51"> <!-- Ảnh thứ 4 -->
-            </div>
-
-            <div class="feature">
-                <img src="images/image53.jpg" alt="Image 53"> <!-- Ảnh thứ 4 -->
-            </div>
-
-        </div>
-    </section>
-    <section class="connect-section">
-        <div class="social-media-container">
-            <h2>STAY CONNECTED WITH DUNG</h2>
-            <div class="social-icons">
-                <a href="#" class="social-icon facebook">Facebook</a>
-                <a href="#" class="social-icon instagram">Instagram</a>
-                <a href="#" class="social-icon x">X</a>
-                <a href="#" class="social-icon youtube">YouTube</a>
-                <a href="#" class="social-icon linkedin">LinkedIn</a>
-            </div>
-        </div>
-    
-        <div class="newsletter-container">
-            <h2>SUBSCRIBE TO MY WEBSITE</h2>
-            <div class="newsletter-form">
-                <input type="email" placeholder="Your email address..." />
-                <button class="subscribe-btn">SIGN ME UP</button>
-            </div>
-        </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 LUONG HUNG DUNG. All rights reserved. | <a href="contact.html">Contact Us</a></p>
-        </div>
-    </footer>
+    <section class="whh-upcoming-events">
+      <h3 class="whh-subtitle">UPCOMING EVENTS</h3>
+      <div class="whh-events-list">
+        <article class="whh-event">
+          <h4>Step into Art/Mother Caroline Academy: Reception</h4>
+          <span class="whh-event-type">EVENT</span>
+          <span class="whh-event-date">SUNDAY, MAY 18, 2025</span>
+          <p>2:00 PM - 4:00 PM<br>Gutman Library</p>
+        </article>
+        <article class="whh-event">
+          <h4>Search Mastery with Perplexity AI</h4>
+          <span class="whh-event-type">WORKSHOP</span>
+          <span class="whh-event-date">MONDAY, MAY 19, 2025</span>
+          <p>12:00 PM - 1:00 PM</p>
+        </article>
+        <article class="whh-event">
+          <h4>Introduction to Dung's Records Schedules</h4>
+          <span class="whh-event-type">WORKSHOP</span>
+          <span class="whh-event-date">WEDNESDAY, MAY 21, 2025</span>
+          <p>10:00 AM - 11:00 AM<br>Dung Archives</p>
+        </article>
+      </div>
+      <a href="#" class="whh-see-all">SEE ALL EVENTS</a>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section class="signup-section">
+    <img src="images/signup.jpg" alt="Bill Gates image">
+    <div class="signup-section-content">
+      <h2>Want good news in your inbox?</h2>
+      <p>Become a Dung Insider today to receive my newsletter and learn about the incredible progress being made in global health, energy innovation, and more.</p>
+      <button>Sign up to get my newsletter</button>
+    </div>
+  </section>
+  <section class="defend-truth-section">
+  <div class="defend-truth-content">
+    <h1>Defend the Truth</h1>
+    <button class="defend-truth-button">SUBSCRIBE | $6 / MO</button>
+    <ul class="defend-truth-benefits">
+      <li>Receive HUNG DUNG’s weekday news briefing The Morning Note straight to your inbox</li>
+      <li>Enjoy ad-free versions of all shows</li>
+      <li>Gain early access to all content and event tickets</li>
+    </ul>
+    <p class="defend-truth-note">Shows will air without outside advertising but may include host-read pitches within the content</p>
+  </div>
+  <div class="defend-truth-image">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 500 300" 
+      fill="none" 
+      stroke="black" 
+      stroke-width="1.5"
+      style="max-width:100%; height:auto;"
+      >
+      <!-- Mountains -->
+      <path d="M 20 200 L 80 80 L 140 200 Z" />
+      <path d="M 90 200 L 160 100 L 230 200 Z" />
+      <path d="M 180 200 L 250 90 L 310 200 Z" />
 
-</body>
+      <!-- Trees -->
+      <path d="M 350 200 L 370 150 L 390 200 Z" />
+      <path d="M 360 190 L 375 160 L 390 190 Z" />
+      <path d="M 370 180 L 380 170 L 390 180 Z" />
+      <line x1="370" y1="200" x2="370" y2="210" />
+
+      <!-- Cabin -->
+      <rect x="400" y="170" width="70" height="40" />
+      <path d="M 400 170 L 435 140 L 470 170 Z" />
+      <rect x="430" y="185" width="15" height="25" />
+      <line x1="435" y1="140" x2="435" y2="170" />
+
+      <!-- River -->
+      <path d="M 0 220 Q 60 230 120 215 T 250 230 T 400 220" stroke-width="2" fill="none" />
+
+      <!-- Rocks -->
+      <ellipse cx="100" cy="220" rx="10" ry="6" />
+      <ellipse cx="180" cy="225" rx="12" ry="7" />
+      <ellipse cx="250" cy="220" rx="8" ry="5" />
+
+      <!-- Grass -->
+      <line x1="30" y1="200" x2="30" y2="190" />
+      <line x1="35" y1="200" x2="35" y2="185" />
+      <line x1="40" y1="200" x2="40" y2="195" />
+    </svg>
+  </div>
+</section>
+  
+  <section class="footer-image">
+  <img src="images/footer-photo.jpg" alt="Background image" />
+</section>
+
+<!-- Phần nền mờ và popup -->
+<section class="popup-overlay" id="popup">
+  <section class="popup">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <section class="popup-header">
+      <section style="background:#b40e0e; color:#fff; padding:5px 10px; border-radius:5px; font-weight:bold;">TCN</section>
+      <section class="title" style="margin-left: 10px;">Morning Note</section>
+    </section>
+    <h2>Get the Free Friday Issue</h2>
+    <p>End your week with Tucker Carlson’s news briefing.</p>
+    <section>
+      <input type="email" placeholder="Enter Your Email" id="emailInput" />
+      <button>Get On the List</button>
+    </section>
+    <section class="terms">
+      <input type="checkbox" id="termsCheck" />
+      <label for="termsCheck">By submitting you are agreeing to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+    </section>
+    <section class="decor">
+      <img src="https://i.imgur.com/vQPYMs6.png" alt="Tucker Carlson" />
+    </section>
+  </section>
+</section>
+
+<!-- Nội dung trang khác -->
+<section id="mainContent" style="padding: 20px;">
+  <h1>Welcome to the website</h1>
+  <p>This is the main content of your page...</p>
+</section>
+
+
 </html>
+
+
+
+  </div>
+
+  <script>
+
+    document.querySelector('nav > div:first-child').addEventListener('click', function() {
+  const watchSection = document.getElementById('watch-section');
+  if (watchSection.style.display === 'none' || watchSection.style.display === '') {
+    watchSection.style.display = 'block';
+    watchSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    watchSection.style.display = 'none';
+  }
+});
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const coursesList = document.querySelector('.courses-list');
+
+    const cardWidth = coursesList.querySelector('.course-card').offsetWidth + 20; // card width + gap
+    const scrollAmount = cardWidth * 4;  // scroll 4 card mỗi lần
+
+    prevBtn.addEventListener('click', () => {
+      coursesList.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      coursesList.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+(function() {
+  const prevBtn = document.querySelector('.ocw-prev-btn');
+  const nextBtn = document.querySelector('.ocw-next-btn');
+  const cardsContainer = document.querySelector('.ocw-cards');
+  const cards = cardsContainer.querySelectorAll('.ocw-card');
+
+  const cardStyle = getComputedStyle(cards[0]);
+  const cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginRight || 15);
+
+  const visibleCards = 5;
+  const scrollCount = 5;
+
+  let currentIndex = 0;
+  const maxIndex = cards.length - visibleCards;
+
+  function updateScroll() {
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    const scrollX = cardWidth * currentIndex;
+    cardsContainer.style.transform = `translateX(-${scrollX}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex -= scrollCount;
+    updateScroll();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex += scrollCount;
+    updateScroll();
+  });
+})();
+
+// Lấy phần popup và nút đóng
+  const popup = document.getElementById('popup');
+  const closeBtn = document.getElementById('closePopup');
+
+  // Khi click nút đóng thì ẩn popup
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+  </script>
+</body>
+<footer>
+  <div>
+    <span class="footer-logo">LUONG HUNG DUNG</span>
+  </div>
+
+  <div class="footer-container">
+    <div class="footer-column">
+      <div class="footer-column-header">Content</div>
+      <a href="#">Podcast</a>
+      <a href="#">Topics</a>
+      <a href="#">NSDR</a>
+      <a href="#" class="icon-link">💬 Ask Dung</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Book</a>
+      <a href="#" class="btn-routine">Dung's Routine</a>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-column-header">Huberman Lab</div>
+      <a href="#">About</a>
+      <a href="#">Events</a>
+      <a href="#">Sponsors</a>
+      <a href="#">Merch</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+      <a href="#">Constructive Critique</a>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-column-header">Dung Lab Premium</div>
+      <a href="#">Become a Member</a>
+      <a href="#">About Premium</a>
+      <a href="#">Log In</a>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-column-header">Legal</div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">California Privacy Rights</a>
+      <a href="#">Cookie Preferences</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Copyright Guidelines</a>
+      <a href="#">Disclaimer & Disclosures</a>
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    © 2025 Scicomm Media LLC<br />
+    Huberman Lab® is a registered trademark of Scicomm Media LLC.
+  </div>
+
+  <div class="footer-social" aria-label="Social Media Links">
+    <!-- Thêm icon social ở đây hoặc dùng icon library nếu cần -->
+  </div>
+</footer>
+</html>
+
+

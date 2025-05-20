@@ -1,27 +1,32 @@
-// Toggle menu khi ở chế độ mobile
-const menuToggle = document.getElementById("hamburger-icon");  // Đảm bảo ID đúng với HTML
-const navMenu = document.getElementById("nav-menu");  // Đảm bảo ID đúng với HTML
+// Toggle menu + side panel khi ở mobile
+const menuToggle = document.getElementById("hamburger-icon");
+const navMenu = document.getElementById("nav-menu");
+const sidePanel = document.getElementById("side-panel");
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', function () {
-        navMenu.classList.toggle("active");  // Thêm/loại bỏ class "active" để hiển thị menu
+if (menuToggle) {
+    menuToggle.addEventListener("click", function () {
+        if (navMenu) navMenu.classList.toggle("active");
+        if (sidePanel) sidePanel.classList.toggle("open");
     });
 }
 
-// Scroll to Top Button (nếu có nút)
+document.getElementById('hamburger-icon').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.nav-menu').classList.toggle('active');
+});
+
+
+
+// Scroll to Top Button
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 if (scrollToTopBtn) {
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 20) {
-            scrollToTopBtn.style.display = "block";  // Hiển thị nút khi người dùng cuộn xuống
-        } else {
-            scrollToTopBtn.style.display = "none";  // Ẩn nút khi người dùng cuộn lên trên
-        }
+        scrollToTopBtn.style.display = window.scrollY > 20 ? "block" : "none";
     });
 
     scrollToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });  // Cuộn mượt mà về đầu trang
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
 
@@ -29,69 +34,79 @@ if (scrollToTopBtn) {
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');  // Thêm class 'visible' khi phần tử vào trong viewport
-            observer.unobserve(entry.target);  // Dừng quan sát phần tử khi đã hiển thị
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
         }
     });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));  // Quan sát các phần tử có class 'fade-in'
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-// JavaScript để kích hoạt trang kéo khi nhấn vào kính lúp
-document.getElementById('hamburger-icon').addEventListener('click', function () {
-    document.getElementById('side-panel').classList.toggle('open');  // Mở hoặc đóng trang kéo (side panel)
-});
+// Toggle thư mục con (subfolder)
+const toggleBtns = document.querySelectorAll(".toggle-btn");
 
-// Lấy tất cả các nút mũi tên để điều khiển thư mục con
-const toggleBtns = document.querySelectorAll('.toggle-btn');  // Các nút mũi tên
-
-// Lặp qua các nút mũi tên và thêm sự kiện click
 toggleBtns.forEach(button => {
-    button.addEventListener('click', function () {
-        // Lấy thư mục con tương ứng với nút mũi tên
-        const subfolders = this.nextElementSibling;  // Thư mục con nằm ngay sau nút mũi tên
-
-        // Toggle hiển thị thư mục con
-        subfolders.style.display = (subfolders.style.display === 'block') ? 'none' : 'block';
-
-        // Thêm/loại bỏ lớp active trên nút mũi tên
-        this.classList.toggle('active');
+    button.addEventListener("click", function () {
+        const subfolders = this.nextElementSibling;
+        if (subfolders) {
+            const isShown = subfolders.style.display === "block";
+            subfolders.style.display = isShown ? "none" : "block";
+            this.classList.toggle("active", !isShown);
+        }
     });
 });
 
-let currentIndex = 6;  // Hiển thị ban đầu 6 mục khóa học
 
-// Hàm Load More - Hiển thị các mục khóa học bị ẩn
+// Load More / Show Less khóa học
+let courseIndex = 8;
+
 function loadMore() {
-    var hiddenItems = document.querySelectorAll('.course-item.hidden');
-    for (var i = 0; i < hiddenItems.length; i++) {
-        hiddenItems[i].classList.add('visible');
-        hiddenItems[i].classList.remove('hidden');
+    const hiddenItems = document.querySelectorAll(".course-item.hidden");
+    hiddenItems.forEach(item => {
+        item.classList.remove("hidden");
+        item.classList.add("visible");
+    });
+
+    const loadMoreBtn = document.querySelector(".load-more-btn");
+    const showLessBtn = document.querySelector(".show-less-btn");
+
+    if (hiddenItems.length === 0 && loadMoreBtn) {
+        loadMoreBtn.style.display = "none";
     }
 
-    // Ẩn nút "Load More" khi không còn mục ẩn
-    var hiddenItemsAfterLoad = document.querySelectorAll('.course-item.hidden');
-    if (hiddenItemsAfterLoad.length === 0) {
-        document.querySelector('.load-more-btn').style.display = 'none';
+    if (showLessBtn) {
+        showLessBtn.style.display = "block";
     }
-
-    // Hiển thị nút "Show Less"
-    document.querySelector('.show-less-btn').style.display = 'block';
 }
 
-// Hàm Show Less - Ẩn bớt các mục khóa học
 function showLess() {
-    var visibleItems = document.querySelectorAll('.course-item.visible');
-    var itemsToHide = Array.from(visibleItems).slice(6); // Giữ lại 8 mục đầu
+    const visibleItems = document.querySelectorAll(".course-item.visible");
+    const itemsToHide = Array.from(visibleItems).slice(8);
 
-    for (var i = 0; i < itemsToHide.length; i++) {
-        itemsToHide[i].classList.add('hidden');
-        itemsToHide[i].classList.remove('visible');
-    }
+    itemsToHide.forEach(item => {
+        item.classList.add("hidden");
+        item.classList.remove("visible");
+    });
 
-    // Hiển thị lại nút "Load More"
-    document.querySelector('.load-more-btn').style.display = 'block';
+    const loadMoreBtn = document.querySelector(".load-more-btn");
+    const showLessBtn = document.querySelector(".show-less-btn");
 
-    // Ẩn nút "Show Less" khi đã ẩn bớt
-    document.querySelector('.show-less-btn').style.display = 'none';
+    if (loadMoreBtn) loadMoreBtn.style.display = "block";
+    if (showLessBtn) showLessBtn.style.display = "none";
 }
+
+// Lấy tất cả các nút toggle
+const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+// Lắng nghe sự kiện nhấp vào mỗi nút
+dropdownBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const dropdownList = this.nextElementSibling;
+        if (dropdownList.style.display === "block") {
+            dropdownList.style.display = "none";
+        } else {
+            dropdownList.style.display = "block";
+        }
+    });
+});
